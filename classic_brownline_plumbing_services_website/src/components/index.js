@@ -899,66 +899,6 @@ function Index() {
                                 </div>
                             )
                         })}
-                        {/* <div className="testimonial-item text-center">
-                            <div className="testimonial-text bg-light text-center p-4 mb-4">
-                                <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                            </div>
-                            <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={require("../assets/img/testimonial-1.jpg")} />
-                            <div className="mb-2">
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                            </div>
-                            <h5 className="mb-1">Client Name</h5>
-                            <p className="m-0">Profession</p>
-                        </div>
-                        <div className="testimonial-item text-center">
-                            <div className="testimonial-text bg-light text-center p-4 mb-4">
-                                <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                            </div>
-                            <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={require("../assets/img/testimonial-2.jpg")} />
-                            <div className="mb-2">
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                            </div>
-                            <h5 className="mb-1">Client Name</h5>
-                            <p className="m-0">Profession</p>
-                        </div>
-                        <div className="testimonial-item text-center">
-                            <div className="testimonial-text bg-light text-center p-4 mb-4">
-                                <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                            </div>
-                            <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={require("../assets/img/testimonial-3.jpg")} />
-                            <div className="mb-2">
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                            </div>
-                            <h5 className="mb-1">Client Name</h5>
-                            <p className="m-0">Profession</p>
-                        </div>
-                        <div className="testimonial-item text-center">
-                            <div className="testimonial-text bg-light text-center p-4 mb-4">
-                                <p className="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
-                            </div>
-                            <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={require("../assets/img/testimonial-4.jpg")} />
-                            <div className="mb-2">
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                                <small className="fa fa-star text-secondary"></small>
-                            </div>
-                            <h5 className="mb-1">Client Name</h5>
-                            <p className="m-0">Profession</p>
-                        </div> */}
                     </div>
                 </div>
             </div>
