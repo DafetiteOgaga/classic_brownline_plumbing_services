@@ -19,7 +19,7 @@ jobs:
           node-version: '16'  # Specify the Node.js version you are using
 
       - name: Install dependencies
-        working-directory: /classic_brownline_plumbing_services_website
+        working-directory: classic_brownline_plumbing_services_website
         run: npm install
 
       - name: Build the project
