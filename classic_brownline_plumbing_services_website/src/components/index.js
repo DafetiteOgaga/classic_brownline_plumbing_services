@@ -296,7 +296,7 @@ function Index() {
     //     );
     // };
     return (
-        <>
+        <div className="app-bg-color">
             {/* <!-- Spinner Start --> */}
             {/* <div id="spinner" className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
                 <div className="spinner-border text-primary w-3rem h-3rem" role="status">
@@ -337,7 +337,7 @@ function Index() {
 
             {/* <!-- Navbar Start --> */}
             <div className={`container-fluid nav-bar bg-light ${isSticky ? 'sticky-top shadow' : ''}`}>
-                <nav className={`navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4 ${isSticky ? '' : 'border-tl-radius-10 border-tr-radius-10'}`}>
+                <nav className={`navbar navbar-expand-lg navbar-light app-bg-color p-3 py-lg-0 px-lg-4 ${isSticky ? '' : 'border-tl-radius-10 border-tr-radius-10'}`}>
                     <a href="##" className="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
                         <h1 className="text-primary m-0 text-uppercase">Classic Brown</h1>
                     </a>
@@ -964,7 +964,7 @@ function Index() {
 
             {/* <!-- Back to Top --> */}
             <a href="#topbar" className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
-        </>
+        </div>
     )
 }
 export { Index}
