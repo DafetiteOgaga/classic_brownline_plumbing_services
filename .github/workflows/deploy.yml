@@ -23,6 +23,7 @@ jobs:
         run: npm install
 
       - name: Build the project
+        working-directory: classic_brownline_plumbing_services_website
         run: npm run build
 
       - name: Deploy to GitHub Pages
