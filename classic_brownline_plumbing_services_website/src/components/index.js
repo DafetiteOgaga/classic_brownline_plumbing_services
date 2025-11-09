@@ -339,7 +339,7 @@ function Index() {
             <div className={`container-fluid nav-bar bg-light ${isSticky ? 'sticky-top shadow' : ''}`}>
                 <nav className={`navbar navbar-expand-lg navbar-light bg-white p-3 py-lg-0 px-lg-4 ${isSticky ? '' : 'border-tl-radius-10 border-tr-radius-10'}`}>
                     <a href="##" className="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
-                        <h1 className="text-primary m-0">Plumberz</h1>
+                        <h1 className="text-primary m-0 text-uppercase">Classic Brown</h1>
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                         <span className="fa fa-bars"></span>
