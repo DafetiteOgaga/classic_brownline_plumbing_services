@@ -293,6 +293,9 @@ const AllStars = () => {
     )
 }
 
+const yearFounded = 2010
+const currentYear = new Date().getFullYear();
+
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
     // header
@@ -787,7 +790,7 @@ function Index() {
                         <div className="row g-5">
                             <div className="col-lg-6 wow serviceFadeInUp" style={{animationDelay: '0.2s'}}>
                                 <h6 className="text-secondary text-uppercase">About Us</h6>
-                                <h1 className="mb-4">We Are Trusted Plumbing Company Since 2010</h1>
+                                <h1 className="mb-4">We Are Trusted Plumbing Company Since {yearFounded}</h1>
                                 <p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
                                 <p className="fw-medium text-primary"><i className="fa fa-check text-success me-3"></i>Residential & commercial plumbing</p>
                                 <p className="fw-medium text-primary"><i className="fa fa-check text-success me-3"></i>Quality services at affordable prices</p>
@@ -847,7 +850,7 @@ function Index() {
                     <div className="row g-0">
                         <div className="col-lg-3 d-none d-lg-flex">
                             <div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
-                                <h1 className="display-3 text-white m-0 rotate-n90">15 Years Experience</h1>
+                                <h1 className="display-3 text-white m-0 rotate-n90">{currentYear-yearFounded} Years Experience</h1>
                             </div>
                         </div>
                         <div className="col-md-12 col-lg-9">
