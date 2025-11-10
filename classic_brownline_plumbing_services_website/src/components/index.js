@@ -73,7 +73,7 @@ const factsSlides = [
         id: 4,
         icon: "fa-wrench",
         end: 1236,
-        title: "Compleate Projects",
+        title: "Completed Projects",
     }
 ]
 
