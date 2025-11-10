@@ -1,5 +1,19 @@
 import { useState, useEffect, Fragment } from "react";
+import { titleCase } from "../hooks/changeCase";
 // import OwlCarousel from "react-owl-carousel2";
+
+const headerOptions = [
+    {to: "home"},
+    {to: "about"},
+    {to: "services"},
+    {to: "##"},
+    {to: "contact"},
+]
+const pagesArray = [
+    {to: "booking"},
+    {to: "technicians"},
+    {to: "testimonials"},
+]
 
 const carouselSlides = [
     {
@@ -154,7 +168,7 @@ const serviceCardsSlides = [
 ]
 
 // team
-const teamSliders = [
+const initialTeamSliders = [
     {
         id: 1,
         img: require("../assets/img/team-1.jpg"),
@@ -175,6 +189,32 @@ const teamSliders = [
     },
     {
         id: 4,
+        img: require("../assets/img/team-4.jpg"),
+        name: "Full Name",
+        position: "Designation",
+    }
+]
+const additionalTeamSliders = [
+    {
+        id: 5,
+        img: require("../assets/img/team-1.jpg"),
+        name: "Full Name",
+        position: "Designation",
+    },
+    {
+        id: 6,
+        img: require("../assets/img/team-2.jpg"),
+        name: "Full Name",
+        position: "Designation",
+    },
+    {
+        id: 7,
+        img: require("../assets/img/team-3.jpg"),
+        name: "Full Name",
+        position: "Designation",
+    },
+    {
+        id: 8,
         img: require("../assets/img/team-4.jpg"),
         name: "Full Name",
         position: "Designation",
@@ -211,6 +251,34 @@ const testimonialSliders = [
         position: "Profession",
         feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
     },
+    {
+        id: 5,
+        img: require("../assets/img/testimonial-1.jpg"),
+        name: "Client Name",
+        position: "Profession",
+        feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
+    },
+    {
+        id: 6,
+        img: require("../assets/img/testimonial-2.jpg"),
+        name: "Client Name",
+        position: "Profession",
+        feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
+    },
+    {
+        id: 7,
+        img: require("../assets/img/testimonial-3.jpg"),
+        name: "Client Name",
+        position: "Profession",
+        feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
+    },
+    {
+        id: 8,
+        img: require("../assets/img/testimonial-4.jpg"),
+        name: "Client Name",
+        position: "Profession",
+        feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
+    },
 ]
 const AllStars = () => {
     return (
@@ -229,10 +297,18 @@ const AllStars = () => {
 function Index() {
     // header
     const [isSticky, setIsSticky] = useState(false);
+    const [menuHeadInserted, setMenuHeadInserted] = useState(false);
+    const [scrollY, setScrollY] = useState(window.scrollY);
+    const [tagText, setTagText] = useState('');
+    const [staleTag, setStaleTag] = useState(true);
+    const [activeSection, setActiveSection] = useState("");
+    const [teamSliders, setTeamSliders] = useState(initialTeamSliders);
     useEffect(() => {
         const handleScroll = () => {
+            const updatedScrollY = window.scrollY;
+            setScrollY(updatedScrollY); // update scrollY state
             // // remove head when scrolling down
-            if (window.scrollY > 10) {
+            if (updatedScrollY > 10) {
                 setIsSticky(true);
             } else {
                 // show head when scrolling up (to top)
@@ -246,6 +322,43 @@ function Index() {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [])
+    useEffect(() => {
+        if (menuHeadInserted) {
+            console.log("menuHeadInserted true");
+            const topbar = document.getElementById("home");
+            console.log({topbarHeight: topbar.offsetHeight});
+            const dynamicNavbar = document.getElementById("dynamic-navbar");
+            console.log({dynamicNavbarHeight: dynamicNavbar.offsetHeight});
+            const tempHero = document.getElementById(tagText.toLowerCase());
+            console.log({tempHeroHeight: tempHero.offsetHeight});
+            const maxHeadHeight = tempHero.offsetHeight +
+                                    // topbar.offsetHeight +
+                                    dynamicNavbar.offsetHeight;
+            console.log({
+                maxHeadHeight,
+                scrollY,
+                tempHeroHeight: tempHero.offsetHeight,
+                topbarHeight: topbar.offsetHeight,
+                wholeHeader: topbar.offsetHeight + dynamicNavbar.offsetHeight,
+                dynamicNavbarHeight: dynamicNavbar.offsetHeight,
+            });
+            console.log({scrollY, maxHeadHeight, staleTag});
+            if (scrollY > maxHeadHeight && !staleTag) {
+                console.log("scrollY > tempHero.offsetHeight");
+                console.log({scrollY, maxHeadHeight});
+                setMenuHeadInserted(false);
+                setActiveSection("");
+            }
+        }
+    }, [scrollY])
+
+    useEffect(() => {
+        if (activeSection === 'technicians') {
+            setTeamSliders(prev => [...prev, ...additionalTeamSliders]);
+        } else {
+            setTeamSliders(initialTeamSliders);
+        }
+    }, [activeSection])
 
     // carousel
     const [current, setCurrent] = useState(0);
@@ -254,13 +367,13 @@ function Index() {
     const [isSliding, setIsSliding] = useState(false);
     const length = carouselSlides.length;
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            handleNextWithFade();
-        }, 4000);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         handleNextWithFade();
+    //     }, 4000);
 
-        return () => clearInterval(interval);
-    }, [current]);
+    //     return () => clearInterval(interval);
+    // }, [current]);
 
     const handleNextWithFade = () => {
         setDirection("left");
@@ -285,16 +398,91 @@ function Index() {
     };
     const slide = carouselSlides[current];
 
+    const handleNavigationScroll = (e, idTag) => {
+        e.preventDefault();
+        console.log({idTag})
+        if (!idTag) return ''
+        if (idTag.toLowerCase() === 'home') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            setMenuHeadInserted(false);
+            setActiveSection("");
+            return;
+        }
+        setActiveSection(idTag.toLowerCase());
+        setTagText(idTag);
+        setMenuHeadInserted(true);
+        setStaleTag(true);
+
+        // checks foe element in dom then scroll into view
+        const checkExist = setInterval(() => {
+            const target = document.getElementById(idTag);
+            console.log('checking...', {target});
+            if (target) {
+                console.log('found target:', target);
+                clearInterval(checkExist); // stop checking once found
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+                // setStaleTag(false);
+            }
+        }, 50);
+    }
+
+    // service cards
+    const [currentServiceCardIndex, setCurrentServiceCardIndex] = useState(0);
+    const totalServiceCards = serviceCardsSlides.length;
+    useEffect(() => {
+        const intervalTime = 1500; // match your CSS slide duration/pause timing
+        const interval = setInterval(() => {
+            setCurrentServiceCardIndex((prev) => (prev + 1) % totalServiceCards);
+        }, intervalTime);
+
+        return () => clearInterval(interval);
+    }, [totalServiceCards]);
+
+    // testimonials
+    const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(1);
+    const totalTestimonials = testimonialSliders.length;
+
+    useEffect(() => {
+        const intervalTime = 2900; // match your CSS slide duration/pause timing
+        const interval = setInterval(() => {
+            setCurrentTestimonialIndex((prev) => (prev + 1) % totalTestimonials);
+        }, intervalTime);
+
+        return () => clearInterval(interval);
+    }, [totalTestimonials]);
+
+    const nextSlide = () => {
+        setCurrentTestimonialIndex((prev) => (prev + 1) % totalTestimonials);
+    };
+
+    const prevSlide = () => {
+        setCurrentTestimonialIndex((prev) => (prev - 1 + totalTestimonials) % totalTestimonials);
+    };
+
     // // fact
     // const CounterUp = ({ value, duration = 800, className = "" }) => {
     //     const count = useCounterUp(value, duration);
-      
     //     return (
     //       <span className={`counter-up ${className}`}>
     //         {count.toLocaleString()}
     //       </span>
     //     );
     // };
+    const renderSection  = ['services', 'booking', 'technicians', 'testimonials',].includes(activeSection)
+    const renderServices = ['', 'about-us', 'services',].includes(activeSection)
+    const renderBooking = ['', 'about-us', 'services', 'booking',].includes(activeSection)
+    const renderTechnicians = ['', 'about-us', 'services', 'booking', 'technicians',].includes(activeSection)
+    const renderTestimonials = ['', 'about-us', 'services', 'booking', 'technicians', 'testimonials',].includes(activeSection)
+    const renderContact = activeSection === 'contact'
+    // console.log({scrollY, menuHeadInserted, activeSection});
+    console.log({
+        activeSection,
+        // renderSection,
+        // renderServices,
+        // renderBooking,
+        // renderTechnicians,
+        // renderTestimonials,
+    });
     return (
         <div className="app-bg-color">
             {/* <!-- Spinner Start --> */}
@@ -307,7 +495,7 @@ function Index() {
 
 
             {/* <!-- Topbar Start --> */}
-            <div className="container-fluid bg-light d-none d-lg-block" id="topbar">
+            <div className="container-fluid bg-light d-none d-lg-block" id="home">
                 <div className="row align-items-center top-bar">
                     <div className="col-lg-3 col-md-12 text-center text-lg-start">
                         <a href="##" className="navbar-brand m-0 p-0">
@@ -336,7 +524,7 @@ function Index() {
 
 
             {/* <!-- Navbar Start --> */}
-            <div className={`container-fluid nav-bar bg-light ${isSticky ? 'sticky-top shadow' : ''}`}>
+            <div className={`container-fluid nav-bar bg-light ${isSticky ? 'sticky-top shadow' : ''}`} id="dynamic-navbar">
                 <nav className={`navbar navbar-expand-lg navbar-light app-bg-color p-3 py-lg-0 px-lg-4 ${isSticky ? '' : 'border-tl-radius-10 border-tr-radius-10'}`}>
                     <a href="##" className="navbar-brand d-flex align-items-center m-0 p-0 d-lg-none">
                         <h1 className="text-primary m-0 text-uppercase">Classic Brown</h1>
@@ -346,19 +534,73 @@ function Index() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarCollapse">
                         <div className="navbar-nav me-auto">
-                            <a href="#topbar" className="nav-item nav-link active">Home</a>
-                            <a href="#aboutus" className="nav-item nav-link">About</a>
-                            <a href="#servicecards" className="nav-item nav-link">Services</a>
+                            {headerOptions.map((header, hIdx) => {
+                                let isActive = header.to.toLowerCase() === activeSection.toLowerCase();
+                                if (activeSection.toLowerCase() === '' && header.to.toLowerCase() === 'home') {
+                                    isActive = true
+                                }
+                                return (
+                                    <Fragment key={header.to+hIdx}>
+                                        {header.to !== '##' ?
+                                            <a href="##"
+                                            onClick={(e)=>{
+                                                handleNavigationScroll(e, header.to);
+                                            }}
+                                            className={`nav-item nav-link ${isActive?'active':''}`}>{titleCase(header.to)}</a>
+                                            :
+                                            <div className="nav-item dropdown">
+                                                <a href="##" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                                                <div className="dropdown-menu fade-up m-0 app-bg-color">
+                                                    {pagesArray.map((page, pIdx) => {
+                                                        isActive = page.to.toLowerCase() === activeSection.toLowerCase();
+                                                        console.log({
+                                                            page: page.to.toLowerCase(),
+                                                            activeSection: activeSection.toLowerCase(),
+                                                            isActive,
+                                                        })
+                                                        return (
+                                                            <a key={page.to+pIdx} href="##"
+                                                            onClick={(e)=>{
+                                                                handleNavigationScroll(e, page.to);
+                                                            }}
+                                                            className={`dropdown-item ${isActive?'active':''}`}>{titleCase(page.to)}</a>
+                                                        )
+                                                    })}
+                                                </div>
+                                            </div>
+                                        }
+                                    </Fragment>
+                                )
+                            })}
+                            {/* <a href="#top-bar"
+                            onClick={(e)=>{
+                                handleNavigationScroll(e, 'home');
+                            }}
+                            className="nav-item nav-link active">Home</a>
+                            <a href="#about-us" onClick={(e)=>{
+                                handleNavigationScroll(e, 'about-us');
+                            }}
+                            className="nav-item nav-link">About</a>
+                            <a href="#services"
+                            onClick={(e)=>{
+                                handleNavigationScroll(e, 'services');
+                            }}
+                            className="nav-item nav-link">Services</a>
                             <div className="nav-item dropdown">
                                 <a href="##" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                                 <div className="dropdown-menu fade-up m-0">
-                                    <a href="#bookingform" className="dropdown-item">Booking</a>
-                                    <a href="#teams" className="dropdown-item">Technicians</a>
-                                    <a href="#testimonials" className="dropdown-item">Testimonial</a>
-                                    {/* <a href="404.html" className="dropdown-item">404 Page</a> */}
+                                    {pagesArray.map((page, pIdx) => {
+                                        return (
+                                            <a href="##"
+                                            onClick={(e)=>{
+                                                handleNavigationScroll(e, page.to);
+                                            }}
+                                            className="dropdown-item">{titleCase(page.to)}</a>
+                                        )
+                                    })}
                                 </div>
                             </div>
-                            <a href="contact.html" className="nav-item nav-link">Contact</a>
+                            <a href="##" className="nav-item nav-link">Contact</a> */}
                         </div>
                         <div className={`mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center ${isSticky ? '' : 'border-tr-radius-10'}`}>
                             <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-white w-45 h-45">
@@ -376,8 +618,9 @@ function Index() {
 
 
             {/* <!-- Carousel Start --> */}
-            <div className="container-fluid p-0 mb-5">
-                <div className="owl-carousel header-carousel position-relative overflow-hidden">
+            <div className={`container-fluid mb-5 ${!menuHeadInserted?'p-0':'page-header py-5'}`} id={tagText.toLowerCase()}>
+                {/* {!menuHeadInserted ? */}
+                <div className={`owl-carousel header-carousel position-relative overflow-hidden ${!menuHeadInserted?'':'d-none'}`}>
                     {/* <img className={`img-fluid carousel-slide ${"active"}}`} src={slide.img} alt={slide.title} /> */}
                     <img
                     key={slide.id}
@@ -393,8 +636,8 @@ function Index() {
                                     <h5 className={`text-white text-uppercase mb-3 animated slideInDown carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.title}</h5>
                                     <h1 className={`display-3 text-white animated slideInDown mb-4 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.headline}</h1>
                                     <p className={`fs-5 fw-medium text-white mb-4 pb-2 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.text}</p>
-                                    <a href="##" className="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft border-radius-5">Read More</a>
-                                    <a href="##" className="btn btn-secondary py-md-3 px-md-5 animated slideInRight border-radius-5">Free Quote</a>
+                                    <a href="##" className="btn btn-primary py-md-3 px-md-5 me-3 animated littleSlideInLeft border-radius-5">Read More</a>
+                                    <a href="##" className="btn btn-secondary py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
                                 </div>
                             </div>
                         </div>
@@ -407,12 +650,85 @@ function Index() {
                         <i className="fa fa-chevron-right"></i>
                     </button>
                 </div>
+                {/* : */}
+                <div className={`container ${!menuHeadInserted?'d-none':''}`}>
+                    <h1 className="display-3 text-white mb-3 animated littleSlideInDown">{titleCase(tagText)}</h1>
+                    <nav aria-label="breadcrumb animated slideInDown">
+                        <ol className="breadcrumb text-uppercase">
+                            <li className="breadcrumb-item"><a className="text-white" href="##"
+                            onClick={(e)=>{
+                                handleNavigationScroll(e, 'home');
+                            }}>Home</a></li>
+                            {/* <li className="breadcrumb-item"><a className="text-white" href="##">Pages</a></li> */}
+                            <li className="breadcrumb-item text-white active" aria-current="page">{titleCase(tagText)}</li>
+                        </ol>
+                    </nav>
+                </div>
+                {/* } */}
             </div>
             {/* <!-- Carousel End --> */}
 
 
+            {renderContact &&
+            (
+            // <!-- Contact Start -->
+                <div className="container-xxl py-5">
+                    <div className="container">
+                        <div className="row g-4">
+                            <div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <h6 className="text-secondary text-uppercase">Get In Touch</h6>
+                                <h1 className="mb-4">Contact Us</h1>
+                                {/* <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> */}
+                                <iframe className="position-relative w-100 border-radius-10"
+                                    title="map"
+                                    // src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507365.35487409495!2d2.954296628594845!3d6.547947654560678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1762733082337!5m2!1sen!2sng"
+                                    frameborder="0" style={{height: "300px", border: "0"}} allowfullscreen="" aria-hidden="false"
+                                    tabindex="0"></iframe>
+                            </div>
+                            <div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                <div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10">
+                                    <form>
+                                        <div className="row g-3">
+                                            <div className="col-md-6">
+                                                <div className="form-floating">
+                                                    <input type="text" className="form-control border-radius-10" id="name" placeholder="Your Name"/>
+                                                    <label for="name">Your Name</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-md-6">
+                                                <div className="form-floating">
+                                                    <input type="email" className="form-control border-radius-10" id="email" placeholder="Your Email"/>
+                                                    <label for="email">Your Email</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12">
+                                                <div className="form-floating">
+                                                    <input type="text" className="form-control border-radius-10" id="subject" placeholder="Subject"/>
+                                                    <label for="subject">Subject</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12">
+                                                <div className="form-floating">
+                                                    <textarea className="form-control border-radius-10" placeholder="Leave a message here" id="message" style={{height: "150px"}}></textarea>
+                                                    <label for="message">Message</label>
+                                                </div>
+                                            </div>
+                                            <div className="col-12">
+                                                <button className="btn btn-primary w-100 py-3 border-radius-10" type="submit">Send Message</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            // {/* <!-- Contact End --> */}
+            )}
+
             {/* <!-- Service Start --> */}
-            <div className="container-xxl py-5">
+            <div className={`container-xxl py-5 ${renderSection?'d-none':''}`}>
                 <div className="container">
                     <div className="row g-4">
                         {servicesSlides.map((service, seIdx) => {
@@ -435,24 +751,6 @@ function Index() {
                                 </div>
                             )
                         })}
-                        {/* <div className="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.3s">
-                            <div className="overflow-hidden">
-                                <img className="img-fluid w-100 h-100" src={require("../assets/img/service-2.jpg")} alt="" />
-                            </div>
-                            <div className="d-flex align-items-center justify-content-between bg-light p-4">
-                                <h5 className="text-truncate me-3 mb-0">Commercial Plumbing</h5>
-                                <a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="##"><i className="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div className="col-lg-4 col-md-6 service-item-top wow fadeInUp" data-wow-delay="0.5s">
-                            <div className="overflow-hidden">
-                                <img className="img-fluid w-100 h-100" src={require("../assets/img/service-3.jpg")} alt="" />
-                            </div>
-                            <div className="d-flex align-items-center justify-content-between bg-light p-4">
-                                <h5 className="text-truncate me-3 mb-0">Emergency Servicing</h5>
-                                <a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="##"><i className="fa fa-arrow-right"></i></a>
-                            </div>
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -460,7 +758,7 @@ function Index() {
 
 
             {/* <!-- About Start --> */}
-            <div className="container-xxl py-5" id="aboutus">
+            <div className={`container-xxl py-5 ${renderSection?'d-none':''}`}>
                 <div className="container">
                     <div className="row g-5">
                         <div className="col-lg-6 wow serviceFadeInUp" style={{animationDelay: '0.2s'}}>
@@ -501,7 +799,7 @@ function Index() {
 
 
             {/* <!-- Fact Start --> */}
-            <div className="container-fluid fact bg-dark my-5 py-5">
+            <div className={`container-fluid fact bg-dark my-5 py-5 ${renderSection?'d-none':''}`}>
                 <div className="container">
                     <div className="row g-4">
                         {factsSlides.map((fact, fIdx) => {
@@ -514,21 +812,6 @@ function Index() {
                                 </div>
                             )
                         })}
-                        {/* <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
-                            <i className="fa fa-users-cog fa-2x text-white mb-3"></i>
-                            <h2 className="text-white mb-2" data-toggle="counter-up">1235</h2>
-                            <p className="text-white mb-0">Expert Technicians</p>
-                        </div>
-                        <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
-                            <i className="fa fa-users fa-2x text-white mb-3"></i>
-                            <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-                            <p className="text-white mb-0">Satisfied Clients</p>
-                        </div>
-                        <div className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
-                            <i className="fa fa-wrench fa-2x text-white mb-3"></i>
-                            <h2 className="text-white mb-2" data-toggle="counter-up">1234</h2>
-                            <p className="text-white mb-0">Compleate Projects</p>
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -536,7 +819,7 @@ function Index() {
 
 
             {/* <!-- Service Start --> */}
-            <div className="container-fluid py-5 px-4 px-lg-0" id="servicecards">
+            <div className={`container-fluid py-5 px-4 px-lg-0 ${renderServices ? '' : 'd-none'}`}>
                 <div className="row g-0">
                     <div className="col-lg-3 d-none d-lg-flex">
                         <div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
@@ -551,8 +834,13 @@ function Index() {
                             </div>
                             <div className="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
                                 <div className="owl-stage-outer">
-                                    <div className="owl-stage service-card-slider">
+                                    <div className="owl-stage service-card-slider"
+                                    style={{
+                                        transform: `translate3d(-${(currentServiceCardIndex - 2) * 372}px, 0, 0)`, // <-- move horizontally
+                                        transition: "transform 0.5s ease-in-out", // smooth animation
+                                    }}>
                                         {serviceCardsSlides.map((serviceCard, scIdx) => {
+                                            // const isActive = scIdx % totalServiceCards === currentServiceCardIndex
                                             return (
                                                 <div key={serviceCard.title+scIdx}
                                                 className="owl-item cloned">
@@ -560,7 +848,7 @@ function Index() {
                                                         <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75 border-radius-10">
                                                             <i className={`fa ${serviceCard.icon} fa-2x text-primary`}></i>
                                                         </div>
-                                                        <h4 className="mb-3">{serviceCard.title}</h4>
+                                                        <h4 className="mb-3">{scIdx+1} {serviceCard.title}</h4>
                                                         <p>{serviceCard.description}</p>
                                                         <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
                                                         <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
@@ -570,112 +858,21 @@ function Index() {
                                                 </div>
                                             )
                                         })}
-                                        {/* <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-water fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Drain Repair 1</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-toilet fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Toilet Pipe Repair 2</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-shower fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Sewer Line Repair 3</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-tint fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Water Heater Repair 4</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-water fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Drain Repair 5</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-toilet fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Toilet Pipe Repair 6</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-shower fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Sewer Line Repair 7</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div>
-                                        <div className="owl-item cloned">
-                                            <div className="bg-light p-4">
-                                                <div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75">
-                                                    <i className="fa fa-tint fa-2x text-primary"></i>
-                                                </div>
-                                                <h4 className="mb-3">Water Heater Repair 8</h4>
-                                                <p>Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-                                                <p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-                                                <a href="##" className="btn bg-white text-primary w-100 mt-2">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
-                                            </div>
-                                        </div> */}
+                                    </div>
+                                    <div className="owl-dots">
+                                        {serviceCardsSlides.map((_, _idx) => {
+                                            const isActive = _idx % totalServiceCards === currentServiceCardIndex
+                                            return (
+                                                <div key={_idx} className={`owl-dot ${isActive?'active':''}`}><span></span></div>
+                                        )})}
                                     </div>
                                 </div>
+                                {/* <div className="owl-dots">
+                                    <div className="owl-dot"><span></span></div>
+                                    <div className="owl-dot"><span></span></div>
+                                    <div className="owl-dot"><span></span></div>
+                                    <div className="owl-dot"><span></span></div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
@@ -685,7 +882,7 @@ function Index() {
 
 
             {/* <!-- Booking Start --> */}
-            <div className="container-fluid my-5 px-0" id="bookingform">
+            <div className={`container-fluid my-5 px-0 ${renderBooking ? '' : 'd-none'}`}>
                 {/* <div className="video wow fadeInUp" data-wow-delay="0.1s">
                     <button type="button" className="btn-play" data-bs-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-bs-target="#videoModal">
                         <span></span>
@@ -762,7 +959,7 @@ function Index() {
 
 
             {/* <!-- Team Start --> */}
-            <div className="container-xxl py-5" id="teams">
+            <div className={`container-xxl py-5 ${renderTechnicians?'' : 'd-none'}`}>
                 <div className="container">
                     <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                         <h6 className="text-secondary text-uppercase">Our Technicians</h6>
@@ -871,34 +1068,45 @@ function Index() {
 
 
             {/* <!-- Testimonial Start --> */}
-            <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s" id="testimonials">
+            <div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
                 <div className="container">
                     <div className="text-center">
                         <h6 className="text-secondary text-uppercase">Testimonial</h6>
-                        <h1 className="mb-5">Our Clients Say!</h1>
+                        <h1 className="mb-2">Our Clients Say!</h1>
                     </div>
-                    <div className="owl-carousel testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
-                        {testimonialSliders.map((testimonial, tesIdx) => {
-                            return (
-                                <div key={testimonial.name+tesIdx}
-                                className="testimonial-item text-center mb-5">
-                                    <div className="testimonial-text bg-light text-center p-4 mb-1 border-radius-10">
-                                        <p className="mb-0">{testimonial.feedback}</p>
-                                    </div>
-                                    <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={testimonial.img} />
-                                    <div className="mb-2">
-                                        {/* <small className="fa fa-star text-secondary"></small>
-                                        <small className="fa fa-star text-secondary"></small>
-                                        <small className="fa fa-star text-secondary"></small>
-                                        <small className="fa fa-star text-secondary"></small>
-                                        <small className="fa fa-star text-secondary"></small> */}
-                                        <AllStars />
-                                    </div>
-                                    <h5 className="mb-1">{testimonial.name}</h5>
-                                    <p className="m-0">{testimonial.position}</p>
-                                </div>
-                            )
-                        })}
+                    <div className="owl-carousel owl-loaded testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
+                        <div className="owl-stage-outer">
+                            <div className="owl-stage testimonial-slider"
+                            style={{
+                                transform: `translate3d(-${currentTestimonialIndex * 424}px, 0, 0)`, // <-- move horizontally
+                                transition: "transform 0.5s ease-in-out", // smooth animation
+                            }}>
+                                {[...testimonialSliders, ...testimonialSliders].map((testimonial, tesIdx) => {
+                                    const isActive = tesIdx % (totalTestimonials * 2) === currentTestimonialIndex + 1;
+                                    // console.log({isActive, tesIdx, currentTestimonialIndex, totalTestimonials});
+                                    return (
+                                        <div key={testimonial.name+tesIdx}
+                                        className="owl-item testimonial-cloned">
+                                        <div className="testimonial-item text-center">
+                                            <div className={`testimonial-text bg-light text-center p-4 mb-3 border-radius-10 ${isActive?'active':''}`}>
+                                                <p className="mb-0">{tesIdx+1}-{testimonial.feedback}</p>
+                                            </div>
+                                            <img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={testimonial.img} />
+                                            <div className="mb-2">
+                                                <AllStars />
+                                            </div>
+                                            <h5 className="mb-1">{testimonial.name}</h5>
+                                            <p className="m-0">{testimonial.position}</p>
+                                        </div>
+                                        </div>
+                                    )
+                                })}
+                            </div>
+                        </div>
+                        <div className="owl-nav">
+                            <div className="owl-prev" onClick={prevSlide}><i className="fa fa-chevron-left"></i></div>
+                            <div className="owl-next" onClick={nextSlide}><i className="fa fa-chevron-right"></i></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -963,7 +1171,7 @@ function Index() {
 
 
             {/* <!-- Back to Top --> */}
-            <a href="#topbar" className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+            <a href="#home" className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
         </div>
     )
 }

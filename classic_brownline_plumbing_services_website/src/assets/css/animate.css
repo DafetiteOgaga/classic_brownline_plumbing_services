@@ -1508,6 +1508,57 @@
   animation-name: slideInLeft;
 }
 
+@keyframes littleSlideInDown {
+  from {
+    transform: translate3d(0, -25%, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.littleSlideInDown {
+  animation-name: littleSlideInDown;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes littleSlideInLeft {
+  from {
+    transform: translate3d(-15%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.littleSlideInLeft {
+  animation-name: littleSlideInLeft;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
+@keyframes littleSlideInRight {
+  from {
+    transform: translate3d(15%, 0, 0);
+    visibility: visible;
+  }
+
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.littleSlideInRight {
+  animation-name: littleSlideInRight;
+  animation-duration: 2s;
+  animation-fill-mode: both;
+}
+
 @keyframes slideInRight {
   from {
     transform: translate3d(100%, 0, 0);

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 // import "owl.carousel/dist/assets/owl.carousel.css";
 // import "owl.carousel/dist/assets/owl.theme.default.css";
