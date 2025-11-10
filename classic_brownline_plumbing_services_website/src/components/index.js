@@ -367,13 +367,13 @@ function Index() {
     const [isSliding, setIsSliding] = useState(false);
     const length = carouselSlides.length;
 
-    // useEffect(() => {
-    //     const interval = setInterval(() => {
-    //         handleNextWithFade();
-    //     }, 4000);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            handleNextWithFade();
+        }, 4000);
 
-    //     return () => clearInterval(interval);
-    // }, [current]);
+        return () => clearInterval(interval);
+    }, [current]);
 
     const handleNextWithFade = () => {
         setDirection("left");
