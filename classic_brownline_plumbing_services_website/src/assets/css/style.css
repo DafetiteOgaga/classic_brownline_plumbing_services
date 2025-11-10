@@ -416,6 +416,14 @@ html {
     float: left;
 }
 
+.carousel-slider {
+    /* width: 3726px;
+    animation: serviceCardSlide 18s ease-in-out infinite; */
+    /* display: flex; */
+    width: calc(4755 * 2); /* duplicate cards (6 original + 6 clone) */
+    /* animation: serviceCardSlide 18s linear infinite; */
+}
+
 /* service-card slider */
 .service-card-slider {
     /* width: 3726px;
