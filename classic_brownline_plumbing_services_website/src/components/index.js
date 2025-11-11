@@ -1,18 +1,16 @@
 import { useState, useEffect, Fragment } from "react";
-import { titleCase } from "../hooks/changeCase";
 import { Spinner } from "../hooks/spinner";
-import { Topbar } from "./topbar";
-import { Navbar } from "./navbar";
-import { Carousel } from "./carousel";
-import { ContactUs } from "./contact";
-import { ServiceHero } from "./serviceHero";
-import { About } from "./about";
-import { Facts } from "./facts";
-import { Service } from "./service";
-import { Booking } from "./booking";
-import { Technicians } from "./technicians";
-import { Testimonial } from "./testimonials";
-import { Footer } from "./footer";
+import { Topbar } from "./modularComponents/topbar";
+import { Navbar } from "./modularComponents/navbar";
+import { Carousel } from "./modularComponents/carousel";
+import { ContactUs } from "./modularComponents/contact";
+import { About } from "./modularComponents/about";
+import { Booking } from "./modularComponents/booking";
+import { Technicians } from "./modularComponents/technicians";
+import { Footer } from "./modularComponents/footer";
+import { HomeComponent } from "./homeComponent";
+import { ServiceComponent } from "./serviceComponent";
+import { TestimonialComponent } from "./testimonialComponent";
 // import OwlCarousel from "react-owl-carousel2";
 
 const yearFounded = 2010
@@ -49,25 +47,25 @@ function Index() {
     }, [])
     useEffect(() => {
         if (menuHeadInserted) {
-            console.log("menuHeadInserted true");
-            const topbar = document.getElementById("home");
-            console.log({topbarHeight: topbar.offsetHeight});
+            // console.log("menuHeadInserted true");
+            // const topbar = document.getElementById("home");
+            // console.log({topbarHeight: topbar.offsetHeight});
             const dynamicNavbar = document.getElementById("dynamic-navbar");
-            console.log({dynamicNavbarHeight: dynamicNavbar.offsetHeight});
+            // console.log({dynamicNavbarHeight: dynamicNavbar.offsetHeight});
             const tempHero = document.getElementById(tagText.toLowerCase());
-            console.log({tempHeroHeight: tempHero.offsetHeight});
+            // console.log({tempHeroHeight: tempHero.offsetHeight});
             const maxHeadHeight = tempHero.offsetHeight +
                                     // topbar.offsetHeight +
                                     dynamicNavbar.offsetHeight;
-            console.log({
-                maxHeadHeight,
-                scrollY,
-                tempHeroHeight: tempHero.offsetHeight,
-                topbarHeight: topbar.offsetHeight,
-                wholeHeader: topbar.offsetHeight + dynamicNavbar.offsetHeight,
-                dynamicNavbarHeight: dynamicNavbar.offsetHeight,
-            });
-            console.log({scrollY, maxHeadHeight, staleTag});
+            // console.log({
+            //     maxHeadHeight,
+            //     scrollY,
+            //     tempHeroHeight: tempHero.offsetHeight,
+            //     topbarHeight: topbar.offsetHeight,
+            //     wholeHeader: topbar.offsetHeight + dynamicNavbar.offsetHeight,
+            //     dynamicNavbarHeight: dynamicNavbar.offsetHeight,
+            // });
+            // console.log({scrollY, maxHeadHeight, staleTag});
             if (scrollY > maxHeadHeight && !staleTag) {
                 console.log("scrollY > tempHero.offsetHeight");
                 console.log({scrollY, maxHeadHeight});
@@ -80,7 +78,7 @@ function Index() {
 
     const handleNavigationScroll = (e, idTag) => {
         e.preventDefault();
-        console.log({idTag})
+        // console.log({idTag})
         if (!idTag) return ''
         if (idTag.toLowerCase() === 'home') {
             window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -96,9 +94,9 @@ function Index() {
         // checks foe element in dom then scroll into view
         const checkExist = setInterval(() => {
             const target = document.getElementById(idTag);
-            console.log('checking...', {target});
+            // console.log('checking...', {target});
             if (target) {
-                console.log('found target:', target);
+                // console.log('found target:', target);
                 clearInterval(checkExist); // stop checking once found
                 target.scrollIntoView({ behavior: "smooth", block: "start" });
                 // setStaleTag(false);
@@ -129,22 +127,16 @@ function Index() {
         }
         return () => window.removeEventListener('load', handlePageLoad);
     }, []);
-    const renderSection  = ['services', 'booking', 'technicians', 'testimonials',].includes(activeSection)
-    const renderServices = ['', 'about-us', 'services',].includes(activeSection)
-    const renderBooking = ['', 'about-us', 'services', 'booking',].includes(activeSection)
-    const renderTechnicians = ['', 'about-us', 'services', 'booking', 'technicians',].includes(activeSection)
-    const renderTestimonials = ['', 'about-us', 'services', 'booking', 'technicians', 'testimonials',].includes(activeSection)
-    const renderContact = activeSection === 'contact'
     // console.log({scrollY, menuHeadInserted, activeSection});
-    // console.log({
-    //     menuHeadInserted,
-    //     // activeSection,
-    //     // renderSection,
-    //     // renderServices,
-    //     // renderBooking,
-    //     // renderTechnicians,
-    //     // renderTestimonials,
-    // });
+    console.log({
+        // menuHeadInserted,
+        activeSection,
+        // renderSection,
+        // renderServices,
+        // renderBooking,
+        // renderTechnicians,
+        // renderTestimonials,
+    });
     return (
         <>
             {/* Spinner */}
@@ -167,43 +159,54 @@ function Index() {
                 handleNavigationScroll={handleNavigationScroll}
                 menuHeadInserted={menuHeadInserted} />
 
-                {renderContact &&
+                {/* home */}
+                {activeSection==='' &&
+                <HomeComponent
+                yearFounded={yearFounded}
+                currentYear={currentYear}
+                activeSection={activeSection} />}
+
+                {activeSection==='contact' &&
                 <ContactUs />}
 
                 {/* Service-hero */}
-                <ServiceHero
-                renderSection={renderSection} />
+                {/* <ServiceHero /> */}
 
                 {/* About */}
+                {activeSection==='about' &&
                 <About
-                renderSection={renderSection}
-                yearFounded={yearFounded} />
+                yearFounded={yearFounded} />}
 
                 {/* Fact */}
-                <Facts renderSection={renderSection} />
+                {/* <Facts /> */}
 
                 {/* Service */}
-                <Service
-                renderServices={renderServices}
+                {activeSection==='services' &&
+                <ServiceComponent
                 yearFounded={yearFounded}
-                currentYear={currentYear} />
+                currentYear={currentYear} />}
 
                 {/* Booking */}
-                <Booking renderBooking={renderBooking} />
+                {activeSection==='booking' &&
+                <Booking />}
 
                 {/* Team */}
+                {activeSection==='technicians' &&
                 <Technicians
-                renderTechnicians={renderTechnicians}
-                activeSection={activeSection} />
+                activeSection />}
 
                 {/* Testimonial */}
-                <Testimonial />
+                {activeSection==='testimonials' && <TestimonialComponent />}
 
                 {/* Footer */}
                 <Footer />
 
                 {/* Back to Top --> */}
-                <a href="#home" className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+                <a href="##"
+                onClick={(e)=>{
+                    handleNavigationScroll(e, 'home');
+                }}
+                className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
             </div>}
         </>
     )
