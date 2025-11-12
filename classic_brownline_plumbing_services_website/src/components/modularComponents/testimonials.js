@@ -96,8 +96,8 @@ function Testimonial() {
 		<div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
 			<div className="container">
 				<div className="text-center">
-					<h6 className="text-secondary text-uppercase">Testimonial</h6>
-					<h1 className="mb-2">Our Clients Say!</h1>
+					{/* <h6 className="text-secondary text-uppercase">Testimonial</h6> */}
+					<h1 className="mb-2">Testimonials</h1>
 				</div>
 				<div className="owl-carousel owl-loaded testimonial-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
 					<div className="owl-stage-outer">
