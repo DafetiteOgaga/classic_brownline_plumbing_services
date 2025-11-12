@@ -7,7 +7,7 @@ function Booking() {
 				<div className="row justify-content-center">
 					<div className="col-lg-8">
 						<div className="bg-light text-center p-5 border-radius-10">
-							<h1 className="mb-4">Book For A Service</h1>
+							<h1 className="mb-4">Book Our Service</h1>
 							<form>
 								<div className="row g-3">
 									<div className="col-12 col-sm-6">

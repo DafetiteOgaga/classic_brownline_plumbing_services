@@ -1,14 +1,19 @@
 
 
-function About({yearFounded}) {
+function About({yearFounded, currentYear}) {
 	return (
 		<div className={`container-xxl py-5`}>
 			<div className="container">
 				<div className="row g-5">
 					<div className="col-lg-6 wow serviceFadeInUp" style={{animationDelay: '0.2s'}}>
-						<h6 className="text-secondary text-uppercase">About Us</h6>
-						<h1 className="mb-4">We Are Trusted Plumbing Company Since {yearFounded}</h1>
-						<p className="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+						{/* <h6 className="text-secondary text-uppercase">About Us</h6> */}
+						<h1 className="mb-4">Delivering Reliable Plumbing Solutions Since {yearFounded}</h1>
+						<p className="mb-4">
+							For over {currentYear - yearFounded} years, we've delivered reliable,
+							high-quality plumbing solutions for homes and businesses alike. Our
+							certified technicians combine expertise, precision, and integrity to
+							ensure every project is done right—the first time.
+						</p>
 						<p className="fw-medium text-primary"><i className="fa fa-check text-success me-3"></i>Residential & commercial plumbing</p>
 						<p className="fw-medium text-primary"><i className="fa fa-check text-success me-3"></i>Quality services at affordable prices</p>
 						<p className="fw-medium text-primary"><i className="fa fa-check text-success me-3"></i>Immediate 24/ 7 emergency services</p>
@@ -17,7 +22,10 @@ function About({yearFounded}) {
 								<i className="fa fa-phone fa-2x text-primary"></i>
 							</div>
 							<div className="ms-3">
-								<p className="fs-5 fw-medium mb-2 text-white">Emergency 24/7</p>
+								<div className="d-flex align-items-baseline">
+									<p className="fs-5 fw-medium mb-1 text-white">We are available 24/7</p>
+									<i className="fa fa-check text-white ms-2"></i>
+								</div>
 								<h3 className="m-0 text-white">+012 345 6789</h3>
 							</div>
 						</div>

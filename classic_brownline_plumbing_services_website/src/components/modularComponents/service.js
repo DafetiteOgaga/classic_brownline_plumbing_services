@@ -74,8 +74,8 @@ function Service({yearFounded, currentYear}) {
 				<div className="col-md-12 col-lg-9">
 					<div className="ms-lg-5 ps-lg-5">
 						<div className="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
-							<h6 className="text-secondary text-uppercase">Our Services</h6>
-							<h1 className="mb-5">Explore Our Services</h1>
+							{/* <h6 className="text-secondary text-uppercase">Our Services</h6> */}
+							<h1 className="mb-5">Our Services</h1>
 						</div>
 						<div className="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
 							<div className="owl-stage-outer">
