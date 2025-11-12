@@ -2,29 +2,29 @@ import { useEffect, useState } from "react";
 
 const serviceCardsSlides = [
     {
-        id: 1,
-        icon: "fa-water",
-        title: "Drain Repair",
-        description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    },
-    {
-        id: 2,
-        icon: "fa-toilet",
-        title: "Toilet Pipe Repair",
-        description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    },
-    {
-        id: 3,
-        icon: "fa-shower",
-        title: "Sewer Line Repair",
-        description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    },
-    {
-        id: 4,
-        icon: "fa-tint",
-        title: "Water Heater Repair",
-        description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    },
+		id: 1,
+		icon: "fa-water",
+		title: "Drain Repair",
+		description: "Expert drain repair for clogged or slow drains. We provide fast, reliable solutions to keep your plumbing flowing smoothly and prevent future blockages.",
+	},
+	{
+		id: 2,
+		icon: "fa-toilet",
+		title: "Toilet & Pipe Repair",
+		description: "Professional toilet and pipe repair services. From leaks to complete replacements, our team ensures your fixtures work efficiently and reliably.",
+	},
+	{
+		id: 3,
+		icon: "fa-shower",
+		title: "Sewer Line Repair",
+		description: "Comprehensive sewer line repair and maintenance. We handle everything from minor fixes to major line replacements, protecting your property from costly damage.",
+	},
+	{
+		id: 4,
+		icon: "fa-tint",
+		title: "Water Heater Repair & Installation",
+		description: "Reliable water heater services, including repairs, maintenance, and new installations. Enjoy consistent hot water and energy-efficient solutions for your home or business.",
+	},
     // {
     //     id: 5,
     //     icon: "fa-water",
@@ -67,7 +67,7 @@ function Service({yearFounded, currentYear}) {
 			<div className="row g-0">
 				<div className="col-lg-2 d-none d-lg-flex">
 					<div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
-						<h1 className="display-3 text-white m-0 rotate-n90">{currentYear-yearFounded} Years Experience</h1>
+						<h1 className="display-4 text-white m-0 rotate-n90 text-center">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
 					</div>
 				</div>
 				<div className="col-md-12 col-lg-9">
@@ -92,7 +92,7 @@ function Service({yearFounded, currentYear}) {
 													<div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75 border-radius-10">
 														<i className={`fa ${serviceCard.icon} fa-2x text-primary`}></i>
 													</div>
-													<h4 className="mb-3">{scIdx+1} {serviceCard.title}</h4>
+													<h4 className="mb-3">{serviceCard.title}</h4>
 													<p>{serviceCard.description}</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
