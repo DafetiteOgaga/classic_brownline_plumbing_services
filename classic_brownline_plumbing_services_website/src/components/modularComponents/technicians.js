@@ -102,4 +102,6 @@ function Technicians({activeSection}) {
 		</div>
 	)
 }
-export { Technicians }
+
+const totalNumberOfTechnicians = initialTeamSliders.length + additionalTeamSliders.length;
+export { Technicians, totalNumberOfTechnicians }

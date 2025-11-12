@@ -1,31 +1,6 @@
 import { useEffect, useState } from "react";
-
-const factsSlides = [
-    {
-        id: 1,
-        icon: "fa-check",
-        end: 1233,
-        title: "Years Experience",
-    },
-    {
-        id: 2,
-        icon: "fa-users-cog",
-        end: 1237,
-        title: "Expert Technicians",
-    },
-    {
-        id: 3,
-        icon: "fa-users",
-        end: 1231,
-        title: "Satisfied Clients",
-    },
-    {
-        id: 4,
-        icon: "fa-wrench",
-        end: 1236,
-        title: "Completed Projects",
-    }
-]
+import { totalNumberOfTechnicians } from "./technicians";
+import { digitSeparator } from "../../hooks/changeCase";
 
 function easeOutCubic(t) {
     return 1 - Math.pow(1 - t, 3);
@@ -57,12 +32,38 @@ const CountUp = ({ end, duration = 2000, className = "" }) => {
         <h2
             className={`count-up text-white mb-2 ${className}`}
             style={{ "--count": value }}>
-            {Math.floor(value)}
+            {digitSeparator(Math.floor(value))}
         </h2>
     );
 };
 
-function Facts() {
+function Facts({yearFounded, currentYear}) {
+    const factsSlides = [
+        {
+            id: 1,
+            icon: "fa-check",
+            end: currentYear - yearFounded,
+            title: "Years Experience",
+        },
+        {
+            id: 2,
+            icon: "fa-users-cog",
+            end: totalNumberOfTechnicians,
+            title: "Expert Technicians",
+        },
+        {
+            id: 3,
+            icon: "fa-users",
+            end: 23869,
+            title: "Satisfied Clients",
+        },
+        {
+            id: 4,
+            icon: "fa-wrench",
+            end: 20436,
+            title: "Completed Projects",
+        }
+    ]
 	return (
 		<div className={`container-fluid fact bg-dark my-5 py-5`}>
 			<div className="container">

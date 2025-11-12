@@ -1,7 +1,7 @@
 /********** Template CSS **********/
 :root {
-    --primary: #1E60AA;
-    --secondary: #FF4917;
+    --primary: #0A3D62;
+    --secondary: #FFA500;
     --light: #EDF1FC;
     --dark: #17224D;
 }
@@ -34,6 +34,13 @@ html {
 .d-none {
     display: none !important;
 } */
+.bg-primary {
+    background-color: var(--primary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
 .w-3rem {
     width: 3rem !important;
 }
@@ -81,6 +88,19 @@ html {
 }
 .rotate-n90 {
     transform: rotate(-90deg);
+}
+.rotated-experience {
+    writing-mode: vertical-lr;        /* or vertical-lr */
+    -webkit-writing-mode: vertical-lr;
+    text-orientation: mixed;         /* keeps letters upright, good for Latin text */
+    white-space: normal;             /* allow wrapping */
+    display: inline-block;           /* so sizing works reliably */
+    max-height: 100%;                /* ensure it won't overflow */
+    overflow-wrap: anywhere;
+    transform: rotate(180deg);
+}
+.border-radius-4 {
+    border-radius: 4px !important;
 }
 .border-radius-5 {
     border-radius: 5px !important;
@@ -259,6 +279,18 @@ html {
     color: #FFFFFF;
 }
 
+.btn.btn-primary {
+    border-color: #FFFFFF;
+    background-color: transparent;
+}
+.btn.btn-primary:hover {
+    background-color: var(--primary);
+}
+.btn.btn-primary:active {
+    font-size: 0.8rem;
+    transition: all 0.1s;
+}
+
 .btn-square {
     width: 38px;
     height: 38px;
@@ -313,19 +345,33 @@ html {
     margin-left: 8px;
 }
 
+.navbar-light .navbar-nav .nav-link-container {
+    /* margin-right: 30px; */
+    padding: 15px 10px;
+    /* color: var(--dark); */
+    /* font-size: 15px; */
+    /* font-weight: 600; */
+    /* text-transform: uppercase; */
+    /* outline: none; */
+}
+
 .navbar-light .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
+    /* margin-right: 30px; */
+    /* padding: 25px 0; */
     color: var(--dark);
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
     outline: none;
+    position: inherit;
+    z-index: 1001 !important;
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
-    color: var(--primary);
+    background-color: var(--primary);
+    color: var(--light);
+    border-radius: 4px;
 }
 
 @media (max-width: 991.98px) {
@@ -345,6 +391,11 @@ html {
     }
 }
 
+.dropdown-item.active {
+    background-color: var(--primary);
+    color: var(--light);
+}
+
 @media (min-width: 992px) {
     .navbar .nav-item .dropdown-menu {
         display: block;
@@ -357,7 +408,7 @@ html {
     }
 
     .navbar .nav-item:hover .dropdown-menu {
-        top: 70%;
+        top: 80%;
         visibility: visible;
         transition: .5s;
         opacity: 1;
@@ -373,7 +424,7 @@ html {
     border-left: 15px solid #FFFFFF;
 }
 
-.header-carousel .container::before,
+/* .header-carousel .container::before,
 .header-carousel .container::after,
 .page-header .container::before,
 .page-header .container::after {
@@ -384,7 +435,7 @@ html {
     width: 100px;
     height: 15px;
     background: #FFFFFF;
-}
+} */
 
 .header-carousel .container::after,
 .page-header .container::after {
@@ -754,7 +805,7 @@ html {
 }
 
 .testimonial-carousel .owl-item .testimonial-text.active {
-    background: #1e60aa !important;
+    background-color: var(--primary) !important;
     color: #FFFFFF !important;
 }
 /* .testimonial-carousel .owl-item.center .testimonial-text * {
@@ -775,7 +826,7 @@ html {
 }
 
 .testimonial-carousel .owl-item .testimonial-text.active::after {
-    border-color: #1e60aa transparent transparent transparent !important;
+    border-color: var(--primary) transparent transparent transparent !important;
 }
 
 .testimonial-carousel .owl-nav {

@@ -1,4 +1,4 @@
-import { ServiceHero } from "./modularComponents/serviceHero";
+// import { ServiceHero } from "./modularComponents/serviceHero";
 import { About } from "./modularComponents/about";
 import { Facts } from "./modularComponents/facts";
 import { Service } from "./modularComponents/service";
@@ -10,19 +10,21 @@ function HomeComponent({yearFounded, currentYear, activeSection}) {
 	return (
 		<>
 			{/* Service-hero */}
-			<ServiceHero />
-
-			{/* About */}
-			<About
-			yearFounded={yearFounded} />
-
-			{/* Fact */}
-			<Facts />
+			{/* <ServiceHero /> */}
 
 			{/* Service */}
 			<Service
 			yearFounded={yearFounded}
 			currentYear={currentYear} />
+
+			{/* Fact */}
+			<Facts
+			yearFounded={yearFounded}
+			currentYear={currentYear} />
+
+			{/* About */}
+			{/* <About
+			yearFounded={yearFounded} /> */}
 
 			{/* Booking */}
 			<Booking />
