@@ -17,14 +17,14 @@ function Topbar() {
 					</a>
 				</div>
 				<div className="col-lg-9 col-md-12 text-end">
-					<div className="h-100 d-inline-flex align-items-center me-4">
+					{/* <div className="h-100 d-inline-flex align-items-center me-4">
 						<i className="fa fa-map-marker-alt text-primary me-2"></i>
 						<p className="m-0">123 Street, Brown Ave, South Africa</p>
 					</div>
 					<div className="h-100 d-inline-flex align-items-center me-4">
 						<i className="far fa-envelope-open text-primary me-2"></i>
 						<p className="m-0">info@example.com</p>
-					</div>
+					</div> */}
 					<div className="h-100 d-inline-flex align-items-center">
 						{topbarSocials.map((social, sIdx) => {
 							return (
