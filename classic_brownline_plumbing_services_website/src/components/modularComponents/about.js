@@ -18,7 +18,7 @@ function About({yearFounded}) {
 							</div>
 							<div className="ms-3">
 								<p className="fs-5 fw-medium mb-2 text-white">Emergency 24/7</p>
-								<h3 className="m-0 text-secondary">+012 345 6789</h3>
+								<h3 className="m-0 text-white">+012 345 6789</h3>
 							</div>
 						</div>
 					</div>
