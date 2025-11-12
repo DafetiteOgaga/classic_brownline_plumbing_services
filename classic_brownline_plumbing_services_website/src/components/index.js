@@ -104,18 +104,6 @@ function Index() {
         }, 50);
     }
 
-    // testimonials
-    
-
-    // // fact
-    // const CounterUp = ({ value, duration = 800, className = "" }) => {
-    //     const count = useCounterUp(value, duration);
-    //     return (
-    //       <span className={`counter-up ${className}`}>
-    //         {count.toLocaleString()}
-    //       </span>
-    //     );
-    // };
     useEffect(() => {
         const handlePageLoad = () => setIsLoading(false);
 
