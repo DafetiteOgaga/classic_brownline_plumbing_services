@@ -1,20 +1,44 @@
 import { useState, useEffect } from "react";
 import { titleCase } from "../../hooks/changeCase";
 
+// const carouselSlides = [
+//     {
+//         id: 1,
+//         img: require("../../assets/img/carousel-1.jpg"),
+//         title: "Plumbing & Repairing Services",
+//         headline: "Efficient Residential Plumbing Services",
+//         text: "Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.",
+//     },
+//     {
+//         id: 2,
+//         img: require("../../assets/img/carousel-2.jpg"),
+//         title: "Plumbing & Repairing Services",
+//         headline: "Efficient Commercial Plumbing Services",
+//         text: "Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.",
+//     },
+// ];
+
 const carouselSlides = [
     {
         id: 1,
         img: require("../../assets/img/carousel-1.jpg"),
-        title: "Plumbing & Repairing Services",
-        headline: "Efficient Residential Plumbing Services",
-        text: "Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.",
+        title: "Professional Plumbing & Repair Services",
+        headline: "Fast and Reliable Residential Plumbing Solutions",
+        text: "From leaky faucets to burst pipes, we provide prompt and affordable plumbing repairs to keep your home running smoothly. Trusted by homeowners for quality workmanship and lasting results.",
     },
     {
         id: 2,
         img: require("../../assets/img/carousel-2.jpg"),
-        title: "Plumbing & Repairing Services",
-        headline: "Efficient Commercial Plumbing Services",
-        text: "Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.",
+        title: "Expert Commercial Plumbing Services",
+        headline: "Keeping Your Business Flowing Without Disruptions",
+        text: "Our certified plumbers handle large-scale plumbing installations, maintenance, and emergency repairs for offices, hotels, and industrial facilities — ensuring minimal downtime and maximum efficiency.",
+    },
+    {
+        id: 3,
+        img: require("../../assets/img/service-1.jpg"),
+        title: "Emergency Plumbing Support",
+        headline: "24/7 Emergency Plumbing — We’re Always Ready",
+        text: "Day or night, our team is available for urgent plumbing issues like blocked drains, flooding, or broken pipes. Quick response and professional service guaranteed every time.",
     },
 ];
 
@@ -34,6 +58,7 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
 
         return () => clearInterval(interval);
     }, [current]);
+
 	const preloadImage = (src) => {
         const img = new Image();
         img.src = src;
@@ -107,7 +132,7 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
 										<h1 className={`display-3 text-white animated slideInDown mb-4 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.headline}</h1>
 										<p className={`fs-5 fw-medium text-white mb-4 pb-2 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.text}</p>
 										{/* <a href="##" className="btn btn-primary py-md-3 px-md-5 me-3 animated littleSlideInLeft border-radius-5">Read More</a> */}
-										<a href="##" className="btn btn-secondary py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
+										<a href="##" className="btn btn-primary py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
 									</div>
 								</div>
 							</div>
