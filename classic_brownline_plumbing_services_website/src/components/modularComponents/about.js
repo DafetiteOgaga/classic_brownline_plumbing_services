@@ -6,8 +6,8 @@ function About({yearFounded, currentYear}) {
 			<div className="container">
 				<div className="row g-5">
 					<div className="col-lg-6 wow serviceFadeInUp" style={{animationDelay: '0.2s'}}>
-						<h6 className="text-secondary text-uppercase">About Us</h6>
-						<h1 className="mb-4">Your Trusted Plumbing Experts Since {yearFounded}</h1>
+						{/* <h6 className="text-secondary text-uppercase">About Us</h6> */}
+						<h1 className="mb-4">Delivering Reliable Plumbing Solutions Since {yearFounded}</h1>
 						<p className="mb-4">
 							For over {currentYear - yearFounded} years, we've delivered reliable,
 							high-quality plumbing solutions for homes and businesses alike. Our
@@ -22,7 +22,10 @@ function About({yearFounded, currentYear}) {
 								<i className="fa fa-phone fa-2x text-primary"></i>
 							</div>
 							<div className="ms-3">
-								<p className="fs-5 fw-medium mb-2 text-white">Emergency 24/7</p>
+								<div className="d-flex align-items-baseline">
+									<p className="fs-5 fw-medium mb-1 text-white">We are available 24/7</p>
+									<i className="fa fa-check text-white ms-2"></i>
+								</div>
 								<h3 className="m-0 text-white">+012 345 6789</h3>
 							</div>
 						</div>
