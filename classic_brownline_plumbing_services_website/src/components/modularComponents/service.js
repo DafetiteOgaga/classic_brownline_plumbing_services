@@ -65,9 +65,10 @@ function Service({yearFounded, currentYear}) {
 	return (
 		<div className={`container-fluid py-5 px-4 px-lg-0`}>
 			<div className="row g-0">
-				<div className="col-lg-2 d-none d-lg-flex">
-					<div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100">
-						<h1 className="display-4 text-white m-0 rotate-n90 text-center">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
+				<div className="col-lg-2 d-none d-lg-flex position-relative">
+					{/* <div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100"> */}
+					<div className="bg-primary w-100 h-100 position-relative">
+						<h1 className="display-3 text-white m-0 rotate-n90 text-center position-absolute">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
 					</div>
 				</div>
 				<div className="col-md-12 col-lg-9">
