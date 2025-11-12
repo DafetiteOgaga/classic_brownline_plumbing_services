@@ -15,6 +15,14 @@ function ContactUs() {
 							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d507365.35487409495!2d2.954296628594845!3d6.547947654560678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1762733082337!5m2!1sen!2sng"
 							frameBorder="0" style={{height: "300px", border: "0"}} allowFullScreen="" aria-hidden="false"
 							tabIndex="0"></iframe>
+						<div className="d-inline-flex align-items-center me-4">
+							<i className="fa fa-map-marker-alt text-primary me-2"></i>
+							<p className="m-0">123 Street, Brown Ave, South Africa</p>
+						</div>
+						<div className="d-inline-flex align-items-center me-4">
+							<i className="far fa-envelope-open text-primary me-2"></i>
+							<p className="m-0">info@example.com</p>
+						</div>
 					</div>
 					<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 						<div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10">
