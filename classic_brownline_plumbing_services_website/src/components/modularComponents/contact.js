@@ -6,7 +6,7 @@ function ContactUs() {
 			<div className="container">
 				<div className="row g-4">
 					<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-						<h6 className="text-secondary text-uppercase">Get In Touch</h6>
+						{/* <h6 className="text-secondary text-uppercase">Get In Touch</h6> */}
 						<h1 className="mb-4">Contact Us</h1>
 						{/* <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> */}
 						<iframe className="position-relative w-100 border-radius-10"
