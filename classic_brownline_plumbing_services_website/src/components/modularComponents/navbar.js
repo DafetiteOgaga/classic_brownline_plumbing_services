@@ -33,7 +33,8 @@ function Navbar({activeSection, handleNavigationScroll, isSticky}) {
 								isActive = true
 							}
 							return (
-								<Fragment key={header.to+hIdx}>
+								<div key={header.to+hIdx}
+								className="nav-item nav-link-container">
 									{header.to !== '##' ?
 										<a href="##"
 										onClick={(e)=>{
@@ -62,18 +63,21 @@ function Navbar({activeSection, handleNavigationScroll, isSticky}) {
 											</div>
 										</div>
 									}
-								</Fragment>
+								</div>
 							)
 						})}
 					</div>
-					<div className={`mt-4 mt-lg-0 me-lg-n4 py-3 px-4 bg-primary d-flex align-items-center ${isSticky ? '' : 'border-tr-radius-10'}`}>
-						<div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-white w-45 h-45">
+					<div className={`mt-4 mt-lg-0 me-lg-n4 py-3 px-4 d-flex align-items-center ${isSticky ? '' : 'd-none bg-primary border-tr-radius-10'}`}>
+						{/* <div className="d-flex flex-shrink-0 align-items-center justify-content-center bg-white w-45 h-45">
 							<i className="fa fa-phone text-primary"></i>
 						</div>
 						<div className="ms-3">
 							<p className="mb-1 text-white">Emergency 24/7</p>
 							<h5 className="m-0 text-secondary">+012 345 6789</h5>
-						</div>
+						</div> */}
+						<a href="##" className={`navbar-brand m-0 p-0 ${isSticky ? '' : 'd-none d-lg-flex'}`}>
+							<h2 className="text-primary m-0 text-uppercase">Classic Brown</h2>
+						</a>
 					</div>
 				</div>
 			</nav>
