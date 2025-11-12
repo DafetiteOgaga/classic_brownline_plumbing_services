@@ -163,7 +163,8 @@ function Index() {
                 {/* About */}
                 {activeSection==='about' &&
                 <About
-                yearFounded={yearFounded} />}
+                yearFounded={yearFounded}
+                currentYear={currentYear} />}
 
                 {/* Fact */}
                 {/* <Facts /> */}
