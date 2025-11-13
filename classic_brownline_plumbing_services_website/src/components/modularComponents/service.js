@@ -1,57 +1,50 @@
 import { useEffect, useState } from "react";
 
 const serviceCardsSlides = [
-    {
+	{
 		id: 1,
-		icon: "fa-water",
-		title: "Drain Repair",
-		description: "Expert drain repair for clogged or slow drains. We provide fast, reliable solutions to keep your plumbing flowing smoothly and prevent future blockages.",
+		icon: "fa-tools",
+		title: "Toilet & Pipe Repair",
+		description:
+			"Professional toilet and pipe repair services. From leaks to complete replacements, our team ensures your fixtures work efficiently and reliably.",
+		detailedDescription:
+			"Leaky pipes and faulty toilets are more than just inconveniences—they can lead to water damage, mold growth, and high utility bills. Our expert plumbers are equipped to repair, replace, or install any type of pipe or toilet fixture. We begin with a detailed inspection to identify the exact cause of leaks or blockages, whether it’s cracked pipes, corroded joints, or worn-out seals. From quick patching and valve replacement to full piping system overhauls, we handle it all with precision and care. Our pipe repair services include leak detection, joint sealing, re-piping, and pressure balancing. Toilet repair services include unclogging, flushing mechanism replacement, tank repair, and installation of modern, water-efficient units. Our goal is to restore efficiency, save water, and ensure long-term reliability.",
+		img: require("../../assets/img/about-1.jpg"),
 	},
 	{
 		id: 2,
-		icon: "fa-toilet",
-		title: "Toilet & Pipe Repair",
-		description: "Professional toilet and pipe repair services. From leaks to complete replacements, our team ensures your fixtures work efficiently and reliably.",
+		icon: "fa-faucet-drip",
+		title: "Drain Repair",
+		description:
+			"Expert drain repair for clogged or slow drains. We provide fast, reliable solutions to keep your plumbing flowing smoothly and prevent future blockages.",
+		detailedDescription:
+			"Our drain repair service covers every aspect of drainage system maintenance and restoration. Whether you're dealing with a slow drain, recurring clogs, unpleasant odors, or full blockages, our technicians use advanced inspection tools—such as drain cameras and hydro-jetting equipment—to identify and clear the problem efficiently. We don’t just fix the issue temporarily; we diagnose the root cause, whether it’s grease buildup, corrosion, or collapsed pipes. Once repaired, we perform flow tests and provide tips to help you maintain a clean, efficient drainage system. Ideal for residential, commercial, and industrial drainage systems. Common issues fixed include clogged sinks, floor drains, showers, toilets, and main sewer lines.",
+		img: require("../../assets/img/about-2.jpg"),
 	},
 	{
 		id: 3,
-		icon: "fa-shower",
-		title: "Sewer Line Repair",
-		description: "Comprehensive sewer line repair and maintenance. We handle everything from minor fixes to major line replacements, protecting your property from costly damage.",
+		icon: "fa-thermometer-three-quarters",
+		title: "Water Heater Repair & Installation",
+		description:
+			"Reliable water heater services, including repairs, maintenance, and new installations. Enjoy consistent hot water and energy-efficient solutions for your home or business.",
+		detailedDescription:
+			"Whether your water heater is leaking, making strange noises, or struggling to provide consistent heat, our certified plumbers are ready to help. We service both tank and tankless water heaters, offering repair, maintenance, and full replacement options. Our process begins with a detailed system inspection—checking thermostats, heating elements, and valves—to identify performance issues. We then repair faulty components or recommend modern, energy-efficient replacements when necessary. For new installations, we help you choose the right capacity and model based on your household or business needs, ensuring maximum performance and energy savings. We service electric, gas, solar, and hybrid water heaters. Our goal is to provide safe, efficient, and reliable hot water all year round.",
+		img: require("../../assets/img/carousel-1.jpg"),
 	},
 	{
 		id: 4,
-		icon: "fa-tint",
-		title: "Water Heater Repair & Installation",
-		description: "Reliable water heater services, including repairs, maintenance, and new installations. Enjoy consistent hot water and energy-efficient solutions for your home or business.",
+		icon: "fa-wrench",
+		title: "Sewer Line Repair",
+		description:
+			"Comprehensive sewer line repair and maintenance. We handle everything from minor fixes to major line replacements, protecting your property from costly damage.",
+		detailedDescription:
+			"Sewer line issues can quickly escalate into serious property damage if not addressed promptly. Our comprehensive sewer line repair service ensures your waste disposal system operates safely and efficiently. We use non-invasive diagnostic tools such as sewer cameras to pinpoint blockages, cracks, or tree root intrusion—without unnecessary digging. Depending on the damage, we offer trenchless pipe repair, sectional replacements, or full re-piping solutions. Our technicians ensure minimal disruption to your property while maintaining strict health and safety standards. After repairs, we conduct flow tests and sanitization to leave your system fully operational. Common causes we handle include corrosion, ground shifting, tree roots, and collapsed lines. Service available for homes, apartment complexes, offices, and industrial facilities.",
+		img: require("../../assets/img/carousel-2.jpg"),
 	},
-    // {
-    //     id: 5,
-    //     icon: "fa-water",
-    //     title: "Drain Repair",
-    //     description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    // },
-    // {
-    //     id: 6,
-    //     icon: "fa-toilet",
-    //     title: "Toilet Pipe Repair",
-    //     description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    // },
-    // {
-    //     id: 7,
-    //     icon: "fa-shower",
-    //     title: "Sewer Line Repair",
-    //     description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    // },
-    // {
-    //     id: 8,
-    //     icon: "fa-tint",
-    //     title: "Water Heater Repair",
-    //     description: "Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam justo.",
-    // },
 ]
 
-function Service({yearFounded, currentYear}) {
+function Service({handleNavigationScroll ,yearFounded, currentYear}) {
+	// console.log("Rendering Service component", handleNavigationScroll);
 	const [currentServiceCardIndex, setCurrentServiceCardIndex] = useState(0);
     const totalServiceCards = serviceCardsSlides.length;
     useEffect(() => {
@@ -68,7 +61,7 @@ function Service({yearFounded, currentYear}) {
 				<div className="col-lg-2 d-none d-lg-flex position-relative">
 					{/* <div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100"> */}
 					<div className="bg-primary w-100 h-100 position-relative">
-						<h1 className="display-3 text-white m-0 rotate-n90 text-center position-absolute">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
+						<h1 className="display-4 text-white m-0 rotate-n90 text-center position-absolute">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
 					</div>
 				</div>
 				<div className="col-md-12 col-lg-9">
@@ -90,15 +83,20 @@ function Service({yearFounded, currentYear}) {
 											<div key={serviceCard.title+scIdx}
 											className="owl-item cloned">
 												<div className="bg-light p-4 border-radius-10">
-													<div className="d-flex align-items-center justify-content-center border border-5 border-white mb-4 w-75 h-75 border-radius-10">
+													<div className="d-flex align-items-center justify-content-center border border-color-primary mb-4 w-75 h-75 border-radius-10">
 														<i className={`fa ${serviceCard.icon} fa-2x text-primary`}></i>
 													</div>
 													<h4 className="mb-3">{serviceCard.title}</h4>
 													<p>{serviceCard.description}</p>
-													<p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Quality Service</p>
-													<p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Customer Satisfaction</p>
-													<p className="text-primary fw-medium"><i className="fa fa-check text-success me-2"></i>Support 24/7</p>
-													<a href="##" className="btn bg-white text-primary w-100 mt-2 border-radius-5">Read More<i className="fa fa-arrow-right text-secondary ms-2"></i></a>
+													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Quality Service</p>
+													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Customer Satisfaction</p>
+													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Support 24/7</p>
+													<a href="##"
+													onClick={(e)=>handleNavigationScroll(e, "service-details", serviceCard)}
+													className="btn bg-white text-primary w-100 mt-2 border-radius-5">
+														Read More
+														<i className="fa fa-arrow-right text-primary ms-2"/>
+													</a>
 												</div>
 											</div>
 										)
