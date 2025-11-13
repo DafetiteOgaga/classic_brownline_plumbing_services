@@ -53,7 +53,7 @@ function ContactUs() {
 										</div>
 									</div>
 									<div className="col-12">
-										<button className="btn btn-primary w-100 py-3 border-radius-10" type="submit">Send Message</button>
+										<button className="btn btn-primary-color w-100 py-3 border-radius-10" type="submit">Send Message</button>
 									</div>
 								</div>
 							</form>

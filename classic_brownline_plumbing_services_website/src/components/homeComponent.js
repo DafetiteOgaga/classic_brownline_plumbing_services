@@ -3,10 +3,11 @@ import { About } from "./modularComponents/about";
 import { Facts } from "./modularComponents/facts";
 import { Service } from "./modularComponents/service";
 import { Booking } from "./modularComponents/booking";
-import { Technicians } from "./modularComponents/technicians";
+import { Gallery } from "./modularComponents/gallery";
 import { Testimonial } from "./modularComponents/testimonials";
 
-function HomeComponent({yearFounded, currentYear, activeSection}) {
+function HomeComponent({handleNavigationScroll, yearFounded, currentYear, activeSection}) {
+	// console.log("Rendering HomeComponent:", handleNavigationScroll);
 	return (
 		<>
 			{/* Service-hero */}
@@ -14,6 +15,7 @@ function HomeComponent({yearFounded, currentYear, activeSection}) {
 
 			{/* Service */}
 			<Service
+			handleNavigationScroll={handleNavigationScroll}
 			yearFounded={yearFounded}
 			currentYear={currentYear} />
 
@@ -30,7 +32,7 @@ function HomeComponent({yearFounded, currentYear, activeSection}) {
 			<Booking />
 
 			{/* Team */}
-			<Technicians
+			<Gallery
 			activeSection={activeSection} />
 
 			{/* Testimonial */}

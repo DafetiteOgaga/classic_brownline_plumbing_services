@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { totalNumberOfTechnicians } from "./technicians";
+// import { totalNumberOfTechnicians } from "./technicians";
 import { digitSeparator } from "../../hooks/changeCase";
 
 function easeOutCubic(t) {
@@ -45,12 +45,12 @@ function Facts({yearFounded, currentYear}) {
             end: currentYear - yearFounded,
             title: "Years Experience",
         },
-        {
-            id: 2,
-            icon: "fa-users-cog",
-            end: totalNumberOfTechnicians,
-            title: "Expert Technicians",
-        },
+        // {
+        //     id: 2,
+        //     icon: "fa-users-cog",
+        //     end: totalNumberOfTechnicians,
+        //     title: "Expert Technicians",
+        // },
         {
             id: 3,
             icon: "fa-users",
@@ -67,7 +67,7 @@ function Facts({yearFounded, currentYear}) {
 	return (
 		<div className={`container-fluid fact bg-dark my-5 py-5`}>
 			<div className="container">
-				<div className="row g-4">
+				<div className="row g-4 d-flex justify-content-between">
 					{factsSlides.map((fact, fIdx) => {
 						return (
 							<div key={fact.title+fIdx} className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
