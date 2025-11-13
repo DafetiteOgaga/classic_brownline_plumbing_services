@@ -3,15 +3,15 @@ import { titleCase } from "../../hooks/changeCase";
 
 const headerOptions = [
     {to: "home"},
+	{to: "about"},
 	{to: "services"},
     {to: "##"},
-	{to: "about"},
     {to: "contact"},
 ]
 
 const pagesArray = [
     {to: "booking"},
-    {to: "technicians"},
+    {to: "gallery"},
     {to: "testimonials"},
 ]
 
@@ -43,7 +43,7 @@ function Navbar({activeSection, handleNavigationScroll, isSticky}) {
 										className={`nav-item nav-link ${isActive?'active':''}`}>{titleCase(header.to)}</a>
 										:
 										<div className="nav-item dropdown">
-											<a href="##" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+											<span className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</span>
 											<div className="dropdown-menu fade-up m-0 app-bg-color">
 												{pagesArray.map((page, pIdx) => {
 													isActive = page.to.toLowerCase() === activeSection.toLowerCase();
