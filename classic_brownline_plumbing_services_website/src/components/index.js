@@ -6,26 +6,26 @@ import { Carousel } from "./modularComponents/carousel";
 import { ContactUs } from "./modularComponents/contact";
 import { About } from "./modularComponents/about";
 import { Booking } from "./modularComponents/booking";
-import { Technicians } from "./modularComponents/technicians";
+import { Gallery } from "./modularComponents/gallery";
 import { Footer } from "./modularComponents/footer";
 import { HomeComponent } from "./homeComponent";
 import { ServiceComponent } from "./serviceComponent";
+import { ServiceDetail } from "./modularComponents/serviceDetails";
 import { TestimonialComponent } from "./testimonialComponent";
-// import OwlCarousel from "react-owl-carousel2";
 
 const yearFounded = 2010
 const currentYear = new Date().getFullYear();
 
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
-    // header
     const [isSticky, setIsSticky] = useState(false);
     const [menuHeadInserted, setMenuHeadInserted] = useState(false);
     const [scrollY, setScrollY] = useState(window.scrollY);
     const [tagText, setTagText] = useState('');
     const [staleTag, setStaleTag] = useState(true);
     const [activeSection, setActiveSection] = useState("");
-    
+    const [serviceData, setServiceData] = useState(null);
+
     useEffect(() => {
         const handleScroll = () => {
             const updatedScrollY = window.scrollY;
@@ -75,17 +75,25 @@ function Index() {
         }
     }, [scrollY])
 
-
-    const handleNavigationScroll = (e, idTag) => {
-        e.preventDefault();
-        // console.log({idTag})
+    const handleNavigationScroll = (e=null, idTag, data=null) => {
+        if (e) e.preventDefault();
+        console.log({idTag})
         if (!idTag) return ''
+
+        // Push to history (clean URL, no hash)
+        const url = idTag.toLowerCase() === "home" ? "/" : `/${idTag.toLowerCase()}`;
+        window.history.pushState({ idTag, data }, "", url);
+
         if (idTag.toLowerCase() === 'home') {
+            console.log('navigating to home')
             window.scrollTo({ top: 0, behavior: 'smooth' });
             setMenuHeadInserted(false);
             setActiveSection("");
+            setTagText("")
             return;
         }
+
+        setServiceData(data);
         setActiveSection(idTag.toLowerCase());
         setTagText(idTag);
         setMenuHeadInserted(true);
@@ -104,6 +112,29 @@ function Index() {
         }, 50);
     }
 
+    // Listen to back/forward buttons
+    useEffect(() => {
+        // console.log("Setting up popstate listener");
+        const onPopState = (event) => {
+            // console.log("Pop state event:");
+            const state = event.state;
+            // console.log("onPopState:", {state});
+            if (state?.idTag) {
+                // console.log("Handling popstate navigation to:", state.idTag);
+                // Call your existing function automatically
+                handleNavigationScroll(null, state.idTag, state.data);
+            } else {
+                // console.log("Handling popstate navigation to home");
+                // Default fallback
+                handleNavigationScroll(null, "home");
+            }
+        };
+        window.addEventListener("popstate", onPopState);
+
+        // Cleanup
+        return () => window.removeEventListener("popstate", onPopState);
+    }, []);
+
     useEffect(() => {
         const handlePageLoad = () => setIsLoading(false);
 
@@ -116,15 +147,16 @@ function Index() {
         return () => window.removeEventListener('load', handlePageLoad);
     }, []);
     // console.log({scrollY, menuHeadInserted, activeSection});
-    console.log({
-        // menuHeadInserted,
-        activeSection,
-        // renderSection,
-        // renderServices,
-        // renderBooking,
-        // renderTechnicians,
-        // renderTestimonials,
-    });
+    // console.log({
+    //     // menuHeadInserted,
+    //     // activeSection,
+    //     // renderSection,
+    //     // renderServices,
+    //     // renderBooking,
+    //     // renderTechnicians,
+    //     // renderTestimonials,
+    // });
+    // console.log("Rendering Index component", handleNavigationScroll);
     return (
         <>
             {/* Spinner */}
@@ -150,6 +182,7 @@ function Index() {
                 {/* home */}
                 {activeSection==='' &&
                 <HomeComponent
+                handleNavigationScroll={handleNavigationScroll}
                 yearFounded={yearFounded}
                 currentYear={currentYear}
                 activeSection={activeSection} />}
@@ -172,16 +205,22 @@ function Index() {
                 {/* Service */}
                 {activeSection==='services' &&
                 <ServiceComponent
+                handleNavigationScroll={handleNavigationScroll}
                 yearFounded={yearFounded}
                 currentYear={currentYear} />}
+
+                {/* service-details */}
+                {activeSection==='service-details' &&
+                <ServiceDetail
+                serviceData={serviceData} />}
 
                 {/* Booking */}
                 {activeSection==='booking' &&
                 <Booking />}
 
                 {/* Team */}
-                {activeSection==='technicians' &&
-                <Technicians
+                {activeSection==='gallery' &&
+                <Gallery
                 activeSection />}
 
                 {/* Testimonial */}
@@ -195,7 +234,7 @@ function Index() {
                 onClick={(e)=>{
                     handleNavigationScroll(e, 'home');
                 }}
-                className="btn btn-lg btn-primary btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+                className="btn btn-lg btn-primary-color btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
             </div>}
         </>
     )
