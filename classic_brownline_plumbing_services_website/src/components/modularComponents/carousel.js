@@ -95,7 +95,7 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
     };
     const slide = carouselSlides[current];
 	return (
-		<div className={`container-fluid mb-5 position-relative ${!menuHeadInserted?'p-0':'page-header py-5'}`} id={tagText.toLowerCase()}>
+		<div className={`container-fluid mb-5 position-relative ${!menuHeadInserted?'p-0':'page-header py-5'} ${tagText.toLowerCase()==='service-details'?'d-none':''}`} id={tagText.toLowerCase()}>
 			{/* Spinner */}
 			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden ${!menuHeadInserted?'':'d-none'}`}>
 				<div className="owl-stage-outer">
@@ -132,7 +132,7 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
 										<h1 className={`display-3 text-white animated slideInDown mb-4 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.headline}</h1>
 										<p className={`fs-5 fw-medium text-white mb-4 pb-2 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.text}</p>
 										{/* <a href="##" className="btn btn-primary py-md-3 px-md-5 me-3 animated littleSlideInLeft border-radius-5">Read More</a> */}
-										<a href="##" className="btn btn-primary py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
+										<a href="##" className="btn btn-primary btn-border-white py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
 									</div>
 								</div>
 							</div>
