@@ -64,7 +64,7 @@ const AllStars = () => {
             {
                 Array.from({length: 5}).map((_, idx) => {
                     return (
-                        <small key={idx} className="fa fa-star" style={{color: '#32CD32'}}></small>
+                        <small key={idx} className="fa fa-star text-primary"></small>
                     )
                 })
             }
