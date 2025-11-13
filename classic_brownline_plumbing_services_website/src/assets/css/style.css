@@ -67,11 +67,23 @@ html {
 .h-55 {
     height: 55px !important;
 }
+.h-60p {
+    height: 60% !important;
+}
+.w-60p {
+    width: 60% !important;
+}
 .w-80 {
     width: 80px !important;
 }
 .h-80 {
     height: 80px !important;
+}
+.w-80p {
+    width: 80% !important;
+}
+.h-80p {
+    height: 80% !important;
 }
 .min-h-500 {
     min-height: 500px !important;
@@ -109,8 +121,17 @@ html {
 .border-radius-20 {
     border-radius: 20px !important;
 }
+.border-radius-30 {
+    border-radius: 30px !important;
+}
+.border-radius-40 {
+    border-radius: 40px !important;
+}
 .border-radius-50 {
     border-radius: 50% !important;
+}
+.border-radius-60 {
+    border-radius: 60% !important;
 }
 .border-tl-radius-10 {
     border-top-left-radius: 10px !important;
@@ -123,6 +144,19 @@ html {
 }
 .border-bl-radius-10 {
     border-bottom-left-radius: 10px !important;
+}
+.border-color-primary {
+    border-color: var(--primary) !important;
+}
+.position-left-10 {
+    left: 10% !important;
+}
+.position-left-20 {
+    left: 20% !important;
+}
+.fine-border {
+    border: 1px solid var(--primary) !important;
+    padding: 3px;
 }
 
 /* custom carousel */
@@ -273,15 +307,28 @@ html {
 .btn.btn-secondary {
     color: #FFFFFF;
 }
-
-.btn.btn-primary {
+.btn-border-white {
     border-color: #FFFFFF;
+}
+.btn.btn-primary-color,
+.btn.btn-secondary-color {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+.btn.btn-primary-color:hover,
+.btn.btn-secondary-color:hover {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    background-color: var(--primary);
+}
+.btn.btn-primary {
     background-color: transparent;
 }
 .btn.btn-primary:hover {
     background-color: var(--primary);
 }
-.btn.btn-primary:active {
+.btn.btn-primary:active,
+.btn.btn-primary-color:active {
     font-size: 0.8rem;
     transition: all 0.1s;
 }
@@ -367,6 +414,7 @@ html {
     background-color: var(--primary);
     color: var(--light);
     border-radius: 4px;
+    /* transform: skewX(-20deg); */
 }
 
 @media (max-width: 991.98px) {
@@ -598,6 +646,7 @@ html {
     background: var(--primary);
     border: 5px solid var(--light);
     transition: .5s;
+    border-radius: 50%;
 }
 
 .service-carousel .owl-dot.active {
