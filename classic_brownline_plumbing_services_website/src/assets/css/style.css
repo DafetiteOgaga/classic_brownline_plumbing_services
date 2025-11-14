@@ -10,12 +10,84 @@
     font-weight: 600 !important;
 }
 
+/* @keyframes pulse-border {
+    0% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) translateZ(0) scale(1.5);
+        opacity: 0;
+    }
+} */
 .back-to-top {
     position: fixed;
     display: none;
     right: 45px;
     bottom: 45px;
     z-index: 99;
+    /* border: 2px solid #ffffff; */
+}
+/* .back-to-top::after {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    border: 2px solid #ffffff;
+}
+.back-to-top::before {
+    position: fixed;
+    display: none;
+    right: 45px;
+    bottom: 45px;
+    z-index: 99;
+    border: 2px solid #ffffff;
+    animation: pulse-border 1500ms ease-out infinite;
+} */
+
+#gallery-modal {
+    z-index: 99999;
+}
+
+#gallery-modal .modal-dialog {
+    position: relative;
+    max-width: 1000px;
+    margin: 60px auto 0 auto;
+}
+
+#gallery-modal .modal-body {
+    position: relative;
+    padding: 0px;
+}
+
+#gallery-modal .close {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    right: 0px;
+    top: -30px;
+    z-index: 999;
+    font-size: 30px;
+    font-weight: normal;
+    color: #FFFFFF;
+    background: #000000;
+    opacity: 1;
+}
+.modal-box.show {
+    display: block;
+}
+.modal-box-hide {
+    display: none;
+}
+.modal-bg {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10000
 }
 
 /* scroll to top/section padding */
@@ -195,6 +267,8 @@ html {
     color: #FFFFFF;
     background: transparent;
     border: 1px solid #FFFFFF;
+    outline: 1px solid var(--primary);
+    outline-offset: -3px;
     border-radius: 45px;
     font-size: 22px;
     transition: .5s;
@@ -205,6 +279,23 @@ html {
     width: 48px;
     height: 48px;
   }
+
+  .dual-arrow-prev {
+    color: #FFFFFF; /* main color */
+    text-shadow: 
+        3px 0 0 var(--primary),   /* right */
+        -1px 0 0 var(--primary),  /* left */
+        0 1px 0 var(--primary),   /* bottom */
+        0 -1px 0 var(--primary);  /* top */
+}
+.dual-arrow-next {
+    color: #FFFFFF; /* main color */
+    text-shadow: 
+        1px 0 0 var(--primary),   /* right */
+        -3px 0 0 var(--primary),  /* left */
+        0 1px 0 var(--primary),   /* bottom */
+        0 -1px 0 var(--primary);  /* top */
+}
   
   .carousel-btn.prev {
     left: 20px;
