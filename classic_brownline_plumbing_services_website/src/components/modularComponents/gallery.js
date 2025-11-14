@@ -154,7 +154,7 @@ function Gallery({activeSection}) {
                             <div className="modal-body">
                                 {/* <!-- 16:9 aspect ratio --> */}
                                 <div className="ratio ratio-16x9">
-                                        <img className="img-fluid" src={gallerySlides[modalImageIndex].img} alt="" />
+                                        <img className="img-fluid" src={teamSliders?.[modalImageIndex]?.img} alt="" />
                                 </div>
 
                                 {/* LEFT ARROW */}
