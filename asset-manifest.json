@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/classic_brownline_plumbing_services/static/css/main.eb42889e.css",
-    "main.js": "/classic_brownline_plumbing_services/static/js/main.e62d59bf.js",
+    "main.css": "/classic_brownline_plumbing_services/static/css/main.26efd32a.css",
+    "main.js": "/classic_brownline_plumbing_services/static/js/main.b50ef109.js",
     "static/js/453.542974bb.chunk.js": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js",
     "static/media/fa-solid-900.woff2": "/classic_brownline_plumbing_services/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
     "static/media/fa-brands-400.woff2": "/classic_brownline_plumbing_services/static/media/fa-brands-400.1c5c7716b05754cb4eab.woff2",
@@ -19,12 +19,12 @@
     "static/media/dafelogoWhiteTransparent.png": "/classic_brownline_plumbing_services/static/media/dafelogoWhiteTransparent.9e22063262c522af2111.png",
     "static/media/fa-v4compatibility.woff2": "/classic_brownline_plumbing_services/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
     "index.html": "/classic_brownline_plumbing_services/index.html",
-    "main.eb42889e.css.map": "/classic_brownline_plumbing_services/static/css/main.eb42889e.css.map",
-    "main.e62d59bf.js.map": "/classic_brownline_plumbing_services/static/js/main.e62d59bf.js.map",
+    "main.26efd32a.css.map": "/classic_brownline_plumbing_services/static/css/main.26efd32a.css.map",
+    "main.b50ef109.js.map": "/classic_brownline_plumbing_services/static/js/main.b50ef109.js.map",
     "453.542974bb.chunk.js.map": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.eb42889e.css",
-    "static/js/main.e62d59bf.js"
+    "static/css/main.26efd32a.css",
+    "static/js/main.b50ef109.js"
   ]
 }
