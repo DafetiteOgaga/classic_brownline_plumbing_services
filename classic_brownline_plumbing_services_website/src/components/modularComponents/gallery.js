@@ -25,6 +25,8 @@ const gallerySlides = [
         name: "Full Name",
         position: "Designation",
     },
+]
+const additionalGallerySlides = [
     {
         id: 5,
         img: require("../../assets/img/team-1.jpg"),
@@ -76,14 +78,16 @@ const gallerySlides = [
 ]
 
 function Gallery({activeSection}) {
-	// const [teamSliders, setTeamSliders] = useState([]);
+	const [teamSliders, setTeamSliders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [modalImageIndex, setModalImageIndex] = useState(0);
-	// useEffect(() => {
-    //     if (showModal) {
-    //         setModalImageIndex();
-    //     }
-    // }, [showModal])
+	useEffect(() => {
+        if (activeSection) {
+            setTeamSliders([...gallerySlides, ...additionalGallerySlides]);
+        } else {
+            setTeamSliders(gallerySlides);
+        }
+    }, [showModal])
     // console.log({
     //     activeSection,
     //     teamSliders
@@ -99,16 +103,16 @@ function Gallery({activeSection}) {
             prev === 0 ? gallerySlides.length - 1 : prev - 1
         );
     };
-    console.log({showModal})
+    console.log({activeSection})
 	return (
 		<div className={`container-xxl py-5`}>
 			<div className="container">
 				<div className="text-center wow fadeInUp" data-wow-delay="0.1s">
 					{/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
-					{/* <h1 className="mb-5">Gallery</h1> */}
+					{activeSection==='' ? <h1 className="mb-5">Completed Projects</h1> : ''}
 				</div>
 				<div className="row g-4">
-					{gallerySlides.map((teamPlayer,tIdx) => {
+					{teamSliders.map((teamPlayer,tIdx) => {
 						return (
 							<div key={teamPlayer.name+tIdx}
 							className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
@@ -135,7 +139,7 @@ function Gallery({activeSection}) {
             //     }
             // }}
             >
-                <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
                         <div className="modal-content border-radius-10">
                             <div className="modal-header">
