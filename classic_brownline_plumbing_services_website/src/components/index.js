@@ -15,6 +15,7 @@ import { TestimonialComponent } from "./testimonialComponent";
 
 const yearFounded = 2010
 const currentYear = new Date().getFullYear();
+const REPO_PREFIX = "/classic_brownline_plumbing_services"; 
 
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
@@ -81,7 +82,8 @@ function Index() {
         if (!idTag) return ''
 
         // Push to history (clean URL, no hash)
-        const url = idTag.toLowerCase() === "home" ? "/" : `/${idTag.toLowerCase()}`;
+        const path = idTag.toLowerCase() === "home" ? "/" : `/${idTag.toLowerCase()}`;
+        const url = `${REPO_PREFIX}${path}`;
         window.history.pushState({ idTag, data }, "", url);
 
         if (idTag.toLowerCase() === 'home') {
