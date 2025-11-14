@@ -116,7 +116,7 @@ function Testimonial() {
 										<div className={`testimonial-text bg-light text-center p-4 mb-3 border-radius-10 ${isActive?'active':''}`}>
 											<p className="mb-0">{tesIdx+1}-{testimonial.feedback}</p>
 										</div>
-										<img className="bg-light rounded-circle p-2 mx-auto mb-2 w-80 h-80" alt="" src={testimonial.img} />
+										<img className="bg-light border-radius-20 p-2 mx-auto mb-2 w-80 h-80" alt="" src={testimonial.img} />
 										<div className="mb-2">
 											<AllStars />
 										</div>

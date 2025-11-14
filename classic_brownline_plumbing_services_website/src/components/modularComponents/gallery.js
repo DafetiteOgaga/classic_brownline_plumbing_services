@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const initialTeamSliders = [
+const gallerySlides = [
     {
         id: 1,
         img: require("../../assets/img/team-1.jpg"),
@@ -24,9 +24,7 @@ const initialTeamSliders = [
         img: require("../../assets/img/team-4.jpg"),
         name: "Full Name",
         position: "Designation",
-    }
-]
-const additionalTeamSliders = [
+    },
     {
         id: 5,
         img: require("../../assets/img/team-1.jpg"),
@@ -78,18 +76,30 @@ const additionalTeamSliders = [
 ]
 
 function Gallery({activeSection}) {
-	const [teamSliders, setTeamSliders] = useState([]);
-	useEffect(() => {
-        if (activeSection) {
-            setTeamSliders([...initialTeamSliders, ...additionalTeamSliders]);
-        } else {
-            setTeamSliders(initialTeamSliders);
-        }
-    }, [activeSection])
+	// const [teamSliders, setTeamSliders] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+    const [modalImageIndex, setModalImageIndex] = useState(0);
+	// useEffect(() => {
+    //     if (showModal) {
+    //         setModalImageIndex();
+    //     }
+    // }, [showModal])
     // console.log({
     //     activeSection,
     //     teamSliders
     // })
+    const handleNext = () => {
+        setModalImageIndex((prev) =>
+            prev === gallerySlides.length - 1 ? 0 : prev + 1
+        );
+    };
+    
+    const handlePrev = () => {
+        setModalImageIndex((prev) =>
+            prev === 0 ? gallerySlides.length - 1 : prev - 1
+        );
+    };
+    console.log({showModal})
 	return (
 		<div className={`container-xxl py-5`}>
 			<div className="container">
@@ -98,31 +108,72 @@ function Gallery({activeSection}) {
 					{/* <h1 className="mb-5">Gallery</h1> */}
 				</div>
 				<div className="row g-4">
-					{teamSliders.map((teamPlayer,tIdx) => {
+					{gallerySlides.map((teamPlayer,tIdx) => {
 						return (
 							<div key={teamPlayer.name+tIdx}
 							className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-								<div className="team-item">
+								<div className="team-item"
+                                onClick={() => {
+                                    setModalImageIndex(tIdx);
+                                    setShowModal(true);
+                                }}>
 									<div className="position-relative overflow-hidden border-radius-10">
 										<img className="img-fluid" src={teamPlayer.img} alt="" />
 									</div>
-									{/* <div className="team-text border-br-radius-10 border-bl-radius-10">
-										<div className="bg-light">
-											<h5 className="fw-bold mb-0">{teamPlayer.name}</h5>
-											<small>{teamPlayer.position}</small>
-										</div>
-										<div className="bg-primary">
-											<a className="btn btn-square mx-1 border-radius-10" href="##"><i className="fab fa-facebook-f"></i></a>
-											<a className="btn btn-square mx-1 border-radius-10" href="##"><i className="fab fa-twitter"></i></a>
-											<a className="btn btn-square mx-1 border-radius-10" href="##"><i className="fab fa-instagram"></i></a>
-										</div>
-									</div> */}
 								</div>
 							</div>
 						)
 					})}
 				</div>
 			</div>
+            {/* <div> */}
+            <div className={showModal?'modal-bg':''}
+            // onClick={(e) => {
+            //     // if you clicked directly on the background, close modal
+            //     if (e.target === e.currentTarget) {
+            //         setShowModal(false);
+            //     }
+            // }}
+            >
+                <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal-dialog">
+                        <div className="modal-content border-radius-10">
+                            <div className="modal-header">
+                                <h5 className="modal-title" id="gallery">Gallery of Completed Projects</h5>
+                                <button
+                                onClick={() => setShowModal(false)}
+                                type="button"
+                                className="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"></button>
+                            </div>
+                            <div className="modal-body">
+                                {/* <!-- 16:9 aspect ratio --> */}
+                                <div className="ratio ratio-16x9">
+                                        <img className="img-fluid" src={gallerySlides[modalImageIndex].img} alt="" />
+                                </div>
+
+                                {/* LEFT ARROW */}
+                                <button
+                                    className="carousel-btn prev"
+                                    onClick={handlePrev}
+                                >
+                                    <i className="fa fa-chevron-left dual-arrow-prev"></i>
+                                </button>
+
+                                {/* RIGHT ARROW */}
+                                <button
+                                    className="carousel-btn next"
+                                    onClick={handleNext}
+                                >
+                                    <i className="fa fa-chevron-right dual-arrow-next"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* </div> */}
 		</div>
 	)
 }

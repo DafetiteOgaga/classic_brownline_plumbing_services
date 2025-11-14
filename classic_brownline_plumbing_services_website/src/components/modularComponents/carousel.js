@@ -141,10 +141,10 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
 				</div>
 				{/* Arrows */}
 				<button className="carousel-btn prev" onClick={handlePrevWithFade}>
-					<i className="fa fa-chevron-left"></i>
+					<i className="fa fa-chevron-left dual-arrow-prev"></i>
 				</button>
 				<button className="carousel-btn next" onClick={handleNextWithFade}>
-					<i className="fa fa-chevron-right"></i>
+					<i className="fa fa-chevron-right dual-arrow-next"></i>
 				</button>
 			</div>
 			{/* : */}
