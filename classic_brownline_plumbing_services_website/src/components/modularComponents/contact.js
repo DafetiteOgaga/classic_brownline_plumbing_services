@@ -1,6 +1,6 @@
 
 
-function ContactUs() {
+function ContactUs({address, email}) {
 	return (
 		<div className="container-xxl py-5">
 			<div className="container">
@@ -17,11 +17,11 @@ function ContactUs() {
 							tabIndex="0"></iframe>
 						<div className="d-inline-flex align-items-center me-4">
 							<i className="fa fa-map-marker-alt text-primary me-2"></i>
-							<p className="m-0">123 Street, Brown Ave, South Africa</p>
+							<p className="m-0">{address}</p>
 						</div>
 						<div className="d-inline-flex align-items-center me-4">
 							<i className="far fa-envelope-open text-primary me-2"></i>
-							<p className="m-0">info@example.com</p>
+							<p className="m-0">{email}</p>
 						</div>
 					</div>
 					<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">

@@ -1,16 +1,16 @@
 import { DafetiteFooter } from "../../hooks/dafetiteFooter/dafetiteFooter"
 
 
-function Footer() {
+function Footer({address, phoneNumber1, email}) {
 	return (
 		<div className="container-fluid bg-primary text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
 			<div className="container py-5">
 				<div className="row g-5 justify-content-between">
-					<div className="col-lg-3 col-md-6">
+					<div className="col-lg-5 col-md-6">
 						<h4 className="text-light mb-4">Address</h4>
-						<p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>123 Street, Brown Ave, S/Africa</p>
-						<p className="mb-2"><i className="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-						<p className="mb-2"><i className="fa fa-envelope me-3"></i>info@example.com</p>
+						<p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{address}</p>
+						<p className="mb-2"><i className="fa fa-phone me-3"></i>{phoneNumber1}</p>
+						<p className="mb-2"><i className="fa fa-envelope me-3"></i>{email}</p>
 						<div className="d-flex pt-2">
 							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-twitter"></i></a>
 							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-facebook-f"></i></a>

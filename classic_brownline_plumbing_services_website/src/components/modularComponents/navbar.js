@@ -10,7 +10,7 @@ const headerOptions = [
 ]
 
 const pagesArray = [
-    {to: "booking"},
+    // {to: "booking"},
     {to: "gallery"},
     {to: "testimonials"},
 ]

@@ -38,7 +38,7 @@
 // 								</div>
 // 								<div className="d-flex align-items-center justify-content-between bg-light p-4 border-br-radius-10 border-bl-radius-10">
 // 									<h5 className="text-truncate me-3 mb-0">{service.title}</h5>
-// 									<a className="btn btn-square btn-outline-primary border-2 border-white flex-shrink-0" href="##"><i className="fa fa-arrow-right"></i></a>
+// 									<a className="btn btn-custom btn-outline-primary border-2 border-white flex-shrink-0" href="##"><i className="fa fa-arrow-right"></i></a>
 // 								</div>
 // 							</div>
 // 						)
