@@ -28,7 +28,7 @@ function Topbar() {
 					<div className="h-100 d-inline-flex align-items-center">
 						{topbarSocials.map((social, sIdx) => {
 							return (
-								<a key={social.icon+sIdx} className="btn btn-sm-square bg-white text-primary me-1 border-radius-50" href={social.link}><i className={`fab ${social.icon}`}></i></a>
+								<a key={social.icon+sIdx} className="btn btn-sm-custom bg-white text-primary me-1 border-radius-50" href={social.link}><i className={`fab ${social.icon}`}></i></a>
 							)
 						})}
 					</div>
