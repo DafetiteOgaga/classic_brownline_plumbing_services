@@ -15,7 +15,10 @@ import { TestimonialComponent } from "./testimonialComponent";
 
 const yearFounded = 2010
 const currentYear = new Date().getFullYear();
-const REPO_PREFIX = "/classic_brownline_plumbing_services"; 
+const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
+const phoneNumber1 = "+234 222 333 4444";
+const email = "info@classic-brownline.com"
+const REPO_PREFIX = "/classic_brownline_plumbing_services";
 
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
@@ -190,7 +193,8 @@ function Index() {
                 activeSection={activeSection} />}
 
                 {activeSection==='contact' &&
-                <ContactUs />}
+                <ContactUs address={address}
+                email={email} />}
 
                 {/* Service-hero */}
                 {/* <ServiceHero /> */}
@@ -229,14 +233,17 @@ function Index() {
                 {activeSection==='testimonials' && <TestimonialComponent />}
 
                 {/* Footer */}
-                <Footer />
+                <Footer
+                address={address}
+                email={email}
+                phoneNumber1={phoneNumber1} />
 
                 {/* Back to Top --> */}
                 <a href="##"
                 onClick={(e)=>{
                     handleNavigationScroll(e, 'home');
                 }}
-                className="btn btn-lg btn-primary-color btn-lg-square border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
             </div>}
         </>
     )
