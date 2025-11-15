@@ -103,7 +103,7 @@ function Gallery({activeSection}) {
             prev === 0 ? gallerySlides.length - 1 : prev - 1
         );
     };
-    console.log({activeSection})
+    // console.log({activeSection})
 	return (
 		<div className={`container-xxl py-5`}>
 			<div className="container">
@@ -116,7 +116,7 @@ function Gallery({activeSection}) {
 						return (
 							<div key={teamPlayer.name+tIdx}
 							className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-								<div className="team-item"
+								<div className="gallery-item"
                                 onClick={() => {
                                     setModalImageIndex(tIdx);
                                     setShowModal(true);
