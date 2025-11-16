@@ -243,7 +243,7 @@ function Index() {
                 onClick={(e)=>{
                     handleNavigationScroll(e, 'home');
                 }}
-                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top dual-arrow-back-to-top"><i className="fa fa-arrow-up"></i></a>
             </div>}
         </>
     )
