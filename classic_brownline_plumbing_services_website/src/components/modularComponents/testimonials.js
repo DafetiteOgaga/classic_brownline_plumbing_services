@@ -96,7 +96,7 @@ function Testimonial() {
     const prevSlide = () => {
         setCurrentTestimonialIndex((prev) => (prev - 1 + totalTestimonials) % totalTestimonials);
     };
-    console.log({currentTestimonialIndex});
+    // console.log({currentTestimonialIndex});
 	return (
 		<div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
 			<div className="container">
