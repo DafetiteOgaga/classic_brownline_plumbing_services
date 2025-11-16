@@ -141,7 +141,7 @@ function Gallery({activeSection}) {
             >
                 <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog">
-                        <div className="modal-content border-radius-10">
+                        <div className="modal-content white-bg border-radius-10">
                             <div className="modal-header">
                                 <h5 className="modal-title" id="gallery">Gallery of Completed Projects</h5>
                                 <button

@@ -11,13 +11,13 @@ function Booking() {
 							<form>
 								<div className="row g-3">
 									<div className="col-12 col-sm-6">
-										<input type="text" className="form-control border-0 h-55 border-radius-10" placeholder="Your Name" />
+										<input type="text" className="form-control white-bg border-0 h-55 border-radius-10" placeholder="Your Name" />
 									</div>
 									<div className="col-12 col-sm-6">
-										<input type="email" className="form-control border-0 h-55 border-radius-10" placeholder="Your Email" />
+										<input type="email" className="form-control white-bg border-0 h-55 border-radius-10" placeholder="Your Email" />
 									</div>
 									<div className="col-12 col-sm-6">
-										<select className="form-select border-0 h-55 border-radius-10">
+										<select className="form-select white-bg border-0 h-55 border-radius-10">
 											<option selected>Select A Service</option>
 											<option value="1">Service 1</option>
 											<option value="2">Service 2</option>
@@ -27,12 +27,12 @@ function Booking() {
 									<div className="col-12 col-sm-6">
 										<div className="date" id="date1" data-target-input="nearest">
 											<input type="text"
-												className="form-control border-0 datetimepicker-input h-55 border-radius-10"
+												className="form-control white-bg border-0 datetimepicker-input h-55 border-radius-10"
 												placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" />
 										</div>
 									</div>
 									<div className="col-12">
-										<textarea className="form-control border-0 border-radius-10" placeholder="Special Request"></textarea>
+										<textarea className="form-control white-bg border-0 border-radius-10" placeholder="Special Request"></textarea>
 									</div>
 									<div className="col-12">
 										<button className="btn btn-primary-color w-100 py-3 border-radius-10" type="submit">Book Now</button>
