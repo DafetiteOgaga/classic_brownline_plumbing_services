@@ -93,7 +93,7 @@ function Service({handleNavigationScroll ,yearFounded, currentYear}) {
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Support 24/7</p>
 													<a href="##"
 													onClick={(e)=>handleNavigationScroll(e, "service-details", serviceCard)}
-													className="btn bg-white text-primary w-100 mt-2 border-radius-5">
+													className="btn services-btn text-primary w-100 border-radius-5">
 														Read More
 														<i className="fa fa-arrow-right text-primary ms-2"/>
 													</a>

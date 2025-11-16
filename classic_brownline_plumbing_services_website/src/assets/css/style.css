@@ -4,6 +4,7 @@
     --secondary: #FFA500;
     --light: #EDF1FC;
     --dark: #17224D;
+    --background: #FAFAFB;
 }
 
 .fw-medium {
@@ -34,7 +35,17 @@ html {
     right: 45px;
     bottom: 45px;
     z-index: 99;
+    outline: 1px solid var(--light);
+    outline-offset: -3px;
     /* border: 2px solid #ffffff; */
+}
+.dual-arrow-back-to-top {
+    color: #FFFFFF !important;
+    text-shadow:
+        3px 0 0 var(--primary),   /* right */
+        -1px 0 0 var(--primary),  /* left */
+        0 1px 0 var(--primary),   /* bottom */
+        0 -1px 0 var(--primary);  /* top */
 }
 /* .back-to-top::after {
     position: fixed;
@@ -773,6 +784,14 @@ transform: translateY(-2px); /* small lift for life-like feel */
 .service-carousel .owl-dot.active {
     background: var(--light);
     border-color: var(--primary);
+}
+
+.services-btn {
+    background-color: var(--background);
+}
+.services-btn:hover {
+    background-color: var(--primary);
+    color: #FFFFFF !important;
 }
 
 

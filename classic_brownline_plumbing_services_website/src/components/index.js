@@ -29,6 +29,7 @@ function Index() {
     const [staleTag, setStaleTag] = useState(true);
     const [activeSection, setActiveSection] = useState("");
     const [serviceData, setServiceData] = useState(null);
+    const [carouselReady, setCarouselReady] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -162,12 +163,18 @@ function Index() {
     //     // renderTestimonials,
     // });
     // console.log("Rendering Index component", handleNavigationScroll);
+    const showSpinner = isLoading || !carouselReady;
+    // console.log({
+    //     isLoading,
+    //     carouselReady,
+    //     showSpinner
+    // })
     return (
         <>
             {/* Spinner */}
-            <Spinner isLoading={isLoading} />
+            <Spinner isLoading={showSpinner} />
 
-            {!isLoading &&
+            {
             <div className="app-bg-color">
                 {/* Topbar */}
                 <Topbar />
@@ -182,7 +189,8 @@ function Index() {
                 <Carousel
                 tagText={tagText}
                 handleNavigationScroll={handleNavigationScroll}
-                menuHeadInserted={menuHeadInserted} />
+                menuHeadInserted={menuHeadInserted}
+                onCarouselLoaded={() => setCarouselReady(true)} />
 
                 {/* home */}
                 {activeSection==='' &&
@@ -243,7 +251,7 @@ function Index() {
                 onClick={(e)=>{
                     handleNavigationScroll(e, 'home');
                 }}
-                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top"><i className="fa fa-arrow-up"></i></a>
+                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top dual-arrow-back-to-top"><i className="fa fa-arrow-up"></i></a>
             </div>}
         </>
     )

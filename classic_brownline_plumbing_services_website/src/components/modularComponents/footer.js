@@ -3,8 +3,8 @@ import { DafetiteFooter } from "../../hooks/dafetiteFooter/dafetiteFooter"
 
 function Footer({address, phoneNumber1, email}) {
 	return (
-		<div className="container-fluid bg-primary text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-			<div className="container py-5">
+		<div className="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+			<div className="container py-3">
 				<div className="row g-5 justify-content-between">
 					<div className="col-lg-5 col-md-6">
 						<h4 className="text-light mb-4">Address</h4>
@@ -35,7 +35,7 @@ function Footer({address, phoneNumber1, email}) {
 					</div> */}
 					<div className="col-lg-3 col-md-6">
 						<h4 className="text-light mb-4">Newsletter</h4>
-						<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+						<p>Subscribe to receive industry insights, maintenance advice, and the latest news.</p>
 						<div className="position-relative mx-auto max-h-400">
 							<input className="form-control border-0 w-100 py-3 ps-4 pe-5 border-radius-10" type="text" placeholder="Your email" />
 							<button type="button" className="btn btn-primary-color py-2 position-absolute top-0 end-0 mt-2 me-2 border-radius-10">SignUp</button>
