@@ -42,7 +42,7 @@ const carouselSlides = [
     },
 ];
 
-function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
+function Carousel({menuHeadInserted, tagText, handleNavigationScroll, onCarouselLoaded}) {
 	const [isImageLoaded, setIsImageLoaded] = useState(false);
 	const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState("");
@@ -50,6 +50,44 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll}) {
     const [isSliding, setIsSliding] = useState(false);
     
     const length = carouselSlides.length;
+
+	useEffect(() => {
+		let loadedCount = 0;
+		// console.log("Starting to preload carousel images");
+		const handleAllLoaded = () => {
+			// tell parent that carousel images are ready
+			// console.log("handling loaded images");
+			if (typeof onCarouselLoaded === "function") {
+				// console.log("onCarouselLoaded is a function");
+				onCarouselLoaded();
+			}
+		};
+	
+		// preload all slides
+		carouselSlides.forEach(slide => {
+			const img = new Image();
+			img.src = slide.img;
+			// console.log(`Preloading image: ${slide.img}`);
+			img.onload = () => {
+				// console.log("count:", loadedCount + 1);
+				loadedCount++;
+				if (loadedCount === carouselSlides.length) {
+					// console.log("All carousel images loaded");
+					handleAllLoaded(); // all images loaded
+				}
+			};
+			img.onerror = () => {
+				// console.log(`Error loading image: ${slide.img}`);
+				// console.log("count (with error):", loadedCount + 1);
+				// still count errors as loaded (so spinner doesn’t stay forever)
+				loadedCount++;
+				if (loadedCount === carouselSlides.length) {
+					// console.log("All carousel images attempted to load (with some errors)");
+					handleAllLoaded();
+				}
+			};
+		});
+	}, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
