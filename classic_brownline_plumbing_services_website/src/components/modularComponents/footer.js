@@ -1,4 +1,5 @@
 import { DafetiteFooter } from "../../hooks/dafetiteFooter/dafetiteFooter"
+import { Socials } from "./socials"
 
 
 function Footer({address, phoneNumber1, email}) {
@@ -12,10 +13,11 @@ function Footer({address, phoneNumber1, email}) {
 						<p className="mb-2"><i className="fa fa-phone me-3"></i>{phoneNumber1}</p>
 						<p className="mb-2"><i className="fa fa-envelope me-3"></i>{email}</p>
 						<div className="d-flex pt-2">
-							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-twitter"></i></a>
+							<Socials classStyle="btn btn-outline-light btn-social"/>
+							{/* <a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-twitter"></i></a>
 							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-facebook-f"></i></a>
 							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-youtube"></i></a>
-							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-linkedin-in"></i></a>
+							<a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-linkedin-in"></i></a> */}
 						</div>
 					</div>
 					{/* <div className="col-lg-3 col-md-6">
