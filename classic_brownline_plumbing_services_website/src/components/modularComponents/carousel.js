@@ -42,7 +42,7 @@ const carouselSlides = [
     },
 ];
 
-function Carousel({menuHeadInserted, tagText, handleNavigationScroll, onCarouselLoaded}) {
+function Carousel({onCarouselLoaded}) {
 	const [isImageLoaded, setIsImageLoaded] = useState(false);
 	const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState("");
@@ -133,9 +133,9 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll, onCarousel
     };
     const slide = carouselSlides[current];
 	return (
-		<div className={`container-fluid mb-5 position-relative ${!menuHeadInserted?'p-0':'page-header py-5'} ${tagText.toLowerCase()==='service-details'?'d-none':''}`} id={tagText.toLowerCase()}>
+		<div className={`container-fluid mb-5 position-relative p-0`}>
 			{/* Spinner */}
-			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden ${!menuHeadInserted?'':'d-none'}`}>
+			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden`}>
 				<div className="owl-stage-outer">
 					<div className="owl-stage"
 					style={{
@@ -186,19 +186,7 @@ function Carousel({menuHeadInserted, tagText, handleNavigationScroll, onCarousel
 				</button>
 			</div>
 			{/* : */}
-			<div className={`container ${menuHeadInserted?'':'d-none'}`}>
-				<h1 className="display-3 text-white mb-3 animated littleSlideInDown">{titleCase(tagText)}</h1>
-				<nav aria-label="breadcrumb animated slideInDown">
-					<ol className="breadcrumb text-uppercase">
-						<li className="breadcrumb-item"><a className="text-white" href="##"
-						onClick={(e)=>{
-							handleNavigationScroll(e, 'home');
-						}}>Home</a></li>
-						{/* <li className="breadcrumb-item"><a className="text-white" href="##">Pages</a></li> */}
-						<li className="breadcrumb-item text-white active" aria-current="page">{titleCase(tagText)}</li>
-					</ol>
-				</nav>
-			</div>
+			
 			{/* } */}
 		</div>
 	)
