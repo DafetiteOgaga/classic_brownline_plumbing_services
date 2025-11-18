@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Pagerousel } from "./pagerousel";
+import { useDeviceInfo, useDeviceType } from "../../hooks/deviceType";
 
 const gallerySlides = [
     {
@@ -80,6 +81,8 @@ const additionalGallerySlides = [
 ]
 
 function Gallery() {
+    const deviceInfo = useDeviceInfo();
+    const deviceType = useDeviceType();
     const galleryPage = useLocation().pathname.split('/')[1]
 	const [teamSliders, setTeamSliders] = useState([]);
     const [showModal, setShowModal] = useState(false);
@@ -107,6 +110,7 @@ function Gallery() {
         );
     };
     // console.log({galleryPage})
+    console.log({ deviceInfo, deviceType})
 	return (
         <>
             <Pagerousel />
@@ -148,7 +152,7 @@ function Gallery() {
                         <div className="modal-dialog">
                             <div className="modal-content white-bg border-radius-10">
                                 <div className="modal-header">
-                                    <h5 className="modal-title" id="gallery">Gallery of Completed Projects</h5>
+                                    <h5 className="modal-title" id="gallery">Gallery of Completed Projects ({deviceInfo.deviceInfo}: {deviceInfo.width}px)</h5>
                                     <button
                                     onClick={() => setShowModal(false)}
                                     type="button"
