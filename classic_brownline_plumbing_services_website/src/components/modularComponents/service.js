@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 
 const serviceCardsSlides = [
 	{
@@ -44,6 +45,7 @@ const serviceCardsSlides = [
 ]
 
 function Service({handleNavigationScroll ,yearFounded, currentYear}) {
+	const navigate = useNavigate();
 	// console.log("Rendering Service component", handleNavigationScroll);
 	const [currentServiceCardIndex, setCurrentServiceCardIndex] = useState(0);
     const totalServiceCards = serviceCardsSlides.length;
@@ -91,12 +93,14 @@ function Service({handleNavigationScroll ,yearFounded, currentYear}) {
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Quality Service</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Customer Satisfaction</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Support 24/7</p>
-													<a href="##"
-													onClick={(e)=>handleNavigationScroll(e, "service-details", serviceCard)}
+													<Link
+													to={`detail/${encodeURIComponent(serviceCard.title)}`}
+													state={serviceCard}
+													// onClick={(e)=>navigate(`detail/${scIdx}`, {state: serviceCard})}
 													className="btn services-btn text-primary w-100 border-radius-5">
 														Read More
 														<i className="fa fa-arrow-right text-primary ms-2"/>
-													</a>
+													</Link>
 												</div>
 											</div>
 										)
