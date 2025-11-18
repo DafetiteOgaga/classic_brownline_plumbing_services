@@ -3,13 +3,13 @@ import { Spinner } from "../hooks/spinner";
 import { Topbar } from "./modularComponents/topbar";
 import { Navbar } from "./modularComponents/navbar";
 import { Footer } from "./modularComponents/footer";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 
 // topbar, nav, carouse, services, fact, booking, gallery, testimonial, footer
 const yearFounded = 2010
 const currentYear = new Date().getFullYear();
 const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
-const phoneNumber1 = "+234 222 333 4444";
+const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
 
 function Index() {
@@ -69,9 +69,10 @@ function Index() {
 
     const showSpinner = isLoading || !carouselReady;
     // console.log({
-    //     isLoading,
-    //     carouselReady,
-    //     showSpinner
+    //     // isLoading,
+    //     // carouselReady,
+    //     // showSpinner
+    //     scrollY
     // })
     return (
         <>
@@ -101,11 +102,15 @@ function Index() {
                 phoneNumber1={phoneNumber1} />
 
                 {/* Back to Top --> */}
-                <a href="##"
+                {scrollY>1000 ?
+                <Link to="#"
                 onClick={(e)=>{
                     handleNavigationScroll(e, 'top');
                 }}
-                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top dual-arrow-back-to-top"><i className="fa fa-arrow-up"></i></a>
+                className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top dual-arrow-back-to-top">
+                    <i className="fa fa-arrow-up"></i>
+                </Link>
+                :null}
             </div>}
         </>
     )
