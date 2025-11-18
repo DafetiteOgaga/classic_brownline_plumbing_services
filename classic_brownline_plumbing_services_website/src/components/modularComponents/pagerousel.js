@@ -12,10 +12,10 @@ function Pagerousel() {
 	if (location[1].toLowerCase() === '') {
 		return null;
 	}
-	console.log({
-		locations: location,
-		length: location.length
-	})
+	// console.log({
+	// 	locations: location,
+	// 	length: location.length
+	// })
 	let title;
 	let page = location[1];
 	if (location.length > 2) {
@@ -28,10 +28,10 @@ function Pagerousel() {
 			page = 'services'
 		}
 	}
-	console.log({
-		page: page,
-		title: title
-	})
+	// console.log({
+	// 	page: page,
+	// 	title: title
+	// })
 	return (
 		<div className={`container-fluid mb-5 position-relative page-header py-5 ${page.toLowerCase()==='service-details'?'d-none':''}`} id={page.toLowerCase()}>
 			<div className={`container`}>
