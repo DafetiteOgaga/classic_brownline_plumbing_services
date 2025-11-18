@@ -11,6 +11,7 @@ const currentYear = new Date().getFullYear();
 const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
 const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
+const siteName = "Classic Brownline"
 
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
@@ -92,13 +93,17 @@ function Index() {
                 onCarouselLoaded: () => setCarouselReady(true),
                 yearFounded,
                 currentYear,
-                address, email, phoneNumber1
+                address,
+                email,
+                phoneNumber1,
+                siteName
                 }}/>
 
                 {/* Footer */}
                 <Footer
                 address={address}
                 email={email}
+                siteName={siteName}
                 phoneNumber1={phoneNumber1} />
 
                 {/* Back to Top --> */}

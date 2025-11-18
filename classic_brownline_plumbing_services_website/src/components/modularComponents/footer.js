@@ -2,7 +2,7 @@ import { DafetiteFooter } from "../../hooks/dafetiteFooter/dafetiteFooter"
 import { Socials } from "./socials"
 
 
-function Footer({address, phoneNumber1, email}) {
+function Footer({address, phoneNumber1, email, siteName}) {
 	return (
 		<div className="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
 			<div className="container py-3">
@@ -45,7 +45,7 @@ function Footer({address, phoneNumber1, email}) {
 					</div>
 					<div className="col-lg-3 col-md-6">
 						<h5 className="text-light text-center text-uppercase">
-							<span className="" href="##">Classic Brown</span>
+							<span className="" href="##">{siteName}</span>
 						</h5>
 						<h5 className="text-light text-center mb-4">
 							<span className="" href="##">All Rights Reserved.</span>
@@ -56,18 +56,6 @@ function Footer({address, phoneNumber1, email}) {
 					</div>
 				</div>
 			</div>
-			{/* <div className="container">
-				<div className="copyright">
-					<div className="row">
-						<div className="col-md-6 text-center text-md-start mb-3 mb-md-0">
-							&copy; <a className="border-bottom" href="##">Classic Brown</a>, All Right Reserved.
-						</div>
-						<div className="col-md-6 text-center text-md-end">
-							Developed By <a className="border-bottom" href="##">Dafetite</a>
-						</div>
-					</div>
-				</div>
-			</div> */}
 		</div>
 	)
 }
