@@ -1,0 +1,50 @@
+<svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Faucet/tap icon - instantly recognizable -->
+  <g transform="translate(50, 60)">
+    <!-- Faucet spout -->
+    <path d="M 30 20 Q 20 20 15 25 Q 10 30 10 40 L 10 50 L 18 50 L 18 40 Q 18 35 22 32 Q 26 29 30 29 Z" 
+          fill="#014569"/>
+    
+    <!-- Faucet body/wall mount -->
+    <rect x="30" y="15" width="35" height="20" fill="#014569" rx="2"/>
+    
+    <!-- Control handle -->
+    <ellipse cx="47" cy="10" rx="12" ry="8" fill="#014569"/>
+    <rect x="44" y="10" width="6" height="8" fill="#014569"/>
+    
+    <!-- Water drops -->
+    <circle cx="14" cy="58" r="3" fill="#014569" opacity="0.6"/>
+    <circle cx="10" cy="65" r="2.5" fill="#014569" opacity="0.5"/>
+    <circle cx="17" cy="64" r="2" fill="#014569" opacity="0.4"/>
+  </g>
+  
+  <!-- CLASSIC text -->
+  <text x="120" y="80" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="44" 
+        font-weight="300" 
+        fill="#014569" 
+        letter-spacing="6">CLASSIC</text>
+  
+  <!-- BROWNLINE text - bold -->
+  <text x="120" y="125" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="52" 
+        font-weight="700" 
+        fill="#014569" 
+        letter-spacing="4">BROWNLINE</text>
+  
+  <!-- Extended line matching BROWNLINE width - orange accent -->
+  <rect x="120" y="135" width="360" height="3" fill="#FFA500"/>
+  
+  <!-- Tagline -->
+  <text x="120" y="155" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="14" 
+        font-weight="400" 
+        fill="#014569" 
+        letter-spacing="3" 
+        opacity="0.7">PLUMBING SERVICES</text>
+
+</svg>
