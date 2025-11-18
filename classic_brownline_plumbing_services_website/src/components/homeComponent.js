@@ -5,17 +5,27 @@ import { Service } from "./modularComponents/service";
 import { Booking } from "./modularComponents/booking";
 import { Gallery } from "./modularComponents/gallery";
 import { Testimonial } from "./modularComponents/testimonials";
+import { useOutletContext } from "react-router-dom";
+import { Carousel } from "./modularComponents/carousel";
 
-function HomeComponent({handleNavigationScroll, yearFounded, currentYear, activeSection}) {
+function HomeComponent() {
+	const { onCarouselLoaded, yearFounded, currentYear } = useOutletContext();
 	// console.log("Rendering HomeComponent:", handleNavigationScroll);
 	return (
 		<>
 			{/* Service-hero */}
 			{/* <ServiceHero /> */}
 
+			{/* Carousel */}
+			<Carousel
+			// tagText={tagText}
+			// handleNavigationScroll={handleNavigationScroll}
+			// menuHeadInserted={menuHeadInserted}
+			onCarouselLoaded={onCarouselLoaded} />
+
 			{/* Service */}
 			<Service
-			handleNavigationScroll={handleNavigationScroll}
+			// handleNavigationScroll={handleNavigationScroll}
 			yearFounded={yearFounded}
 			currentYear={currentYear} />
 
@@ -32,8 +42,7 @@ function HomeComponent({handleNavigationScroll, yearFounded, currentYear, active
 			<Booking />
 
 			{/* Team */}
-			<Gallery
-			activeSection={activeSection} />
+			<Gallery />
 
 			{/* Testimonial */}
 			<Testimonial />

@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { Pagerousel } from "./pagerousel";
 
 const gallerySlides = [
     {
@@ -77,19 +79,20 @@ const additionalGallerySlides = [
     }
 ]
 
-function Gallery({activeSection}) {
+function Gallery() {
+    const galleryPage = useLocation().pathname.split('/')[1]
 	const [teamSliders, setTeamSliders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [modalImageIndex, setModalImageIndex] = useState(0);
 	useEffect(() => {
-        if (activeSection) {
+        if (galleryPage==='gallery') {
             setTeamSliders([...gallerySlides, ...additionalGallerySlides]);
         } else {
             setTeamSliders(gallerySlides);
         }
     }, [showModal])
     // console.log({
-    //     activeSection,
+    //     galleryPage,
     //     teamSliders
     // })
     const handleNext = () => {
@@ -103,82 +106,85 @@ function Gallery({activeSection}) {
             prev === 0 ? gallerySlides.length - 1 : prev - 1
         );
     };
-    // console.log({activeSection})
+    // console.log({galleryPage})
 	return (
-		<div className={`container-xxl py-5`}>
-			<div className="container">
-				<div className="text-center wow fadeInUp" data-wow-delay="0.1s">
-					{/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
-					{activeSection==='' ? <h1 className="mb-5">Completed Projects</h1> : ''}
-				</div>
-				<div className="row g-4">
-					{teamSliders.map((teamPlayer,tIdx) => {
-						return (
-							<div key={teamPlayer.name+tIdx}
-							className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-								<div className="gallery-item"
-                                onClick={() => {
-                                    setModalImageIndex(tIdx);
-                                    setShowModal(true);
-                                }}>
-									<div className="position-relative overflow-hidden border-radius-10">
-										<img className="img-fluid" src={teamPlayer.img} alt="" />
-									</div>
-								</div>
-							</div>
-						)
-					})}
-				</div>
-			</div>
-            {/* <div> */}
-            <div className={showModal?'modal-bg':''}
-            // onClick={(e) => {
-            //     // if you clicked directly on the background, close modal
-            //     if (e.target === e.currentTarget) {
-            //         setShowModal(false);
-            //     }
-            // }}
-            >
-                <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog">
-                        <div className="modal-content white-bg border-radius-10">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="gallery">Gallery of Completed Projects</h5>
-                                <button
-                                onClick={() => setShowModal(false)}
-                                type="button"
-                                className="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"></button>
-                            </div>
-                            <div className="modal-body">
-                                {/* <!-- 16:9 aspect ratio --> */}
-                                <div className="ratio ratio-16x9">
-                                        <img className="img-fluid" src={teamSliders?.[modalImageIndex]?.img} alt="" />
+        <>
+            <Pagerousel />
+            <div className={`container-xxl py-5`}>
+                <div className="container">
+                    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                        {/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
+                        {galleryPage==='' ? <h1 className="mb-5">Completed Projects</h1> : ''}
+                    </div>
+                    <div className="row g-4">
+                        {teamSliders.map((teamPlayer,tIdx) => {
+                            return (
+                                <div key={teamPlayer.name+tIdx}
+                                className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                    <div className="gallery-item"
+                                    onClick={() => {
+                                        setModalImageIndex(tIdx);
+                                        setShowModal(true);
+                                    }}>
+                                        <div className="position-relative overflow-hidden border-radius-10">
+                                            <img className="img-fluid" src={teamPlayer.img} alt="" />
+                                        </div>
+                                    </div>
                                 </div>
+                            )
+                        })}
+                    </div>
+                </div>
+                {/* <div> */}
+                <div className={showModal?'modal-bg':''}
+                // onClick={(e) => {
+                //     // if you clicked directly on the background, close modal
+                //     if (e.target === e.currentTarget) {
+                //         setShowModal(false);
+                //     }
+                // }}
+                >
+                    <div className={`modal fade modal-box ${showModal?'show':'hide'} fadeInUp`} id="gallery-modal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal-dialog">
+                            <div className="modal-content white-bg border-radius-10">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="gallery">Gallery of Completed Projects</h5>
+                                    <button
+                                    onClick={() => setShowModal(false)}
+                                    type="button"
+                                    className="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                                </div>
+                                <div className="modal-body">
+                                    {/* <!-- 16:9 aspect ratio --> */}
+                                    <div className="ratio ratio-16x9">
+                                            <img className="img-fluid" src={teamSliders?.[modalImageIndex]?.img} alt="" />
+                                    </div>
 
-                                {/* LEFT ARROW */}
-                                <button
-                                    className="carousel-btn prev"
-                                    onClick={handlePrev}
-                                >
-                                    <i className="fa fa-chevron-left dual-arrow-prev"></i>
-                                </button>
+                                    {/* LEFT ARROW */}
+                                    <button
+                                        className="carousel-btn prev"
+                                        onClick={handlePrev}
+                                    >
+                                        <i className="fa fa-chevron-left dual-arrow-prev"></i>
+                                    </button>
 
-                                {/* RIGHT ARROW */}
-                                <button
-                                    className="carousel-btn next"
-                                    onClick={handleNext}
-                                >
-                                    <i className="fa fa-chevron-right dual-arrow-next"></i>
-                                </button>
+                                    {/* RIGHT ARROW */}
+                                    <button
+                                        className="carousel-btn next"
+                                        onClick={handleNext}
+                                    >
+                                        <i className="fa fa-chevron-right dual-arrow-next"></i>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {/* </div> */}
             </div>
-            {/* </div> */}
-		</div>
+        </>
 	)
 }
 

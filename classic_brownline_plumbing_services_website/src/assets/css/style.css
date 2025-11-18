@@ -1,10 +1,15 @@
 /********** Template CSS **********/
 :root {
-    --primary: #0A3D62;
+    --primary: #014569;
+    /* --primary: #0A3D62; */
     --secondary: #FFA500;
     --light: #EDF1FC;
     --dark: #17224D;
     --background: #FAFAFB;
+}
+
+h1 {
+    color: var(--primary);
 }
 
 .fw-medium {

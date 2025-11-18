@@ -6,10 +6,11 @@ import './assets/css/bootstrap.min.css';
 import './assets/css/style.css';
 import './assets/css/animate.css';
 import { Index } from './components';
+import { AppRoutes } from './routes/routes';
 
 function App() {
   return (
-    <Index />
+    <AppRoutes />
   );
 }
 
