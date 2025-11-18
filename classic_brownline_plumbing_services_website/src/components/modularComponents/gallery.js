@@ -140,7 +140,8 @@ function Gallery() {
                     </div>
                 </div>
                 {/* <div> */}
-                <div className={showModal?'modal-bg':''}
+                {/* disabled modal */}
+                <div className={`d-none ${showModal?'modal-bg':''}`}
                 // onClick={(e) => {
                 //     // if you clicked directly on the background, close modal
                 //     if (e.target === e.currentTarget) {
