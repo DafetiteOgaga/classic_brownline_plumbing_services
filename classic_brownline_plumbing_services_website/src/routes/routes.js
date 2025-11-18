@@ -11,6 +11,8 @@ import { Gallery } from '../components/modularComponents/gallery';
 import { TestimonialComponent } from '../components/testimonialComponent';
 import { ContactUs } from '../components/modularComponents/contact';
 
+import { Logos } from '../components/modularComponents/logos'; // test, remove later
+
 function AppRoutes() {
 	return (
 		<Routes>
@@ -29,6 +31,8 @@ function AppRoutes() {
 				{/* page not found and unauthorised */}
 				{/* <Route path="unauthorised" element={<Unauthorised />} />
 				<Route path="*" element={<PageNotFound />} /> */}
+				{/* // test, remove later */}
+				<Route path="logos" element={<Logos />} />
 			</Route>
 		</Routes>
 	);
