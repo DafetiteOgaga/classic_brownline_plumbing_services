@@ -1,0 +1,51 @@
+<svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- House with pipes icon - complete plumbing service -->
+  <g transform="translate(50, 38)">
+    <!-- House roof -->
+    <path d="M 20 35 L 45 15 L 70 35 Z" fill="#014569"/>
+    
+    <!-- House body -->
+    <rect x="25" y="35" width="40" height="40" fill="#014569" rx="2"/>
+    
+    <!-- Pipes coming out bottom -->
+    <rect x="35" y="75" width="6" height="20" fill="#014569" rx="1"/>
+    <rect x="49" y="75" width="6" height="20" fill="#014569" rx="1"/>
+    
+    <!-- Water drops at pipe ends -->
+    <circle cx="38" cy="97" r="2" fill="#014569" opacity="0.5"/>
+    <circle cx="52" cy="97" r="2" fill="#014569" opacity="0.5"/>
+    
+    <!-- Window detail -->
+    <rect x="38" y="45" width="14" height="12" fill="#EDF1FC" opacity="0.3" rx="1"/>
+  </g>
+  
+  <!-- CLASSIC text -->
+  <text x="120" y="80" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="44" 
+        font-weight="300" 
+        fill="#014569" 
+        letter-spacing="6">CLASSIC</text>
+  
+  <!-- BROWNLINE text - bold -->
+  <text x="120" y="125" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="52" 
+        font-weight="700" 
+        fill="#014569" 
+        letter-spacing="4">BROWNLINE</text>
+  
+  <!-- Extended line matching BROWNLINE width - orange accent -->
+  <rect x="120" y="135" width="360" height="3" fill="#FFA500"/>
+  
+  <!-- Tagline -->
+  <text x="120" y="155" 
+        font-family="'Helvetica', 'Arial', sans-serif" 
+        font-size="14" 
+        font-weight="400" 
+        fill="#014569" 
+        letter-spacing="3" 
+        opacity="0.7">PLUMBING SERVICES</text>
+
+</svg>
