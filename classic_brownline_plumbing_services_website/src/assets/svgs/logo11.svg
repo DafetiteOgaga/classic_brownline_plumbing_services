@@ -1,0 +1,29 @@
+<svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Dual royal rings -->
+  <circle cx="90" cy="90" r="50" stroke="#014569" stroke-width="4" fill="none"/>
+  <circle cx="90" cy="90" r="30" stroke="#FFA500" stroke-width="3" fill="none"/>
+
+      <!-- Background rectangle -->
+      <rect x="94" y="70" width="53" height="35" fill="#fff" />
+
+      <!-- Monogram -->
+      <text x="97" y="99"
+            font-family="Playfair Display, serif"
+            font-size="36"
+            font-weight="700"
+            fill="#014569">CB</text>
+
+      <text x="155" y="80"
+            font-family="Spectral, serif"
+            font-size="44"
+            fill="#014569"
+            letter-spacing="5">CLASSIC</text>
+
+      <text x="155" y="130"
+            font-family="Spectral, serif"
+            font-size="55"
+            font-weight="700"
+            fill="#014569">BROWNLINE</text>
+
+</svg>

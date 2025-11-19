@@ -1,6 +1,7 @@
 /********** Template CSS **********/
 :root {
     --primary: #014569;
+    --primaryShadow: #01456934;
     /* --primary: #0A3D62; */
     --secondary: #FFA500;
     --light: #EDF1FC;
@@ -430,7 +431,7 @@ transform: translateY(-2px); /* small lift for life-like feel */
 
 /*** navbar to top btn ***/
 .top-bar {
-    /* height: 75px; */
+    height: 73px;
     padding: 0 4rem;
 }
 
@@ -458,7 +459,7 @@ transform: translateY(-2px); /* small lift for life-like feel */
 
 .navbar-light .navbar-nav .nav-link-container {
     /* margin-right: 30px; */
-    padding: 15px 3px;
+    padding: 5px 3px;
     /* color: var(--dark); */
     /* font-size: 15px; */
     /* font-weight: 600; */
@@ -484,6 +485,22 @@ transform: translateY(-2px); /* small lift for life-like feel */
     color: var(--light);
     border-radius: 4px;
     /* transform: skewX(-20deg); */
+}
+
+.site-logo {
+    /* width: 100%; */
+    height: auto;         /* scale proportionally */
+    display: block;       /* remove extra inline spacing */
+    transition: transform 0.3s ease, filter 0.3s ease; /* smooth hover effect */
+}
+
+.site-logo:hover {
+    transform: scale(1.03);    /* slightly enlarge on hover */
+    filter: drop-shadow(0 0 5px var(--primaryShadow)); /* optional glow/shadow */
+}
+.site-logo:active {
+    transform: scale(1);
+    /* filter: drop-shadow(0 0 5px var(--primaryShadow)); */
 }
 
 @media (max-width: 991.98px) {

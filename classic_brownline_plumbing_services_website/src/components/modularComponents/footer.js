@@ -1,5 +1,6 @@
 import { DafetiteFooter } from "../../hooks/dafetiteFooter/dafetiteFooter"
 import { Socials } from "./socials"
+import { JustSiteLogo } from "../../assets/svgs/siteLogo"
 
 
 function Footer({address, phoneNumber1, email, siteName}) {
@@ -43,13 +44,15 @@ function Footer({address, phoneNumber1, email, siteName}) {
 							<button type="button" className="btn btn-primary-color py-2 position-absolute top-0 end-0 mt-2 me-2 border-radius-10">SignUp</button>
 						</div>
 					</div>
-					<div className="col-lg-3 col-md-6">
-						<h5 className="text-light text-center text-uppercase">
-							<span className="" href="##">{siteName}</span>
-						</h5>
-						<h5 className="text-light text-center mb-4">
+					<div className="col-lg-3 col-md-6 d-flex flex-column justify-content-center">
+						<div className="text-light text-center">
+							<span className="">{siteName}</span>
+							{/* <JustSiteLogo mainColor="#FFFFFF" accentColor="#FFA500" size={900} /> */}
+						</div>
+						
+						<div className="text-light text-center">
 							<span className="" href="##">All Rights Reserved.</span>
-						</h5>
+						</div>
 						<div className="text-center">
 							<DafetiteFooter />
 						</div>

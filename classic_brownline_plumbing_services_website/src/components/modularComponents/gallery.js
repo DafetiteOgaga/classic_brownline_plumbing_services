@@ -110,7 +110,7 @@ function Gallery() {
         );
     };
     // console.log({galleryPage})
-    console.log({ deviceInfo, deviceType})
+    // console.log({ deviceInfo, deviceType})
 	return (
         <>
             <Pagerousel />
