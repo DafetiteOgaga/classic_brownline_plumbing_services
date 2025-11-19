@@ -139,7 +139,7 @@ function Carousel({onCarouselLoaded}) {
 			{/* Spinner */}
 			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden`}>
 				<div className="owl-stage-outer">
-					<div className="owl-stage"
+					<div className="owl-stage min-H-carousel"
 					style={{
 						transform: `translate3d(-0, 0, 0)`, // <-- move horizontally
 						transition: "transform 1.5s ease-in-out", // smooth animation
