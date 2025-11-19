@@ -1,22 +1,23 @@
 <svg viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
   
-  <!-- Faucet/tap icon - instantly recognizable -->
-  <g transform="translate(50, 60)">
-    <!-- Faucet spout -->
-    <path d="M 30 20 Q 20 20 15 25 Q 10 30 10 40 L 10 50 L 18 50 L 18 40 Q 18 35 22 32 Q 26 29 30 29 Z" 
-          fill="#014569"/>
+  <!-- House with pipes icon - complete plumbing service -->
+  <g transform="translate(50, 38)">
+    <!-- House roof -->
+    <path d="M 20 35 L 45 15 L 70 35 Z" fill="#014569"/>
     
-    <!-- Faucet body/wall mount -->
-    <rect x="30" y="15" width="35" height="20" fill="#014569" rx="2"/>
+    <!-- House body -->
+    <rect x="25" y="35" width="40" height="40" fill="#014569" rx="2"/>
     
-    <!-- Control handle -->
-    <ellipse cx="47" cy="10" rx="12" ry="8" fill="#014569"/>
-    <rect x="44" y="10" width="6" height="8" fill="#014569"/>
+    <!-- Pipes coming out bottom -->
+    <rect x="35" y="75" width="6" height="20" fill="#014569" rx="1"/>
+    <rect x="49" y="75" width="6" height="20" fill="#014569" rx="1"/>
     
-    <!-- Water drops -->
-    <circle cx="14" cy="58" r="3" fill="#014569" opacity="0.6"/>
-    <circle cx="10" cy="65" r="2.5" fill="#014569" opacity="0.5"/>
-    <circle cx="17" cy="64" r="2" fill="#014569" opacity="0.4"/>
+    <!-- Water drops at pipe ends -->
+    <circle cx="38" cy="97" r="2" fill="#014569" opacity="0.5"/>
+    <circle cx="52" cy="97" r="2" fill="#014569" opacity="0.5"/>
+    
+    <!-- Window detail -->
+    <rect x="38" y="45" width="14" height="12" fill="#EDF1FC" opacity="0.3" rx="1"/>
   </g>
   
   <!-- CLASSIC text -->
@@ -44,7 +45,7 @@
         font-size="14" 
         font-weight="400" 
         fill="#014569" 
-        letter-spacing="3" 
+        letter-spacing="13" 
         opacity="0.7">PLUMBING SERVICES</text>
 
 </svg>

@@ -1,0 +1,25 @@
+<svg viewBox="0 0 660 200" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Monogram CB -->
+  <path d="
+      M80 50 V150 
+      M80 50 H130 A30 30 0 0 1 130 110 H80
+      M130 110 H170 A30 30 0 0 1 170 150 H130
+    " 
+    stroke="#014569" 
+    stroke-width="12"
+    stroke-linecap="round"
+    fill="none" />
+
+  <text x="188" y="100" font-size="42" fill="#014569" font-family="Arial" letter-spacing="1">
+    CLASSIC BROWNLINE
+  </text>
+
+  <!-- Background rectangle -->
+  <rect x="188" y="115" width="472" height="40" fill="#014569" rx="5" />
+  
+  <text x="195" y="140" font-size="20" fill="#fff" font-family="Arial" letter-spacing="3">
+    WATER • GAS • PIPEFITTING • REPAIR
+  </text>
+
+</svg>
