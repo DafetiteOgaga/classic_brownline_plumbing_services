@@ -574,6 +574,7 @@ transform: translateY(-2px); /* small lift for life-like feel */
 
 .owl-carousel .owl-stage {
     position: relative;
+    min-height: 800px;
     -ms-touch-action: pan-Y;
     -moz-backface-visibility: hidden;
     /* fix firefox animation glitch */
