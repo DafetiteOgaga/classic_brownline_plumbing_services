@@ -1,0 +1,40 @@
+<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .blue { fill:#014569; }
+      .gold { fill:#FFA500; }
+      .sans { font-family:'Helvetica', sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Crown made out of pipe shapes -->
+  <g transform="translate(30,10)">
+    <rect x="0" y="40" width="90" height="10" class="blue" rx="3"/>
+    <circle cx="10" cy="25" r="7" class="gold"/>
+    <circle cx="45" cy="15" r="7" class="gold"/>
+    <circle cx="80" cy="25" r="7" class="gold"/>
+  </g>
+
+  <text x="125" y="40" font-size="48" 
+  font-family="'Helvetica', 'Arial', sans-serif" 
+  fill="#014569"
+  style="font-weight:300; letter-spacing:5;">
+    CLASSIC
+  </text>
+  <text x="125" y="90" font-size="56"
+  font-family="'Helvetica', 'Arial', sans-serif" 
+  fill="#014569"
+  style="font-weight:600; letter-spacing:5;">
+    BROWNLINE
+  </text>
+
+  <!-- Background rectangle -->
+  <rect x="30" y="95" width="480" height="40" fill="#014569" rx="5" />
+
+  <text x="35" y="120" font-size="18"
+  font-family="sans"
+  fill="#FFFFFF"
+  style="letter-spacing:8;">
+    PREMIUM PLUMBING SERVICES
+  </text>
+</svg>
