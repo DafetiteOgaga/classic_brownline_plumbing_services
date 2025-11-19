@@ -132,6 +132,8 @@ function Carousel({onCarouselLoaded}) {
         }, 800);
     };
     const slide = carouselSlides[current];
+	const showSpinner = !isImageLoaded;
+	// console.log({showSpinner});
 	return (
 		<div className={`container-fluid mb-5 position-relative p-0`}>
 			{/* Spinner */}
@@ -143,13 +145,14 @@ function Carousel({onCarouselLoaded}) {
 						transition: "transform 1.5s ease-in-out", // smooth animation
 					}}>
 						{/* Spinner */}
-						{!isImageLoaded && (
-						<div id="spinner" className="show position-fixed translate-middle w-100 h-100 top-50 start-50 d-flex align-items-center justify-content-center">
+						<div
+						id="spinner"
+						className={`${showSpinner?'show':''} app-bg-color position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center`}>
 							<div className="spinner-border text-primary w-3rem h-3rem" role="status">
 								<span className="sr-only"/>
 							</div>
-						</div>)}
-						{/* Spinner */}
+						</div>)
+
 						<img
 						key={slide.id}
 						className={`img-fluid carousel-slide ${
@@ -158,7 +161,11 @@ function Carousel({onCarouselLoaded}) {
 							}`}
 						src={slide.img}
 						alt={slide.title}
-						onLoad={() => setIsImageLoaded(true)} // image ready
+						onLoad={(e) => {
+							setIsImageLoaded(true);
+							// console.log({height: e.target.naturalHeight, width: e.target.naturalWidth});
+							// console.log({offHeight: e.target.offsetHeight, offWidth: e.target.offsetWidth});
+						}} // image ready
 						onError={() => console.error(`Failed to load image: ${slide.img}`)}
 						/>
 						<div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center bg-0004">
