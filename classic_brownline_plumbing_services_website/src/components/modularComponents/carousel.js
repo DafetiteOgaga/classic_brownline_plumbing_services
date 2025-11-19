@@ -151,7 +151,7 @@ function Carousel({onCarouselLoaded}) {
 							<div className="spinner-border text-primary w-3rem h-3rem" role="status">
 								<span className="sr-only"/>
 							</div>
-						</div>)
+						</div>
 
 						<img
 						key={slide.id}
