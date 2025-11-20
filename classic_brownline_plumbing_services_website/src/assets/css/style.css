@@ -1005,3 +1005,38 @@ transform: translateY(-2px); /* small lift for life-like feel */
 .footer .copyright a {
     color: var(--light);
 }
+
+/* ################################################# */
+/* ====================
+Firefox
+==================== */
+@-moz-document url-prefix() {
+    * {
+      scrollbar-width: thin;                  /* 'auto' or 'thin' */
+      scrollbar-color: var(--primary) transparent;   /* thumb | track */
+    }
+}
+
+/* ====================
+WebKit (Chrome, Edge, Safari)
+==================== */
+@supports selector(::-webkit-scrollbar) {
+    ::-webkit-scrollbar {
+      width: 8px;   /* vertical */
+      height: 8px;  /* horizontal */
+    }
+
+    ::-webkit-scrollbar-track {
+        background: var(--background);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--primary);
+        border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--primaryShadow);
+    }
+}
