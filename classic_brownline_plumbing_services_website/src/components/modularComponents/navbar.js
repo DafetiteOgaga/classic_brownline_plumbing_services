@@ -9,7 +9,7 @@ const headerOptions = [
 	{to: "services"},
     {to: "##"},
     {to: "contact"},
-	{to: "logos"}, // test, remove later
+	// {to: "logos"}, // test, remove later
 ]
 
 const pagesArray = [
