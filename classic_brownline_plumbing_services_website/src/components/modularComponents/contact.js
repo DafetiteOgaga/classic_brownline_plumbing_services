@@ -3,7 +3,7 @@ import { Pagerousel } from "./pagerousel"
 import { useOutletContext } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useBrevoEmail, getKey } from "../../hooks/useBrevoEmail";
-import { siteName } from "../index";
+import { siteName, formEmail } from "../index";
 
 const formInputValues = [
 	{
@@ -74,7 +74,7 @@ function ContactUs() {
 		const config = {
 			apiKey: apiKey, // 'brevo-api-key',
 			apiEmail: apiEmail, // brevo email address
-			ownerEmail: 'ogagadafetite@gmail.com', // your-email (address to receive contact form messages)',
+			ownerEmail: formEmail, // your-email (address to receive contact form messages)',
 			senderName: siteName, // 'your-Website Name (as sender-subject in email)',
 		};
 
