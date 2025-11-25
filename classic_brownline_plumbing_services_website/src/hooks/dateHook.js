@@ -1,6 +1,11 @@
 
 
 function dateHook(date=new Date()) {
+	// console.log('dateHook called with date:', date);
+	if (!(date instanceof Date)) {
+		date = new Date(date);
+		// console.log('Converted to Date object:', date);
+	}
 	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	const daySuffixes = ['th', 'st', 'nd', 'rd'];

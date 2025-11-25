@@ -120,4 +120,4 @@ function Index() {
         </>
     )
 }
-export { Index}
+export { Index, siteName }

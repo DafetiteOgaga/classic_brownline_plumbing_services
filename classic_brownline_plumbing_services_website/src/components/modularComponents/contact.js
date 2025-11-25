@@ -1,8 +1,120 @@
+import { useEffect, useState } from "react";
 import { Pagerousel } from "./pagerousel"
 import { useOutletContext } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { useBrevoEmail, getKey } from "../../hooks/useBrevoEmail";
+import { siteName } from "../index";
+
+const formInputValues = [
+	{
+		type: "text",
+		name: "name",
+		placeholder: "Your Name",
+		required: true,
+	},
+	{
+		type: "text",
+		name: "subject",
+		placeholder: "Subject",
+		required: true,
+	},
+	{
+		type: "email",
+		name: "email",
+		placeholder: "Email",
+		required: true,
+	},
+	{
+		type: "textarea",
+		name: "message",
+		placeholder: "Leave a message here",
+		required: true,
+	}
+]
+const formValues = {
+	name: "",
+	email: "",
+	subject: "",
+	message: "",
+}
 
 function ContactUs() {
 	const { address, email } = useOutletContext();
+	const { sendContactEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
+	const [apiKey, setApiKey] = useState(null);
+	const [apiEmail, setApiEmail] = useState(null);
+	const [formData, setFormData] = useState(formValues);
+
+	const handleInputChange = (e) => {
+		getKey(apiKey, setApiKey, setApiEmail);
+		console.log('apiKey:', apiKey);
+		const { name, value } = e.target;
+		setFormData({
+			...formData,
+			[name]: value
+		});
+	}
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		console.log("handleSubmit called");
+		// toast.success(
+		// 	<div>
+		// 		{/* use success response */}
+		// 		<strong>Success! {success}</strong>
+		// 		<br />
+		// 		Kindly check your inbox
+		// 		<br />
+		// 		(or spam folder) for confirmation
+		// 	</div>); return;
+		// console.warn('success before clearing:', success)
+		clearInfo();
+		// console.warn('success after clearing:', success)
+
+		const config = {
+			apiKey: apiKey, // 'brevo-api-key',
+			apiEmail: apiEmail, // brevo email address
+			ownerEmail: 'ogagadafetite@gmail.com', // your-email (address to receive contact form messages)',
+			senderName: siteName, // 'your-Website Name (as sender-subject in email)',
+		};
+
+		const cleanedData = {
+			...formData,
+			// subject: 'Message Received! - Email confirmation',
+		};
+		try {
+			// passed formData and config to the hook
+			// console.log("Sending contact emails with data:", cleanedData);
+			await sendContactEmails(cleanedData, config);
+			// Success
+			toast.success(
+				<div>
+					{/* use success response */}
+					<strong>Success! {success}</strong>
+					<br />
+					Kindly check your inbox
+					<br />
+					(or spam folder) for confirmation
+				</div>);
+				setFormData(formValues); // Resets the form data
+			// console.log("Emails sent successfully");
+		} catch (err) {
+			// Error
+			toast.error(
+				<div>
+					{/* use error response */}
+					Error: :::{error} ::::: {err.message}
+				</div>);
+			console.error("Failed to send emails:", 'error');
+			console.error("Failed to send emails:", err);
+		}
+	};
+	// console.log({
+	// 	formData,
+	// 	apiKey,
+	// 	apiEmail,
+	// 	siteName,
+	// })
 	return (
 		<>
 			{/* Pagerousel */}
@@ -32,34 +144,41 @@ function ContactUs() {
 						</div>
 						<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
 							<div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10">
-								<form>
+								<form onSubmit={handleSubmit}>
 									<div className="row g-3">
-										<div className="col-md-6">
-											<div className="form-floating">
-												<input type="text" className="form-control border-radius-10" id="name" placeholder="Your Name"/>
-												<label htmlFor="name">Your Name</label>
-											</div>
-										</div>
-										<div className="col-md-6">
-											<div className="form-floating">
-												<input type="email" className="form-control border-radius-10" id="email" placeholder="Your Email"/>
-												<label htmlFor="email">Your Email</label>
-											</div>
-										</div>
+										{formInputValues.map((input, idx) => {
+											return (
+												<div key={input.name+idx}
+												className={`${input.type==="text"?"col-md-6":"col-12"}`}>
+													<div className="form-floating">
+														{(input.type==="text"||input.type==="email") ?
+														<input
+														type={input.type}
+														className="form-control border-radius-10"
+														name={input.name}
+														id={input.name}
+														value={formData[input.name]}
+														onChange={handleInputChange}
+														placeholder={input.placeholder}
+														required={input.required}
+														autoComplete="on" />
+														:
+														<textarea
+														className="form-control border-radius-10"
+														placeholder={input.placeholder}
+														name={input.name}
+														id={input.name}
+														value={formData[input.name]}
+														onChange={handleInputChange}
+														style={{height: "150px"}}></textarea>}
+														<label htmlFor="name">{input.placeholder}</label>
+													</div>
+												</div>
+											)
+										})}
 										<div className="col-12">
-											<div className="form-floating">
-												<input type="text" className="form-control border-radius-10" id="subject" placeholder="Subject"/>
-												<label htmlFor="subject">Subject</label>
-											</div>
-										</div>
-										<div className="col-12">
-											<div className="form-floating">
-												<textarea className="form-control border-radius-10" placeholder="Leave a message here" id="message" style={{height: "150px"}}></textarea>
-												<label htmlFor="message">Message</label>
-											</div>
-										</div>
-										<div className="col-12">
-											<button className="btn btn-primary-color w-100 py-3 border-radius-10" type="submit">Send Message</button>
+											<button className="btn btn-primary-color w-100 py-3 border-radius-10"
+											type="submit">{loading?'Sending':'Send Message'}</button>
 										</div>
 									</div>
 								</form>
