@@ -1,6 +1,6 @@
 
 
-function DateHook(date=new Date()) {
+function dateHook(date=new Date()) {
 	const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thurs', 'Fri', 'Sat'];
 	const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 	const daySuffixes = ['th', 'st', 'nd', 'rd'];
@@ -31,4 +31,4 @@ function DateHook(date=new Date()) {
 		todaySeconds
 	}
 }
-export { DateHook }
+export { dateHook }
