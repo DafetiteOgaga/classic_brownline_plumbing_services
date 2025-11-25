@@ -1,9 +1,9 @@
-import { DateHook } from "./dateHook"
+import { dateHook } from "./dateHook"
 import './dafetiteFooter.css'
 import dafetite from './dafelogoWhiteTransparent.png'
 
 function DafetiteFooter() {
-	const year = DateHook().todayYear;
+	const year = dateHook().todayYear;
 	return (
 		<>
 			<span className="span-dafetite">
