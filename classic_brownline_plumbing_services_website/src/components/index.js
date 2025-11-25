@@ -12,6 +12,7 @@ const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
 const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
 const siteName = "Classic Brownline"
+const formEmail = "brownfoluke@gmail.com"
 
 function Index() {
     const [isLoading, setIsLoading] = useState(true);
@@ -96,7 +97,7 @@ function Index() {
                 address,
                 email,
                 phoneNumber1,
-                siteName
+                siteName,
                 }}/>
 
                 {/* Footer */}
@@ -120,4 +121,4 @@ function Index() {
         </>
     )
 }
-export { Index, siteName }
+export { Index, siteName, formEmail }
