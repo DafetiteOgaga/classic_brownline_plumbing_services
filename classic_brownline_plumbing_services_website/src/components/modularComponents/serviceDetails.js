@@ -3,7 +3,7 @@ import { Pagerousel } from "./pagerousel";
 
 function ServiceDetail() {
 	const serviceData = useLocation().state
-	console.log("Rendering ServiceDetail component", serviceData);
+	// console.log("Rendering ServiceDetail component", serviceData);
 	const { detailedDescription, title, img, icon } = serviceData
 	return (
 		<>
