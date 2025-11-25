@@ -121,4 +121,4 @@ function Service({handleNavigationScroll ,yearFounded, currentYear}) {
 		</div>
 	)
 }
-export { Service }
+export { Service, serviceCardsSlides }
