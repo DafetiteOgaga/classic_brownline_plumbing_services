@@ -40,8 +40,16 @@ function Footer({address, phoneNumber1, email, siteName}) {
 						<h4 className="text-light mb-4">Newsletter</h4>
 						<p>Subscribe to receive industry insights, maintenance advice, and the latest news.</p>
 						<div className="position-relative mx-auto max-h-400">
-							<input className="form-control border-0 w-100 py-3 ps-4 pe-5 border-radius-10 white-bg" type="text" placeholder="Your email" />
-							<button type="button" className="btn btn-primary-color py-2 position-absolute top-0 end-0 mt-2 me-2 border-radius-10">SignUp</button>
+							<input
+							className="form-control border-0 w-100 py-3 ps-4 pe-5 border-radius-10 white-bg"
+							type="text"
+							placeholder="Your email"
+							disabled />
+							<button
+							disabled
+							type="button"
+							className="btn btn-primary-color py-2 position-absolute top-0 end-0 mt-2 me-2 border-radius-10"
+							>SignUp</button>
 						</div>
 					</div>
 					<div className="col-lg-3 col-md-6 d-flex flex-column justify-content-center">
