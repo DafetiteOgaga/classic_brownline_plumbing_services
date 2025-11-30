@@ -41,7 +41,7 @@ function About() {
 							</div> */}
 						</div>
 						<div className="col-lg-6 pt-4 min-h-500">
-							<div className="position-relative h-100 wow fadeInUp" data-wow-delay="0.5s">
+							<div className="position-relative h-100 wow fadeInUp">
 								<img className="position-absolute img-fluid w-80p h-80p position-left-20 fit-cover serviceFadeInUp border-radius-40 fine-border"
 								src={require("../../assets/img/about-1.jpg")}
 								style={{
