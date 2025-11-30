@@ -84,6 +84,9 @@ function Gallery() {
     const deviceInfo = useDeviceInfo();
     const deviceType = useDeviceType();
     const galleryPage = useLocation().pathname.split('/')[1]
+    // console.log({deviceType})
+    const isMobile = deviceType.width <= 768;
+    // console.log({isMobile})
 	const [teamSliders, setTeamSliders] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [modalImageIndex, setModalImageIndex] = useState(0);
@@ -91,9 +94,9 @@ function Gallery() {
         if (galleryPage==='gallery') {
             setTeamSliders([...gallerySlides, ...additionalGallerySlides]);
         } else {
-            setTeamSliders(gallerySlides);
+            setTeamSliders(isMobile?gallerySlides.slice(0,3):gallerySlides);
         }
-    }, [showModal])
+    }, [showModal, isMobile])
     // console.log({
     //     galleryPage,
     //     teamSliders
@@ -114,11 +117,11 @@ function Gallery() {
 	return (
         <>
             <Pagerousel />
-            <div className={`container-xxl py-5`}>
+            <div className={`container-xxl py-5 mobile-container`}>
                 <div className="container">
                     <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
                         {/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
-                        {galleryPage==='' ? <h1 className="mb-5">Completed Projects</h1> : ''}
+                        {galleryPage==='' ? <h1 className="mb-5 m-bottom">Completed Projects</h1> : ''}
                     </div>
                     <div className="row g-4">
                         {teamSliders.map((teamPlayer,tIdx) => {
