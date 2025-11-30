@@ -18,6 +18,17 @@ const pagesArray = [
     {to: "testimonials"},
 ]
 
+const NavLogo = ({isSticky}) => {
+	return (
+		<div className={`.site-logo mt-4 mt-lg-0 me-lg-n4 d-flex align-items-center ${isSticky ? '' : 'd-none bg-primary border-tr-radius-10'}`}>
+			<Link to="/" className={`site-logo navbar-brand m-0 p-0 navbar-socials ${isSticky ? '' : 'd-none d-lg-flex'}`}>
+				<JustSiteLogo />
+				{/* <h2 className="text-primary m-0 text-uppercase">Classic Brown</h2> */}
+			</Link>
+		</div>
+	)
+}
+
 function Navbar({isSticky}) {
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const currentPath = useLocation().pathname.split('/')[1];
@@ -85,16 +96,11 @@ function Navbar({isSticky}) {
 									)
 								})}
 							</div>
-							<div className={`.site-logo mt-4 mt-lg-0 me-lg-n4 d-flex align-items-center ${isSticky ? '' : 'd-none bg-primary border-tr-radius-10'}`}>
-								<Link to="/" className={`site-logo navbar-brand m-0 p-0 navbar-socials ${isSticky ? '' : 'd-none d-lg-flex'}`}>
-									<JustSiteLogo />
-									{/* <h2 className="text-primary m-0 text-uppercase">Classic Brown</h2> */}
-								</Link>
-							</div>
+							
 						</div>
 					</div>
 				</div>
-				
+				<NavLogo isSticky={isSticky} />
 			</nav>
 		</div>
 	)
