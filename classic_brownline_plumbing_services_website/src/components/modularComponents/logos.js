@@ -9,7 +9,7 @@ function Logos() {
             <Pagerousel />
             <div className={`container-xxl py-5`}>
                 <div className="container">
-                    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div className="text-center wow fadeInUp">
                         {/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
                         {/* {galleryPage==='' ? <h1 className="mb-5">Completed Projects</h1> : ''} */}
                     </div>
@@ -17,7 +17,7 @@ function Logos() {
                         {Array.from({length: 12}).map((_,_idx) => {
                             return (
                                 <div key={_idx}
-                                className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                className="col-lg-3 col-md-6 wow fadeInUp">
                                     <div className="gallery-item"
                                     // onClick={() => {
                                     //     setModalImageIndex(tIdx);
