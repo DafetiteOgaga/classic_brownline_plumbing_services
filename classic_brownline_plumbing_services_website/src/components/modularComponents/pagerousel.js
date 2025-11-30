@@ -2,8 +2,11 @@ import { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { titleCase } from '../../hooks/changeCase';
 import { useOutletContext } from "react-router-dom";
+import { useDeviceInfo } from '../../hooks/deviceType';
 
 function Pagerousel() {
+	const { deviceInfo, width } = useDeviceInfo();
+	// console.log({deviceInfo, width});
 	const location = useLocation().pathname.split('/');
 	const { onCarouselLoaded } = useOutletContext();
 	useEffect(() => {
@@ -35,7 +38,15 @@ function Pagerousel() {
 	return (
 		<div className={`container-fluid mb-5 position-relative page-header py-5 ${page.toLowerCase()==='service-details'?'d-none':''}`} id={page.toLowerCase()}>
 			<div className={`container`}>
-				<h1 className="display-3 text-white mb-3 animated littleSlideInDown">{titleCase(page)}</h1>
+				<h1
+				className="display-3 text-white mb-3 animated littleSlideInDown">
+					{titleCase(page)}
+					<span
+					style={{
+						whiteSpace: 'pre',
+						fontSize: '30px',
+					}}> ({`${deviceInfo} - ${width}px`})</span>
+				</h1>
 				<nav aria-label="breadcrumb animated slideInDown">
 					<ol className="breadcrumb text-uppercase">
 						<li className="breadcrumb-item">
