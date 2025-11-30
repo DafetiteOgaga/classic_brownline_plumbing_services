@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-// import { PageNotFound } from '../components/pageNotFound';
 // import { Unauthorised } from '../components/Unauthorised';
 import { Index } from '../components';
 import { HomeComponent } from '../components/homeComponent';
@@ -11,6 +10,7 @@ import { Gallery } from '../components/modularComponents/gallery';
 import { TestimonialComponent } from '../components/testimonialComponent';
 import { ContactUs } from '../components/modularComponents/contact';
 import { Booking } from '../components/modularComponents/booking';
+import { PageNotFound } from '../components/modularComponents/pageNotFound';
 
 import { Logos } from '../components/modularComponents/logos'; // test, remove later
 
@@ -25,14 +25,15 @@ function AppRoutes() {
 				<Route path="about" element={<About />} />
 				<Route path="services" element={<ServiceComponent />} />
 				<Route path="detail/:title" element={<ServiceDetail />} />
+				<Route path="detail/:title/booking" element={<Booking />} />
 				<Route path="services/detail/:title" element={<ServiceDetail />} />
 				<Route path="services/detail/:title/booking" element={<Booking />} />
 				<Route path="gallery" element={<Gallery />} />
 				<Route path="testimonials" element={<TestimonialComponent />} />
 				<Route path="contact" element={<ContactUs />} />
 				{/* page not found and unauthorised */}
-				{/* <Route path="unauthorised" element={<Unauthorised />} />
-				<Route path="*" element={<PageNotFound />} /> */}
+				{/* <Route path="unauthorised" element={<Unauthorised />} /> */}
+				<Route path="*" element={<PageNotFound />} />
 				{/* // test, remove later */}
 				<Route path="logos" element={<Logos />} />
 			</Route>
