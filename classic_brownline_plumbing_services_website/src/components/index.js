@@ -3,7 +3,7 @@ import { Spinner } from "../hooks/spinner";
 import { Topbar } from "./modularComponents/topbar";
 import { Navbar } from "./modularComponents/navbar";
 import { Footer } from "./modularComponents/footer";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { useDeviceInfo } from "../hooks/deviceType";
 
 // topbar, nav, carouse, services, fact, booking, gallery, testimonial, footer
@@ -16,6 +16,8 @@ const siteName = "Classic Brownline"
 const formEmail = "ogagadafetite@gmail.com" // "brownfoluke@gmail.com"
 
 function Index() {
+    const isHome = useLocation().pathname === "/"
+	// console.log({isHome});
     const deviceMediaWidth = useDeviceInfo().width;
     const isMobileDevice = deviceMediaWidth <= 768;
     const [isLoading, setIsLoading] = useState(true);
@@ -73,11 +75,15 @@ function Index() {
         return () => window.removeEventListener('load', handlePageLoad);
     }, []);
 
-    const showSpinner = isLoading || !carouselReady;
+    let showSpinner = isLoading || !carouselReady;
+    if (!isHome) {
+        showSpinner = false;
+    }
+
     // console.log({
-    //     // isLoading,
-    //     // carouselReady,
-    //     // showSpinner
+    //     isLoading,
+    //     carouselReady,
+    //     showSpinner
     //     // scrollY
     // })
     return (
@@ -86,7 +92,7 @@ function Index() {
             <Spinner isLoading={showSpinner} />
 
             {
-            <div className="app-bg-color" id="page-top">
+            <div className="layout-container app-bg-color" id="page-top">
                 {/* Topbar */}
                 <Topbar />
 
@@ -95,16 +101,18 @@ function Index() {
                 isSticky={isSticky}
                 scrollY={scrollY} />
 
-                <Outlet context={{
-                onCarouselLoaded: () => setCarouselReady(true),
-                yearFounded,
-                currentYear,
-                address,
-                email,
-                phoneNumber1,
-                siteName,
-                // scrollY,
-                }}/>
+                <div className="main-content">
+                    <Outlet context={{
+                    onCarouselLoaded: () => setCarouselReady(true),
+                    yearFounded,
+                    currentYear,
+                    address,
+                    email,
+                    phoneNumber1,
+                    siteName,
+                    // scrollY,
+                    }}/>
+                </div>
 
                 {/* Footer */}
                 <Footer

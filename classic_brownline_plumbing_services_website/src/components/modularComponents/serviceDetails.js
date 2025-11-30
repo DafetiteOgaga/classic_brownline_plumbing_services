@@ -9,7 +9,7 @@ function ServiceDetail() {
 		<>
 			<Pagerousel />
 			<div className="container py-5">
-				<div className="row g-5">
+				<div className="row g-0">
 					{/* <!-- Left Section: Image --> */}
 					<div className="col-lg-6 wow fadeInLeft">
 						<img

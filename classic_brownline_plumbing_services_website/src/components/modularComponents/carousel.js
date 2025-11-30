@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { titleCase } from "../../hooks/changeCase";
 import { useDeviceType } from "../../hooks/deviceType";
+import { useLocation } from "react-router-dom";
 
 // const carouselSlides = [
 //     {
@@ -44,6 +45,8 @@ const carouselSlides = [
 ];
 
 function Carousel({onCarouselLoaded}) {
+	const isHome = useLocation().pathname === "/"
+	// console.log({isHome});
 	const [isImageLoaded, setIsImageLoaded] = useState(false);
 	const [current, setCurrent] = useState(0);
     const [direction, setDirection] = useState("");

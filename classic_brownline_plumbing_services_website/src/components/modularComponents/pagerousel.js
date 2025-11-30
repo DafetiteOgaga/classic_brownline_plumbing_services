@@ -4,7 +4,7 @@ import { titleCase } from '../../hooks/changeCase';
 import { useOutletContext } from "react-router-dom";
 import { useDeviceInfo } from '../../hooks/deviceType';
 
-function Pagerousel() {
+function Pagerousel({extra = null}) {
 	const { deviceInfo, width } = useDeviceInfo();
 	// console.log({deviceInfo, width});
 	const location = useLocation().pathname.split('/');
@@ -21,7 +21,9 @@ function Pagerousel() {
 	// })
 	let title;
 	let page = location[1];
-	if (location.length > 2) {
+	if (extra) {
+		page = extra
+	} else if (location.length > 2) {
 		if (page.toLowerCase() === 'services' && location.length === 4) {
 			title = decodeURIComponent(location[3])
 		} else if (location.length === 3) {

@@ -104,7 +104,9 @@ function Service({yearFounded, currentYear}) {
 									{serviceCardsSlides.map((serviceCard, scIdx) => {
 										// const isActive = scIdx % totalServiceCards === currentServiceCardIndex
 										return (
-											<div key={serviceCard.title+scIdx}
+											<Link key={serviceCard.title+scIdx}
+											to={`detail/${encodeURIComponent(serviceCard.title)}`}
+											state={serviceCard}
 											className="owl-item cloned">
 												<div className="bg-light p-4 border-radius-10 p-round">
 													<div className="d-flex align-items-center justify-content-center border border-color-primary mb-4 w-75 h-75 border-radius-10">
@@ -115,16 +117,14 @@ function Service({yearFounded, currentYear}) {
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Quality Service</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Customer Satisfaction</p>
 													<p className="text-primary fw-medium"><i className="fa fa-check text-primary me-2"></i>Support 24/7</p>
-													<Link
-													to={`detail/${encodeURIComponent(serviceCard.title)}`}
-													state={serviceCard}
+													<span
 													// onClick={(e)=>navigate(`detail/${scIdx}`, {state: serviceCard})}
 													className="btn services-btn text-primary w-100 border-radius-5">
 														Read More
 														<i className="fa fa-arrow-right text-primary ms-2"/>
-													</Link>
+													</span>
 												</div>
-											</div>
+											</Link>
 										)
 									})}
 								</div>
