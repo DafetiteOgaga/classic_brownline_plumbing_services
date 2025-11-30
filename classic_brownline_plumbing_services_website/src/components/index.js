@@ -74,7 +74,7 @@ function Index() {
     //     // isLoading,
     //     // carouselReady,
     //     // showSpinner
-    //     scrollY
+    //     // scrollY
     // })
     return (
         <>
@@ -88,7 +88,8 @@ function Index() {
 
                 {/* Navbar */}
                 <Navbar
-                isSticky={isSticky} />
+                isSticky={isSticky}
+                scrollY={scrollY} />
 
                 <Outlet context={{
                 onCarouselLoaded: () => setCarouselReady(true),
@@ -98,6 +99,7 @@ function Index() {
                 email,
                 phoneNumber1,
                 siteName,
+                // scrollY,
                 }}/>
 
                 {/* Footer */}
