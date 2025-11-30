@@ -10,6 +10,7 @@ import { ServiceDetail } from '../components/modularComponents/serviceDetails';
 import { Gallery } from '../components/modularComponents/gallery';
 import { TestimonialComponent } from '../components/testimonialComponent';
 import { ContactUs } from '../components/modularComponents/contact';
+import { Booking } from '../components/modularComponents/booking';
 
 import { Logos } from '../components/modularComponents/logos'; // test, remove later
 
@@ -25,6 +26,7 @@ function AppRoutes() {
 				<Route path="services" element={<ServiceComponent />} />
 				<Route path="detail/:title" element={<ServiceDetail />} />
 				<Route path="services/detail/:title" element={<ServiceDetail />} />
+				<Route path="services/detail/:title/booking" element={<Booking />} />
 				<Route path="gallery" element={<Gallery />} />
 				<Route path="testimonials" element={<TestimonialComponent />} />
 				<Route path="contact" element={<ContactUs />} />
