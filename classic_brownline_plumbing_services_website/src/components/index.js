@@ -13,7 +13,7 @@ const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
 const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
 const siteName = "Classic Brownline"
-const formEmail = "ogagadafetite@gmail.com" // "brownfoluke@gmail.com"
+const formEmail = "brownfoluke@gmail.com"
 
 function Index() {
     const isHome = useLocation().pathname === "/"
