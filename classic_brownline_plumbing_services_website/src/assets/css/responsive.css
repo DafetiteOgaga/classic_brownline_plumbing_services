@@ -198,7 +198,7 @@
 
     .navbar-light .navbar-nav .nav-link  {
         margin-right: 0;
-        padding: 25px 0;
+        padding: 20px 0;
         font-size: 13px;
     }
 
@@ -219,8 +219,8 @@
 
     .navbar-collapse {
         top: 60%;
-        left: 65%;
-        width: 35%;
+        left: 71%;
+        width: 30%;
     }
 
     .header-carousel .owl-carousel-item {
