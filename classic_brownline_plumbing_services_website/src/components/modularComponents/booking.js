@@ -26,6 +26,12 @@ const formInputValues = [
 		required: true,
 	},
 	{
+		type: "tel",
+		name: "phone",
+		placeholder: "Telephone number",
+		required: false,
+	},
+	{
 		type: "date",
 		name: "service_date",
 		placeholder: "Service Date",
@@ -43,18 +49,19 @@ const formValues = {
 	email: "",
 	select_a_service: "",
 	service_date: "",
+	phone: "",
 	message: "",
 }
 
 function Booking() {
-	const { sendContactEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
+	const { sendOutEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
 	const [apiKey, setApiKey] = useState(null);
 	const [apiEmail, setApiEmail] = useState(null);
 	const [formData, setFormData] = useState(formValues);
 
 	const handleInputChange = (e) => {
 		getKey(apiKey, setApiKey, setApiEmail);
-		console.log('apiKey:', apiKey);
+		// console.log('apiKey:', apiKey);
 		const { name, value } = e.target;
 		setFormData({
 			...formData,
@@ -64,7 +71,7 @@ function Booking() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("handleSubmit called");
+		// console.log("handleSubmit called");
 		// toast.success(
 		// 	<div>
 		// 		{/* use success response */}
@@ -99,8 +106,8 @@ function Booking() {
 		};
 		try {
 			// passed formData and config to the hook
-			console.log("Sending booking with data:", cleanedData);
-			await sendContactEmails(cleanedData, config);
+			// console.log("Sending booking with data:", cleanedData);
+			await sendOutEmails(cleanedData, config);
 			// Success
 			toast.success(
 				<div>
@@ -136,11 +143,11 @@ function Booking() {
 	// 	formattedDate: dateHook(formData.service_date||new Date()),
 	// })
 	return (
-		<div className={`container-fluid my-5 px-0`}>
+		<div className={`container-fluid my-5 px-0 mobile-container`}>
 			<div className="container position-relative wow mt-1 fadeInUp" data-wow-delay="0.1s" style={{marginTop: "-6rem"}}>
 				<div className="row justify-content-center">
 					<div className="col-lg-8">
-						<div className="bg-light text-center p-5 border-radius-10">
+						<div className="bg-light text-center p-5 border-radius-10 mobile-padding">
 							<h1 className="mb-4">Book Our Service</h1>
 							<form onSubmit={handleSubmit}>
 								<div className="row g-3">
@@ -149,7 +156,10 @@ function Booking() {
 											<div key={input.name+idx}
 											className={input.type==='textarea'?`col-12`:`col-12 col-sm-6`}>
 												<div className="form-floating">
-													{(input.type==="text"||input.type==="email"||input.type==="date") ?
+													{(input.type==="text"||
+														input.type==="email"||
+														input.type==="date"||
+														input.type==="tel") ?
 													<input
 													name={input.name}
 													type={input.type}
