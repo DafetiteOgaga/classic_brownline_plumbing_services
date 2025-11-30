@@ -40,14 +40,14 @@ const formValues = {
 
 function ContactUs() {
 	const { address, email } = useOutletContext();
-	const { sendContactEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
+	const { sendOutEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
 	const [apiKey, setApiKey] = useState(null);
 	const [apiEmail, setApiEmail] = useState(null);
 	const [formData, setFormData] = useState(formValues);
 
 	const handleInputChange = (e) => {
 		getKey(apiKey, setApiKey, setApiEmail);
-		console.log('apiKey:', apiKey);
+		// console.log('apiKey:', apiKey);
 		const { name, value } = e.target;
 		setFormData({
 			...formData,
@@ -57,7 +57,7 @@ function ContactUs() {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log("handleSubmit called");
+		// console.log("handleSubmit called");
 		// toast.success(
 		// 	<div>
 		// 		{/* use success response */}
@@ -85,7 +85,7 @@ function ContactUs() {
 		try {
 			// passed formData and config to the hook
 			// console.log("Sending contact emails with data:", cleanedData);
-			await sendContactEmails(cleanedData, config);
+			await sendOutEmails(cleanedData, config);
 			// Success
 			toast.success(
 				<div>
@@ -143,7 +143,7 @@ function ContactUs() {
 							</div>
 						</div>
 						<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-							<div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10">
+							<div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10 mobile-padding">
 								<form onSubmit={handleSubmit}>
 									<div className="row g-3">
 										{formInputValues.map((input, idx) => {
