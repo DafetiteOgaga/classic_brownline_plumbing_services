@@ -4,6 +4,7 @@ import { Topbar } from "./modularComponents/topbar";
 import { Navbar } from "./modularComponents/navbar";
 import { Footer } from "./modularComponents/footer";
 import { Outlet, Link } from "react-router-dom";
+import { useDeviceInfo } from "../hooks/deviceType";
 
 // topbar, nav, carouse, services, fact, booking, gallery, testimonial, footer
 const yearFounded = 2010
@@ -12,13 +13,16 @@ const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
 const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
 const siteName = "Classic Brownline"
-const formEmail = "brownfoluke@gmail.com"
+const formEmail = "ogagadafetite@gmail.com" // "brownfoluke@gmail.com"
 
 function Index() {
+    const deviceMediaWidth = useDeviceInfo().width;
+    const isMobileDevice = deviceMediaWidth <= 768;
     const [isLoading, setIsLoading] = useState(true);
     const [isSticky, setIsSticky] = useState(false);
     const [scrollY, setScrollY] = useState(window.scrollY);
     const [carouselReady, setCarouselReady] = useState(false);
+    // console.log({deviceMediaWidth, isMobileDevice, scrollY});
 
     useEffect(() => {
         const handleScroll = () => {
@@ -82,7 +86,7 @@ function Index() {
             <Spinner isLoading={showSpinner} />
 
             {
-            <div className="app-bg-color">
+            <div className="app-bg-color" id="page-top">
                 {/* Topbar */}
                 <Topbar />
 
@@ -113,7 +117,7 @@ function Index() {
                 {scrollY>1000 ?
                 <Link to="#"
                 onClick={(e)=>{
-                    handleNavigationScroll(e, 'top');
+                    handleNavigationScroll(e, "page-top");
                 }}
                 className="btn btn-lg btn-primary-color btn-lg-custom border-radius-5 back-to-top dual-arrow-back-to-top">
                     <i className="fa fa-arrow-up"></i>
