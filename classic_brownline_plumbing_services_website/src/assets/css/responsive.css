@@ -25,6 +25,9 @@
     .testimonial-slider {
         width: calc(448px * 4);
     }
+    .page-not-found {
+        min-height: 50vh;
+    }
 }
 
 
