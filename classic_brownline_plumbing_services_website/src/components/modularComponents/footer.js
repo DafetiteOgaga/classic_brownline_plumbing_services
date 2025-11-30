@@ -5,7 +5,7 @@ import { JustSiteLogo } from "../../assets/svgs/siteLogo"
 
 function Footer({address, phoneNumber1, email, siteName}) {
 	return (
-		<div className="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+		<div className="container-fluid bg-primary text-light footer wow fadeIn">
 			<div className="container py-3">
 				<div className="row g-5 justify-content-between remove-g">
 					<div className="col-lg-5 col-md-6 mobile-footer">

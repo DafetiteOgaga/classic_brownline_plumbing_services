@@ -9,7 +9,7 @@ const headerOptions = [
 	{to: "services"},
     {to: "##"},
     {to: "contact"},
-	{to: "logos"}, // test, remove later
+	// {to: "logos"}, // test, remove later
 ]
 
 const pagesArray = [
@@ -61,7 +61,7 @@ function Navbar({isSticky, scrollY}) {
 					</Link>
 					<div className="d-flex">
 						<button className="navbar-toggler position-relative"
-						onClick={()=>setShowMobileMenu(prev=>!prev)} data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+						onClick={()=>setShowMobileMenu(prev=>!prev)}>
 							<span
 							className={`fa ${showMobileMenu?'fa-times':'fa-bars'} text-primary`}
 							// key={showMobileMenu}
@@ -91,7 +91,7 @@ function Navbar({isSticky, scrollY}) {
 												className={`nav-item nav-link ${isActive?'active':''}`}>{titleCase(header.to==='/'?'home':header.to)}</Link>
 												:
 												<div className="nav-item dropdown">
-													<span className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Sections</span>
+													<span className="nav-link dropdown-toggle">Sections</span>
 													<div className={`dropdown-menu fade-up m-0 app-bg-color ${isSticky ? 'navbar-sticky' : ''}`}>
 														{pagesArray.map((page, pIdx) => {
 															isActive = page.to.toLowerCase() === currentPath.toLowerCase();

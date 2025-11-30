@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom"
 import { Pagerousel } from "./pagerousel";
 
 function ServiceDetail() {
@@ -11,7 +11,7 @@ function ServiceDetail() {
 			<div className="container py-5">
 				<div className="row g-5">
 					{/* <!-- Left Section: Image --> */}
-					<div className="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+					<div className="col-lg-6 wow fadeInLeft">
 						<img
 							src={img}
 							className="img-fluid border-radius-20 shadow"
@@ -20,7 +20,7 @@ function ServiceDetail() {
 					</div>
 
 					{/* <!-- Right Section: Details --> */}
-					<div className="col-lg-6 wow fadeInRight" data-wow-delay="0.2s">
+					<div className="col-lg-6 wow fadeInRight">
 						<div className="bg-light p-5 rounded shadow-sm border-radius-20">
 							<div
 							className="d-flex align-items-center justify-content-center border-color-primary border-radius-5 border mb-4 mx-auto"
@@ -55,9 +55,12 @@ function ServiceDetail() {
 							</ul>
 
 							<div className="mt-4">
-								<a href="contact.html" className="btn btn-primary-color px-4 py-2 border-radius-5">
-									<i className="fa fa-phone me-2"></i>Request Service
-								</a>
+								<Link
+								to="booking"
+								state={title}
+								className="btn btn-primary-color px-4 py-2 border-radius-5">
+									<i className="fa fa-paper-plane me-2"></i>Book this service
+								</Link>
 								{/* <a href="services.html" className="btn btn-outline-primary px-4 py-2 ms-2">
 									<i className="fa fa-arrow-left me-2"></i>Back to Services
 								</a> */}

@@ -119,7 +119,7 @@ function Gallery() {
             <Pagerousel />
             <div className={`container-xxl py-5 mobile-container`}>
                 <div className="container">
-                    <div className="text-center wow fadeInUp" data-wow-delay="0.1s">
+                    <div className="text-center wow fadeInUp">
                         {/* <h6 className="text-secondary text-uppercase">Our Technicians</h6> */}
                         {galleryPage==='' ? <h1 className="mb-5 m-bottom">Completed Projects</h1> : ''}
                     </div>
@@ -127,7 +127,7 @@ function Gallery() {
                         {teamSliders.map((teamPlayer,tIdx) => {
                             return (
                                 <div key={teamPlayer.name+tIdx}
-                                className="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                                className="col-lg-3 col-md-6 wow fadeInUp">
                                     <div className="gallery-item"
                                     onClick={() => {
                                         setModalImageIndex(tIdx);

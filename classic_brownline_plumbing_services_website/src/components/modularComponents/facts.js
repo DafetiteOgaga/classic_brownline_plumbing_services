@@ -70,7 +70,7 @@ function Facts({yearFounded, currentYear}) {
 				<div className="row g-4 d-flex justify-content-between resp-dev">
 					{factsSlides.map((fact, fIdx) => {
 						return (
-							<div key={fact.title+fIdx} className="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+							<div key={fact.title+fIdx} className="col-md-6 col-lg-3 text-center wow fadeIn">
 								<i className={`fa ${fact.icon} fa-2x text-white mb-3`}></i>
 								{/* <h2 className="text-white mb-2" data-toggle="counter-up">{useCounterUp(1235)}</h2> */}
 								<CountUp end={fact.end} className="text-white mb-2" />
