@@ -456,6 +456,9 @@ transform: translateY(-2px); /* small lift for life-like feel */
     vertical-align: middle;
     margin-left: 8px;
 }
+/* .dropdown-toggle:hover::after {
+    display: block;
+} */
 
 .navbar-light .navbar-nav .nav-link-container {
     /* margin-right: 30px; */
@@ -503,47 +506,10 @@ transform: translateY(-2px); /* small lift for life-like feel */
     /* filter: drop-shadow(0 0 5px var(--primaryShadow)); */
 }
 
-@media (max-width: 991.98px) {
-    .nav-bar {
-        padding: 0;
-    }
-
-    .navbar-light .navbar-nav .nav-link  {
-        margin-right: 0;
-        padding: 10px 0;
-    }
-
-    .navbar-light .navbar-nav {
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid #EEEEEE;
-    }
-}
-
 .dropdown-item.active {
     background-color: var(--primary);
     color: var(--light);
 }
-
-@media (min-width: 992px) {
-    .navbar .nav-item .dropdown-menu {
-        display: block;
-        border: none;
-        margin-top: 0;
-        top: 150%;
-        opacity: 0;
-        visibility: hidden;
-        transition: .5s;
-    }
-
-    .navbar .nav-item:hover .dropdown-menu {
-        top: 80%;
-        visibility: visible;
-        transition: .5s;
-        opacity: 1;
-    }
-}
-
 
 /*** Header ***/
 .header-carousel .container,
@@ -664,42 +630,6 @@ transform: translateY(-2px); /* small lift for life-like feel */
 /* .Toastify__toast--warning {
 --toastify-color-progress-warning: #ffc107;
 } */
-
-
-
-@media (max-width: 768px) {
-    .header-carousel .owl-carousel-item {
-        position: relative;
-        min-height: 500px;
-    }
-
-    .header-carousel .owl-carousel-item img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    .header-carousel .owl-carousel-item h5,
-    .header-carousel .owl-carousel-item p {
-        font-size: 14px !important;
-        font-weight: 400 !important;
-    }
-
-    .header-carousel .owl-carousel-item h1 {
-        font-size: 30px;
-        font-weight: 600;
-    }
-
-    /* toast styling */
-	.Toastify__toast-container--top-center {
-        margin-top: 60px !important;
-    }
-    .custom_toast {
-        max-width: 77%;
-        margin: 0 auto;
-    }
-}
 
 .header-carousel .owl-nav {
     position: absolute;
@@ -916,79 +846,6 @@ transform: translateY(-2px); /* small lift for life-like feel */
     width: calc(424px * 4);
     /* animation: testimonialsCardSlide 30s linear infinite; */
 }
-
-/* @keyframes testimonialsCardSlide { */
-    /* 0%, 10% {
-      transform: translate3d(0px, 0, 0);
-    }
-    15%, 25% {
-      transform: translate3d(-424px, 0, 0);
-    }
-    30%, 40% {
-      transform: translate3d(-848px, 0, 0);
-    }
-    45%, 55% {
-      transform: translate3d(-1272px, 0, 0);
-    }
-    60%, 70% {
-      transform: translate3d(-1696px, 0, 0);
-    } */
-
-    /* 0%, 5% {
-        transform: translate3d(0px, 0, 0);
-      }
-      10%, 15% {
-        transform: translate3d(-424px, 0, 0);
-      }
-      20%, 25% {
-        transform: translate3d(-848px, 0, 0);
-      }
-      30%, 35% {
-        transform: translate3d(-1272px, 0, 0);
-      }
-      40%, 45% {
-        transform: translate3d(-1696px, 0, 0);
-      }
-      50%, 55% {
-        transform: translate3d(-2120px, 0, 0);
-      }
-      60%, 65% {
-        transform: translate3d(-2544px, 0, 0);
-      }
-      70%, 75% {
-        transform: translate3d(-2968px, 0, 0);
-      }
-      80%, 85% {
-        transform: translate3d(-3392px, 0, 0);
-      }
-      90%, 95% {
-        transform: translate3d(-3816px, 0, 0);
-      }
-      100% {
-        transform: translate3d(-4240px, 0, 0);
-      } */
-
-
-    /* 75%, 80% {
-      transform: translate3d(-2120px, 0, 0);
-    } */
-    /* 85%, 90% {
-      transform: translate3d(-2544px, 0, 0);
-    } */
-    /* 95%, 100% {
-      transform: translate3d(-2968px, 0, 0);
-    } */
-  /* } */
-/* .testimonial-item {
-    width: 424px;
-    float: left;
-    margin: 0 15px;
-    position: relative;
-} */
-/* .testimonial-text.active {
-
-} */
-
 
 /*** Footer ***/
 .footer .btn.btn-social {

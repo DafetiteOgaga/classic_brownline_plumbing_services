@@ -113,7 +113,8 @@ function PlumbingServices({mainColor, accentColor}) {
 
 function SiteLogo({mainColor = "#014569", accentColor = "#FFA500", size = 800}) {
 	return (
-		<svg viewBox={`0 0 ${size} 180`} xmlns="http://www.w3.org/2000/svg">
+		<svg viewBox={`0 0 ${size} 180`} xmlns="http://www.w3.org/2000/svg"
+		style={{ width: '100%', height: 'auto', display: 'block' }}>
 			<IconAndClassicBrownline mainColor={mainColor} />
 			<PlumbingServices mainColor={mainColor} accentColor={accentColor} />
 		</svg>

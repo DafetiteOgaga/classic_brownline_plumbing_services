@@ -15,7 +15,7 @@ function Topbar() {
 						{/* <JustSiteLogo /> */}
 					{/* </Link> */}
 				</Link>
-				<div className="col-lg-9 col-md-12 text-end">
+				<div className="col-lg-9 col-md-12 text-end topbar-socials">
 					<div className="h-100 d-inline-flex align-items-center">
 						<Socials classStyle="btn btn-sm-custom bg-white text-primary me-1 border-radius-50"/>
 					</div>

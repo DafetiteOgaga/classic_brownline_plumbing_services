@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { titleCase } from "../../hooks/changeCase";
+import { useDeviceType } from "../../hooks/deviceType";
 
 // const carouselSlides = [
 //     {
@@ -49,6 +50,7 @@ function Carousel({onCarouselLoaded}) {
     const [isFading, setIsFading] = useState(false);
     const [isSliding, setIsSliding] = useState(false);
     
+	let dynamicRenderedHeight = useDeviceType().width;
     const length = carouselSlides.length;
 
 	useEffect(() => {
@@ -135,11 +137,11 @@ function Carousel({onCarouselLoaded}) {
 	const showSpinner = !isImageLoaded;
 	// console.log({showSpinner});
 	return (
-		<div className={`container-fluid mb-5 position-relative p-0`}>
+		<div className={`container-fluid position-relative p-0`}>
 			{/* Spinner */}
 			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden`}>
 				<div className="owl-stage-outer">
-					<div className="owl-stage min-H-carousel"
+					<div className={`owl-stage ${dynamicRenderedHeight>1024?'min-H-carousel':''}`}
 					style={{
 						transform: `translate3d(-0, 0, 0)`, // <-- move horizontally
 						transition: "transform 1.5s ease-in-out", // smooth animation
@@ -169,15 +171,15 @@ function Carousel({onCarouselLoaded}) {
 						onError={() => console.error(`Failed to load image: ${slide.img}`)}
 						/>
 						<div className="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center bg-0004">
-							<div className="container">
+							<div className="container fix-padding">
 								<div className="row justify-content-start">
 									<div key={slide.id}
-									className={`col-10 col-lg-8`}>
-										<h5 className={`text-white text-uppercase mb-3 animated slideInDown carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.title}</h5>
+									className={`col-10 col-lg-8 mobile-dev`}>
+										<h5 className={`text-white text-uppercase mb-3 animated slideInDown carousel-fade ${isFading ? 'fade-out' : 'fade-in'} smaller-dev`}>{slide.title}</h5>
 										<h1 className={`display-3 text-white animated slideInDown mb-4 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.headline}</h1>
 										<p className={`fs-5 fw-medium text-white mb-4 pb-2 carousel-fade ${isFading ? 'fade-out' : 'fade-in'}`}>{slide.text}</p>
 										{/* <a href="##" className="btn btn-primary py-md-3 px-md-5 me-3 animated littleSlideInLeft border-radius-5">Read More</a> */}
-										<a href="##" className="btn btn-primary btn-border-white py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
+										<a href="##" className="d-none btn btn-primary btn-border-white py-md-3 px-md-5 animated littleSlideInRight border-radius-5">Free Quote</a>
 									</div>
 								</div>
 							</div>

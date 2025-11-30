@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { useDeviceType } from "../../hooks/deviceType"
 
 const testimonialSliders = [
     {
@@ -77,8 +78,18 @@ const AllStars = () => {
 }
 
 function Testimonial() {
+    const isMobile = useDeviceType()
 	const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(1);
-    const totalTestimonials = testimonialSliders.length - 2;
+    let totalTestimonials = testimonialSliders.length - 2;
+    let numberOfCardsToSlideTo = 0 // 2
+	if (isMobile.width > 768 && isMobile.width <= 1024) {
+        totalTestimonials = testimonialSliders.length;
+		numberOfCardsToSlideTo = 1
+	}
+	else if (isMobile.width <= 768) {
+        totalTestimonials = testimonialSliders.length;
+		numberOfCardsToSlideTo = 0
+	}
 
     useEffect(() => {
         const intervalTime = 2900; // match your CSS slide duration/pause timing
@@ -97,8 +108,14 @@ function Testimonial() {
         setCurrentTestimonialIndex((prev) => (prev - 1 + totalTestimonials) % totalTestimonials);
     };
     // console.log({currentTestimonialIndex});
+    
+    // console.log(
+	// 	`        numberOfCardsToSlideTo: ${numberOfCardsToSlideTo},
+	// 	currentTestimonialIndex: ${currentTestimonialIndex},
+	// 	used: ${currentTestimonialIndex} - ${numberOfCardsToSlideTo} = ${currentTestimonialIndex - numberOfCardsToSlideTo}
+	// `)
 	return (
-		<div className="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+		<div className="container-xxl py-5 mobile-container wow fadeInUp" data-wow-delay="0.1s">
 			<div className="container">
 				<div className="text-center">
 					{/* <h6 className="text-secondary text-uppercase">Testimonial</h6> */}
@@ -108,15 +125,28 @@ function Testimonial() {
 					<div className="owl-stage-outer">
 						<div className="owl-stage testimonial-slider"
 						style={{
-							transform: `translate3d(-${currentTestimonialIndex * 424}px, 0, 0)`, // <-- move horizontally
+							transform: `translate3d(-${(currentTestimonialIndex - numberOfCardsToSlideTo) * 424}px, 0, 0)`, // <-- move horizontally
 							transition: "transform 0.5s ease-in-out", // smooth animation
 						}}>
 							{testimonialSliders.map((testimonial, tesIdx) => {
-								const isActive = tesIdx % (totalTestimonials * 2) === currentTestimonialIndex + 1;
+								const isActive = null // tesIdx % (totalTestimonials * 2) === currentTestimonialIndex + 1;
+                                const first = tesIdx === 0
+                                const last = testimonialSliders.length - 1
+                                // console.log({last: testimonialSliders.length, tesIdx})
 								// console.log({isActive, tesIdx, currentTestimonialIndex, totalTestimonials});
 								return (
 									<div key={testimonial.name+tesIdx}
-									className="owl-item testimonial-cloned">
+									className="owl-item testimonial-cloned"
+                                    style={(isMobile.width>360 && isMobile.width<=768)?
+                                        {
+                                            marginLeft: first?10:40,
+                                            marginRight: last?0:20,
+                                        }:
+                                        isMobile.width<=360?
+                                        {
+                                            marginLeft: first?10:95,
+                                            marginRight: last?0:20,
+                                        }:{}}>
 									<div className="testimonial-item text-center">
 										<div className={`testimonial-text bg-light text-center p-4 mb-3 border-radius-10 ${isActive?'active':''}`}>
 											<p className="mb-0">{testimonial.feedback}</p>
@@ -133,10 +163,11 @@ function Testimonial() {
 							})}
 						</div>
 					</div>
-					{/* <div className="owl-nav">
+					{isMobile.width<=768 ?
+                    <div className="owl-nav">
 						<div className="owl-prev" onClick={prevSlide}><i className="fa fa-chevron-left"></i></div>
 						<div className="owl-next" onClick={nextSlide}><i className="fa fa-chevron-right"></i></div>
-					</div> */}
+					</div>:null}
 				</div>
 			</div>
 		</div>

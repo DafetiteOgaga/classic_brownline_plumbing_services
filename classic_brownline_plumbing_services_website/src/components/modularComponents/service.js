@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { useDeviceType } from "../../hooks/deviceType";
 
 const serviceCardsSlides = [
 	{
@@ -44,7 +45,8 @@ const serviceCardsSlides = [
 	},
 ]
 
-function Service({handleNavigationScroll ,yearFounded, currentYear}) {
+function Service({yearFounded, currentYear}) {
+	const isMobile = useDeviceType()
 	const navigate = useNavigate();
 	// console.log("Rendering Service component", handleNavigationScroll);
 	const [currentServiceCardIndex, setCurrentServiceCardIndex] = useState(0);
@@ -57,26 +59,46 @@ function Service({handleNavigationScroll ,yearFounded, currentYear}) {
 
         return () => clearInterval(interval);
     }, [totalServiceCards]);
+	// console.log({
+	// 	isMobile
+	// })
+	let numberOfCardsToSlideTo = 2
+	let cardWidth = 372
+	if (isMobile.width > 768 && isMobile.width <= 1024) {
+		numberOfCardsToSlideTo = 1
+	}
+	else if (isMobile.width <= 768) {
+		numberOfCardsToSlideTo = 0
+	}
+	if (isMobile.width <= 394) {
+		cardWidth = 320
+	}
+	// console.log({
+	// 	numberOfCardsToSlideTo,
+	// 	currentServiceCardIndex,
+	// 	isMobileWidth: isMobile.width,
+	// 	used: currentServiceCardIndex - numberOfCardsToSlideTo
+	// })
 	return (
-		<div className={`container-fluid py-5 px-4 px-lg-0`}>
-			<div className="row g-0">
-				<div className="col-lg-2 d-none d-lg-flex position-relative">
+		<div className={`container-fluid py-5 px-4 px-md-0 mobile-service-container`}>
+			<div className="row g-0 flex-nowrap">
+				<div className="col-lg-2 d-none d-md-flex position-relative small-dev">
 					{/* <div className="d-flex align-items-center justify-content-center bg-primary w-100 h-100"> */}
 					<div className="bg-primary w-100 h-100 position-relative">
-						<h1 className="display-4 text-white m-0 rotate-n90 text-center position-absolute">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
+						<h1 className="display-4 years-badge text-white m-0 rotate-n90 text-center position-absolute">{`Over ${currentYear - yearFounded} Years of Plumbing Excellence`}</h1>
 					</div>
 				</div>
 				<div className="col-md-12 col-lg-9">
 					<div className="ms-lg-5 ps-lg-5">
 						<div className="text-center text-lg-start wow fadeInUp" data-wow-delay="0.1s">
 							{/* <h6 className="text-secondary text-uppercase">Our Services</h6> */}
-							<h1 className="mb-5">Our Services</h1>
+							<h1 className="mb-5 m-bottom">Our Services</h1>
 						</div>
 						<div className="owl-carousel service-carousel position-relative wow fadeInUp" data-wow-delay="0.1s">
 							<div className="owl-stage-outer">
 								<div className="owl-stage service-card-slider"
 								style={{
-									transform: `translate3d(-${(currentServiceCardIndex - 2) * 372}px, 0, 0)`, // <-- move horizontally
+									transform: `translate3d(-${(currentServiceCardIndex - numberOfCardsToSlideTo) * cardWidth}px, 0, 0)`, // <-- move horizontally
 									transition: "transform 1s ease-in-out", // smooth animation
 								}}>
 									{serviceCardsSlides.map((serviceCard, scIdx) => {
@@ -84,7 +106,7 @@ function Service({handleNavigationScroll ,yearFounded, currentYear}) {
 										return (
 											<div key={serviceCard.title+scIdx}
 											className="owl-item cloned">
-												<div className="bg-light p-4 border-radius-10">
+												<div className="bg-light p-4 border-radius-10 p-round">
 													<div className="d-flex align-items-center justify-content-center border border-color-primary mb-4 w-75 h-75 border-radius-10">
 														<i className={`fa ${serviceCard.icon} fa-2x text-primary`}></i>
 													</div>

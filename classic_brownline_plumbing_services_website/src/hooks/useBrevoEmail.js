@@ -72,6 +72,7 @@ const emailContentTemplate = ({ formData, type = 'owner', isBooking }) => {
 						`
 							<p><strong>Selected Service:</strong> ${formData.select_a_service}</p>
 							<p><strong>Service Date:</strong> ${formData.service_date}</p>
+							<p><strong>Telephone Number:</strong> ${formData.phone}</p>
 						`
 						:
 						`
@@ -122,13 +123,13 @@ const useBrevoEmail = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 
-	const sendContactEmails = async (formData, config) => {
+	const sendOutEmails = async (formData, config) => {
 		const { apiKey, apiEmail, ownerEmail, senderName } = config;
 		const isBooking = formData.hasOwnProperty('select_a_service') && formData.hasOwnProperty('service_date');
-		console.log({isBooking})
-		console.log(`Preparing to send ${isBooking ? 'booking' : 'contact'} emails...`);
+		// console.log({isBooking})
+		// console.log(`Preparing to send ${isBooking ? 'booking' : 'contact'} emails...`);
 		// console.log('config:', config)
-		// console.log('sendContactEmails called with formData:', formData);
+		// console.log('sendOutEmails called with formData:', formData);
 
 		if (!apiKey || !ownerEmail) {
 			throw new Error('API key and owner email are required');
@@ -173,7 +174,7 @@ const useBrevoEmail = () => {
 					email: ownerEmail,
 					name: senderName
 				},
-				subject: isBooking ? 'Booking confirmation' : sentenceCase(formData.subject),
+				subject: isBooking ? 'Booking received' : sentenceCase(formData.subject),
 				htmlContent: emailContentTemplate({formData, type: 'visitor', isBooking})
 			};
 
@@ -195,7 +196,7 @@ const useBrevoEmail = () => {
 	};
 
 	return {
-		sendContactEmails,
+		sendOutEmails,
 		success,
 		loading,
 		error,

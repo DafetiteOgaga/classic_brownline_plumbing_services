@@ -37,9 +37,9 @@ function buildFormData(formData, data, parentKey = '') {
 const serverOrigin = getBaseURL();
 async function fetchBrevoKeyFromBackend(endpoint, method = 'GET', body = null) {
 	// const [stateData, setStateData] = useState(null);
-	console.log('fetchBrevoKeyFromBackend called')
+	// console.log('fetchBrevoKeyFromBackend called')
 	const finalUrl = `${serverOrigin}${endpoint}/`;
-	console.log('finalUrl:', finalUrl);
+	// console.log('finalUrl:', finalUrl);
 	try {
 		let options = {
 			method: method.toUpperCase(),

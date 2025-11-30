@@ -7,12 +7,12 @@ function Footer({address, phoneNumber1, email, siteName}) {
 	return (
 		<div className="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
 			<div className="container py-3">
-				<div className="row g-5 justify-content-between">
-					<div className="col-lg-5 col-md-6">
+				<div className="row g-5 justify-content-between remove-g">
+					<div className="col-lg-5 col-md-6 mobile-footer">
 						<h4 className="text-light mb-4">Address</h4>
-						<p className="mb-2"><i className="fa fa-map-marker-alt me-3"></i>{address}</p>
-						<p className="mb-2"><i className="fa fa-phone me-3"></i>{phoneNumber1}</p>
-						<p className="mb-2"><i className="fa fa-envelope me-3"></i>{email}</p>
+						<p className="mb-2 footer-text-center"><i className="fa fa-map-marker-alt me-3"></i>{address}</p>
+						<p className="mb-2 footer-text-center"><i className="fa fa-phone me-3"></i>{phoneNumber1}</p>
+						<p className="mb-2 footer-text-center"><i className="fa fa-envelope me-3"></i>{email}</p>
 						<div className="d-flex pt-2">
 							<Socials classStyle="btn btn-outline-light btn-social"/>
 							{/* <a className="btn btn-outline-light btn-social" href="##"><i className="fab fa-twitter"></i></a>
@@ -36,7 +36,7 @@ function Footer({address, phoneNumber1, email, siteName}) {
 						<a className="btn btn-link" href="##">Toilet Cleaning</a>
 						<a className="btn btn-link" href="##">Broken Pipe</a>
 					</div> */}
-					<div className="col-lg-3 col-md-6">
+					<div className="col-lg-3 col-md-6 only-lg">
 						<h4 className="text-light mb-4">Newsletter</h4>
 						<p>Subscribe to receive industry insights, maintenance advice, and the latest news.</p>
 						<div className="position-relative mx-auto max-h-400">
