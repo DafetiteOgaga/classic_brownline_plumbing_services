@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { serviceCardsSlides } from "./service"
 import { useBrevoEmail, getKey } from "../../hooks/useBrevoEmail"
 import { toast } from "react-toastify"
 import { siteName, formEmail } from "../index"
 import { dateHook } from "../../hooks/dateHook"
+import { useLocation } from 'react-router-dom';
 
 
 const formInputValues = [
@@ -54,11 +55,21 @@ const formValues = {
 }
 
 function Booking() {
+	const stateBookingData = useLocation()?.state
+	// console.log({stateBookingData})
 	const { sendOutEmails, success, loading, error, clearInfo } = useBrevoEmail(); // useBrevoEmail hook
 	const [apiKey, setApiKey] = useState(null);
 	const [apiEmail, setApiEmail] = useState(null);
 	const [formData, setFormData] = useState(formValues);
 
+	useEffect(() => {
+		if (stateBookingData) {
+			setFormData({
+				...formData,
+				select_a_service: stateBookingData
+			})
+		}
+	}, [])
 	const handleInputChange = (e) => {
 		getKey(apiKey, setApiKey, setApiEmail);
 		// console.log('apiKey:', apiKey);
@@ -133,22 +144,22 @@ function Booking() {
 	};
 	// console.log({
 	// 	formData,
-	// 	loading,
-	// 	success,
-	// 	error,
-	// 	apiKey,
-	// 	apiEmail,
-	// 	siteName,
-	// 	formattedToday: dateHook(new Date()),
-	// 	formattedDate: dateHook(formData.service_date||new Date()),
+	// 	// loading,
+	// 	// success,
+	// 	// error,
+	// 	// apiKey,
+	// 	// apiEmail,
+	// 	// siteName,
+	// 	// formattedToday: dateHook(new Date()),
+	// 	// formattedDate: dateHook(formData.service_date||new Date()),
 	// })
 	return (
 		<div className={`container-fluid my-5 px-0 mobile-container`}>
-			<div className="container position-relative wow mt-1 fadeInUp" data-wow-delay="0.1s" style={{marginTop: "-6rem"}}>
+			<div className="container position-relative wow mt-1 fadeInUp" style={{marginTop: "-6rem"}}>
 				<div className="row justify-content-center">
 					<div className="col-lg-8">
 						<div className="bg-light text-center p-5 border-radius-10 mobile-padding">
-							<h1 className="mb-4">Book Our Service</h1>
+							<h1 className="mb-4">{`Book ${stateBookingData?'a '+stateBookingData+' Service':'Our Service'}`}</h1>
 							<form onSubmit={handleSubmit}>
 								<div className="row g-3">
 									{formInputValues.map((input, idx) => {
