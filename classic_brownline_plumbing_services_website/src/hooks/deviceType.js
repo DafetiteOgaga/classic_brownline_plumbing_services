@@ -33,7 +33,7 @@ const useDeviceType = () => {
 			}
 			resetAndcleanTypes = { ...resetAndcleanTypes, width: width };
 			const label = Object.entries(resetAndcleanTypes).find(([key, value]) => value? key : null)?.[0] || "Unknown";
-			console.log(`${label}: ${width}px`);
+			// console.log(`${label}: ${width}px`);
 			setDeviceType(resetAndcleanTypes);
 		};
 
