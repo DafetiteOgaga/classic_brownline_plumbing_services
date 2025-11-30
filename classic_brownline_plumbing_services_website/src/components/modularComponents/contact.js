@@ -123,7 +123,7 @@ function ContactUs() {
 			<div className="container-xxl py-5">
 				<div className="container">
 					<div className="row g-4">
-						<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+						<div className="col-md-6 wow fadeInUp">
 							{/* <h6 className="text-secondary text-uppercase">Get In Touch</h6> */}
 							<h1 className="mb-4">Contact Us</h1>
 							{/* <p className="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> */}
@@ -142,7 +142,7 @@ function ContactUs() {
 								<p className="m-0">{email}</p>
 							</div>
 						</div>
-						<div className="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+						<div className="col-md-6 wow fadeInUp">
 							<div className="bg-light p-5 h-100 d-flex align-items-center border-radius-10 mobile-padding">
 								<form onSubmit={handleSubmit}>
 									<div className="row g-3">
