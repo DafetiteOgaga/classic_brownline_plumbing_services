@@ -21,7 +21,7 @@ function ServiceDetail() {
 
 					{/* <!-- Right Section: Details --> */}
 					<div className="col-lg-6 wow fadeInRight">
-						<div className="bg-light p-5 rounded shadow-sm border-radius-20">
+						<div className="bg-light p-5 rounded shadow-sm border-radius-20 mobile-container">
 							<div
 							className="d-flex align-items-center justify-content-center border-color-primary border-radius-5 border mb-4 mx-auto"
 							style={{width: "80px", height: "80px"}}

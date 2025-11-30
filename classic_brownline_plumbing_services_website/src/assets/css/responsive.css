@@ -28,6 +28,12 @@
     .page-not-found {
         min-height: 50vh;
     }
+    .mobile-h-101 {
+        height: 101% !important;
+    }
+    .min-H-carousel {
+        min-height: 570px;
+    }
 }
 
 
@@ -171,6 +177,9 @@
     }
     .testimonial-slider {
         width: calc(428px * 4);
+    }
+    .min-H-carousel {
+        min-height: 505px;
     }
 }
 
@@ -342,6 +351,9 @@
     .navbar .nav-item .dropdown-menu {
         left: -127%;
     }
+    .min-H-carousel {
+        min-height: 225px;
+    }
 }
 @media (max-width: 412px) {
     .navbar .nav-item .dropdown-menu {
@@ -387,6 +399,9 @@
         width: 300px;
         margin: 0 10px;
     }
+    .min-H-carousel {
+        min-height: 215px;
+    }
 }
 
 /* SMALLER MOBILE */
@@ -417,5 +432,8 @@
     .testimonial-cloned {
         width: 330px;
         margin: 0 20px;
+    }
+    .min-H-carousel {
+        min-height: 195px;
     }
 }
