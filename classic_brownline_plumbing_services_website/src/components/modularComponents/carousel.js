@@ -54,6 +54,13 @@ function Carousel({onCarouselLoaded}) {
     const [isSliding, setIsSliding] = useState(false);
     
 	let dynamicRenderedHeight = useDeviceType().width;
+	// if (dynamicRenderedHeight > 2024) {
+	// 	dynamicRenderedHeight = 1200;
+	// } else if (dynamicRenderedHeight > 768 && dynamicRenderedHeight <= 1024) {
+	// 	dynamicRenderedHeight = 1024;
+	// } else if (dynamicRenderedHeight <= 768) {
+	// 	dynamicRenderedHeight = 768;
+	// }
     const length = carouselSlides.length;
 
 	useEffect(() => {
@@ -141,10 +148,9 @@ function Carousel({onCarouselLoaded}) {
 	// console.log({showSpinner});
 	return (
 		<div className={`container-fluid position-relative p-0`}>
-			{/* Spinner */}
 			<div className={`owl-carousel owl-loaded header-carousel position-relative overflow-hidden`}>
 				<div className="owl-stage-outer">
-					<div className={`owl-stage ${dynamicRenderedHeight>1024?'min-H-carousel':''}`}
+					<div className={`owl-stage min-H-carousel`}
 					style={{
 						transform: `translate3d(-0, 0, 0)`, // <-- move horizontally
 						transition: "transform 1.5s ease-in-out", // smooth animation
@@ -152,7 +158,7 @@ function Carousel({onCarouselLoaded}) {
 						{/* Spinner */}
 						<div
 						id="spinner"
-						className={`${showSpinner?'show':''} app-bg-color position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center`}>
+						className={`${showSpinner?'show':''} app-bg-color position-absolute top-0 start-0 w-100 h-100 mobile-h-101 d-flex align-items-center justify-content-center`}>
 							<div className="spinner-border text-primary w-3rem h-3rem" role="status">
 								<span className="sr-only"/>
 							</div>
