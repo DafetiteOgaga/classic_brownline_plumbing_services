@@ -76,13 +76,16 @@
     }
     
     .navbar .dropdown-toggle::before {
-        content: "\f107";                /* Font Awesome icon */
+        content: "\f107";
         font-family: "Font Awesome 5 Free";
         font-weight: 900;
         margin-right: 8px;
         vertical-align: middle;
         display: inline-block;
-        transition: transform 0.3s ease;
+        transition: transform 0.5s ease;
+    }
+    .navbar .dropdown-toggle:hover::before {
+        transform: rotate(90deg);
     }
 
     .navbar .nav-item .dropdown-menu {
@@ -301,7 +304,10 @@
         justify-content: center !important;
     }
     .mobile-footer {
-        display: contents !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .mobile-padding {
         padding: 1rem !important;

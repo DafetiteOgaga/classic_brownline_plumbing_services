@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { titleCase } from "../../hooks/changeCase";
 import { Link, useLocation } from "react-router-dom";
 import { SiteLogo, JustSiteLogo } from "../../assets/svgs/siteLogo";
@@ -29,9 +29,27 @@ const NavLogo = ({isSticky}) => {
 	)
 }
 
-function Navbar({isSticky}) {
+function Navbar({isSticky, scrollY}) {
+	const menuRef = useRef(null);
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
 	const currentPath = useLocation().pathname.split('/')[1];
+	useEffect(() => {
+		setShowMobileMenu(false);
+	}, [scrollY])
+
+	useEffect(() => {
+		function handleClickOutside(event) {
+		  // If menu is open AND the click is outside the menu container
+			if (showMobileMenu && menuRef.current && !menuRef.current.contains(event.target)) {
+			setShowMobileMenu(false);
+			}
+		}
+		document.addEventListener("mousedown", handleClickOutside);
+		// cleanup
+		return () => document.removeEventListener("mousedown", handleClickOutside);
+	}, [showMobileMenu]);
+
+	// console.log({scrollY})
 	return (
 		<div className={`container-fluid nav-bar bg-light ${isSticky ? 'sticky-top shadow' : ''}`} id="dynamic-navbar">
 			<nav className={`navbar navbar-expand-lg navbar-light app-bg-color p-1 py-lg-0 px-lg-4 ${isSticky ? '' : 'border-tl-radius-10 border-tr-radius-10'}`}>
@@ -54,7 +72,8 @@ function Navbar({isSticky}) {
 								}}/>
 						</button>
 						
-						<div className={`${showMobileMenu?'':'collapse'} ${isSticky?'left-and-width':''} navbar-collapse app-bg-color`} id="navbarCollapse">
+						<div ref={menuRef}
+						className={`${showMobileMenu?'':'collapse'} ${isSticky?'left-and-width':''} navbar-collapse app-bg-color`} id="navbarCollapse">
 							<div className="navbar-nav me-auto">
 								{headerOptions.map((header, hIdx) => {
 									let isActive = header.to.toLowerCase() === currentPath.toLowerCase();
@@ -66,9 +85,9 @@ function Navbar({isSticky}) {
 										className="nav-item nav-link-container">
 											{header.to !== '##' ?
 												<Link to={header.to}
-												// onClick={(e)=>{
-												// 	handleNavigationScroll(e, header.to);
-												// }}
+												onClick={(e)=>{
+													setShowMobileMenu(false);
+												}}
 												className={`nav-item nav-link ${isActive?'active':''}`}>{titleCase(header.to==='/'?'home':header.to)}</Link>
 												:
 												<div className="nav-item dropdown">
@@ -83,9 +102,9 @@ function Navbar({isSticky}) {
 															// })
 															return (
 																<Link key={page.to+pIdx} to={page.to}
-																// onClick={(e)=>{
-																// 	handleNavigationScroll(e, page.to);
-																// }}
+																onClick={(e)=>{
+																	setShowMobileMenu(false);
+																}}
 																className={`dropdown-item ${isActive?'active':''}`}>{titleCase(page.to)}</Link>
 															)
 														})}
