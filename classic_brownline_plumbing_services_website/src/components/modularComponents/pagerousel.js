@@ -41,11 +41,11 @@ function Pagerousel() {
 				<h1
 				className="display-3 text-white mb-3 animated littleSlideInDown">
 					{titleCase(page)}
-					<span
+					{/* <span
 					style={{
 						whiteSpace: 'pre',
 						fontSize: '30px',
-					}}> ({`${deviceInfo} - ${width}px`})</span>
+					}}> ({`${deviceInfo} - ${width}px`})</span> */}
 				</h1>
 				<nav aria-label="breadcrumb animated slideInDown">
 					<ol className="breadcrumb text-uppercase">
