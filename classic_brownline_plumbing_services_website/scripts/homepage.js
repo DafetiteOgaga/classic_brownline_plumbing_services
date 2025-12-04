@@ -13,7 +13,7 @@ if (!isVercel) {
 console.log("🟡 Detected Vercel. Removing homepage...");
 
 // Read package.json
-const packageJsonPath = "../package.json";
+const packageJsonPath = "./package.json";
 const packageJson = JSON.parse(
 	fs.readFileSync(
 		packageJsonPath,
