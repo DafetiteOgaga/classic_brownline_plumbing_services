@@ -33,4 +33,4 @@ fs.writeFileSync(
 );
 
 // Log success message
-console.log("🟢 homepage removed for Vercel build.");
+console.log("🟢 homepage removed for Vercel build..");
