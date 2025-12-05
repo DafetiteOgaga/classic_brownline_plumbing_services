@@ -23,6 +23,7 @@ if (!isVercel) {
 console.log("🟡 Vercel detected → Applying changes...");
 
 async function domainIsValid(domain) {
+	console.log(`🔎 domain lookup: ${domain}`);
 	try {
 		console.log(`🔎 Checking DNS for ${domain}...`);
 		const result = await dns.lookup(domain);
@@ -35,6 +36,8 @@ async function domainIsValid(domain) {
 }
 
 (async () => {
+	console.log("🔧 Determining final url to use...")
+	;
 	// Determine the correct URL
 	let finalDomainURL = VERCEL_FREE_URL;
 
@@ -49,6 +52,7 @@ async function domainIsValid(domain) {
 	REMOVE HOMEPAGE FROM package.json
 	------------------------------------------------------------ */
 	try {
+		console.log("🔧 Editing package.json...");
 		const packagePath = "./package.json";
 		const packageData = JSON.parse(fs.readFileSync(packagePath, "utf8"));
 
@@ -74,6 +78,7 @@ async function domainIsValid(domain) {
 	GH_URL → finalDomainURL
 	------------------------------------------------------------ */
 	try {
+		console.log("🔧 Modifying index.html...");
 		const htmlPath = "./public/index.html";
 		let html = fs.readFileSync(htmlPath, "utf8");
 
