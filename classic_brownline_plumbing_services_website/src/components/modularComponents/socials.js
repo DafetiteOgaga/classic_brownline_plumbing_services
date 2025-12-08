@@ -3,9 +3,9 @@
 const topbarSocials = [
     {icon: "fa-facebook-f", link: "##"},
     {icon: "fa-twitter", link: "##"},
-    {icon: "fa-linkedin-in", link: "##"},
+    // {icon: "fa-linkedin-in", link: "##"},
     {icon: "fa-instagram", link: "##"},
-	{icon: "fa-youtube", link: "##"},
+	// {icon: "fa-youtube", link: "##"},
 ]
 
 function Socials({classStyle=null}) {

@@ -10,7 +10,7 @@ const isVercel = !!process.env.VERCEL;
 
 const GH_URL = "https://dafetiteogaga.github.io/classic_brownline_plumbing_services/";
 const VERCEL_FREE_URL = "https://classic-brownline-plumbing-services.vercel.app/";
-const CUSTOM_DOMAIN = "https://www.classicbrownline.com/";
+const CUSTOM_DOMAIN = "classicbrownline.com";
 const CUSTOM_URL = `https://${CUSTOM_DOMAIN}/`;
 
 console.log("🔍 Checking environment...");
