@@ -6,25 +6,25 @@ import { useDeviceInfo, useDeviceType } from "../../hooks/deviceType";
 const gallerySlides = [
     {
         id: 1,
-        img: require("../../assets/img/team-1.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-1.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 2,
-        img: require("../../assets/img/team-2.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-2.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 3,
-        img: require("../../assets/img/team-3.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-3.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 4,
-        img: require("../../assets/img/team-4.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-4.jpg"),
         name: "Full Name",
         position: "Designation",
     },
@@ -32,49 +32,49 @@ const gallerySlides = [
 const additionalGallerySlides = [
     {
         id: 5,
-        img: require("../../assets/img/team-1.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-5.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 6,
-        img: require("../../assets/img/team-2.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-6.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 7,
-        img: require("../../assets/img/team-3.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-7.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 8,
-        img: require("../../assets/img/team-4.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-8.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 9,
-        img: require("../../assets/img/team-1.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-9.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 10,
-        img: require("../../assets/img/team-2.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-10.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 11,
-        img: require("../../assets/img/team-3.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-11.jpg"),
         name: "Full Name",
         position: "Designation",
     },
     {
         id: 12,
-        img: require("../../assets/img/team-4.jpg"),
+        img: require("../../assets/img/output_thumbnail/project-12.jpg"),
         name: "Full Name",
         position: "Designation",
     }
