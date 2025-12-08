@@ -54,13 +54,13 @@ function Facts({yearFounded, currentYear}) {
         {
             id: 3,
             icon: "fa-users",
-            end: 23869,
+            end: 1043,
             title: "Satisfied Clients",
         },
         {
             id: 4,
             icon: "fa-wrench",
-            end: 20436,
+            end: 347,
             title: "Completed Projects",
         }
     ]
