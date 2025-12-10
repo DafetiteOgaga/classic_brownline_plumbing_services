@@ -20,7 +20,7 @@ const testimonialSliders = [
     },
     {
         id: 3,
-        img: require("../../assets/img/testimonial-3.jpg"),
+        img: require("../../assets/img/testimonial-1.jpg"),
         name: "Tunde Adeyemi",
         position: "Estate Manager",
         feedback:
@@ -28,7 +28,7 @@ const testimonialSliders = [
     },
     {
         id: 4,
-        img: require("../../assets/img/testimonial-4.jpg"),
+        img: require("../../assets/img/testimonial-2.jpg"),
         name: "Ngozi Chukwuma",
         position: "Home Owner",
         feedback:
