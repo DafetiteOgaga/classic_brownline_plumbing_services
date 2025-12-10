@@ -23,23 +23,23 @@ import { useLocation } from "react-router-dom";
 const carouselSlides = [
     {
         id: 1,
-        img: require("../../assets/img/carousel-1.jpg"),
+        img: require("../../assets/img/output_thumbnail/carousel-1.jpg"),
         title: "Professional Plumbing & Repair Services",
         headline: "Fast and Reliable Residential Plumbing Solutions",
         text: "From leaky faucets to burst pipes, we provide prompt and affordable plumbing repairs to keep your home running smoothly. Trusted by homeowners for quality workmanship and lasting results.",
     },
     {
         id: 2,
-        img: require("../../assets/img/carousel-2.jpg"),
+        img: require("../../assets/img/output_thumbnail/carousel-2.jpg"),
         title: "Expert Commercial Plumbing Services",
         headline: "Keeping Your Business Flowing Without Disruptions",
         text: "Our certified plumbers handle large-scale plumbing installations, maintenance, and emergency repairs for offices, hotels, and industrial facilities — ensuring minimal downtime and maximum efficiency.",
     },
     {
         id: 3,
-        img: require("../../assets/img/service-1.jpg"),
+        img: require("../../assets/img/output_thumbnail/carousel-3.jpg"),
         title: "Emergency Plumbing Support",
-        headline: "24/7 Emergency Plumbing — We’re Always Ready",
+        headline: "24/7 Emergency Plumbing — We're Always Ready",
         text: "Day or night, our team is available for urgent plumbing issues like blocked drains, flooding, or broken pipes. Quick response and professional service guaranteed every time.",
     },
 ];
