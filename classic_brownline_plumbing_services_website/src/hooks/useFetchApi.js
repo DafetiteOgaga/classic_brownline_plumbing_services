@@ -78,4 +78,14 @@ async function fetchBrevoKeyFromBackend(endpoint, method = 'GET', body = null) {
 	}
 }
 
-export { fetchBrevoKeyFromBackend, serverOrigin };
+function environmentType () {
+	const host = window.location.hostname;
+	if (host === 'localhost' || host === '127.0.0.1') {
+		console.log('Running in development mode');
+		return 'development';
+	}
+	console.log('Running in production mode');
+	return 'production';
+}
+
+export { fetchBrevoKeyFromBackend, environmentType, serverOrigin };
