@@ -5,6 +5,7 @@ import { Navbar } from "./modularComponents/navbar";
 import { Footer } from "./modularComponents/footer";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import { useDeviceInfo } from "../hooks/deviceType";
+import { environmentType } from "../hooks/useFetchApi";
 
 // topbar, nav, carouse, services, fact, booking, gallery, testimonial, footer
 const yearFounded = 2010
@@ -13,7 +14,11 @@ const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
 const phoneNumber1 = "+234 222 3333 444";
 const email = "info@classic-brownline.com"
 const siteName = "Classic Brownline"
-const formEmail = "brownfoluke@gmail.com"
+let formEmail = "brownfoluke@gmail.com"
+if (environmentType() === "development") {
+    formEmail = "ogagadafetite@gmail.com"
+}
+console.log({formEmail});
 
 function Index() {
     const isHome = useLocation().pathname === "/"
