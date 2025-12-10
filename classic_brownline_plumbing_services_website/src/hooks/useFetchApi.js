@@ -84,7 +84,7 @@ function environmentType () {
 		console.log('Running in development mode');
 		return 'development';
 	}
-	console.log('Running in production mode');
+	// console.log('Running in production mode');
 	return 'production';
 }
 
