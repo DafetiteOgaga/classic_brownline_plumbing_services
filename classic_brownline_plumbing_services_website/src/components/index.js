@@ -18,7 +18,7 @@ let formEmail = "brownfoluke@gmail.com"
 if (environmentType() === "development") {
     formEmail = "ogagadafetite@gmail.com"
 }
-console.log({formEmail});
+// console.log({formEmail});
 
 function Index() {
     const isHome = useLocation().pathname === "/"
