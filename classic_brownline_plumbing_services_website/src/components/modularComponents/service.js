@@ -11,7 +11,7 @@ const serviceCardsSlides = [
 			"Professional toilet and pipe repair services. From leaks to complete replacements, our team ensures your fixtures work efficiently and reliably.",
 		detailedDescription:
 			"Leaky pipes and faulty toilets are more than just inconveniences—they can lead to water damage, mold growth, and high utility bills. Our expert plumbers are equipped to repair, replace, or install any type of pipe or toilet fixture. We begin with a detailed inspection to identify the exact cause of leaks or blockages, whether it’s cracked pipes, corroded joints, or worn-out seals. From quick patching and valve replacement to full piping system overhauls, we handle it all with precision and care. Our pipe repair services include leak detection, joint sealing, re-piping, and pressure balancing. Toilet repair services include unclogging, flushing mechanism replacement, tank repair, and installation of modern, water-efficient units. Our goal is to restore efficiency, save water, and ensure long-term reliability.",
-		img: require("../../assets/img/about-1.jpg"),
+		img: require("../../assets/img/output_thumbnail/service-details-1.jpg"),
 	},
 	{
 		id: 2,
@@ -21,7 +21,7 @@ const serviceCardsSlides = [
 			"Expert drain repair for clogged or slow drains. We provide fast, reliable solutions to keep your plumbing flowing smoothly and prevent future blockages.",
 		detailedDescription:
 			"Our drain repair service covers every aspect of drainage system maintenance and restoration. Whether you're dealing with a slow drain, recurring clogs, unpleasant odors, or full blockages, our technicians use advanced inspection tools—such as drain cameras and hydro-jetting equipment—to identify and clear the problem efficiently. We don’t just fix the issue temporarily; we diagnose the root cause, whether it’s grease buildup, corrosion, or collapsed pipes. Once repaired, we perform flow tests and provide tips to help you maintain a clean, efficient drainage system. Ideal for residential, commercial, and industrial drainage systems. Common issues fixed include clogged sinks, floor drains, showers, toilets, and main sewer lines.",
-		img: require("../../assets/img/about-2.jpg"),
+		img: require("../../assets/img/output_thumbnail/service-details-2.jpg"),
 	},
 	{
 		id: 3,
@@ -31,7 +31,7 @@ const serviceCardsSlides = [
 			"Reliable water heater services, including repairs, maintenance, and new installations. Enjoy consistent hot water and energy-efficient solutions for your home or business.",
 		detailedDescription:
 			"Whether your water heater is leaking, making strange noises, or struggling to provide consistent heat, our certified plumbers are ready to help. We service both tank and tankless water heaters, offering repair, maintenance, and full replacement options. Our process begins with a detailed system inspection—checking thermostats, heating elements, and valves—to identify performance issues. We then repair faulty components or recommend modern, energy-efficient replacements when necessary. For new installations, we help you choose the right capacity and model based on your household or business needs, ensuring maximum performance and energy savings. We service electric, gas, solar, and hybrid water heaters. Our goal is to provide safe, efficient, and reliable hot water all year round.",
-		img: require("../../assets/img/carousel-1.jpg"),
+		img: require("../../assets/img/output_thumbnail/service-details-3.jpg"),
 	},
 	{
 		id: 4,
@@ -41,7 +41,7 @@ const serviceCardsSlides = [
 			"Comprehensive sewer line repair and maintenance. We handle everything from minor fixes to major line replacements, protecting your property from costly damage.",
 		detailedDescription:
 			"Sewer line issues can quickly escalate into serious property damage if not addressed promptly. Our comprehensive sewer line repair service ensures your waste disposal system operates safely and efficiently. We use non-invasive diagnostic tools such as sewer cameras to pinpoint blockages, cracks, or tree root intrusion—without unnecessary digging. Depending on the damage, we offer trenchless pipe repair, sectional replacements, or full re-piping solutions. Our technicians ensure minimal disruption to your property while maintaining strict health and safety standards. After repairs, we conduct flow tests and sanitization to leave your system fully operational. Common causes we handle include corrosion, ground shifting, tree roots, and collapsed lines. Service available for homes, apartment complexes, offices, and industrial facilities.",
-		img: require("../../assets/img/carousel-2.jpg"),
+		img: require("../../assets/img/output_thumbnail/service-details-4.jpg"),
 	},
 ]
 

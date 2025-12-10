@@ -44,19 +44,26 @@ const emailContentTemplate = ({ formData, type = 'owner', isBooking }) => {
 	const socialLinks = `
 		<div style="text-align:center;">
 			<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
-				<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/github.png" alt="GitHub" style="${socialIconStyle}" />
-			</a>
-			<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
-				<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/linkedin.png" alt="LinkedIn" style="${socialIconStyle}" />
-			</a>
-			<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
 				<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/x.png" alt="X (Twitter)" style="${socialIconStyle}" />
-			</a>
-			<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
-				<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/whatsapp.png" alt="Whatsapp" style="${socialIconStyle}" />
 			</a>
 		</div>
 	`;
+	// const socialLinks = `
+	// 	<div style="text-align:center;">
+	// 		<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
+	// 			<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/github.png" alt="GitHub" style="${socialIconStyle}" />
+	// 		</a>
+	// 		<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
+	// 			<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/linkedin.png" alt="LinkedIn" style="${socialIconStyle}" />
+	// 		</a>
+	// 		<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
+	// 			<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/x.png" alt="X (Twitter)" style="${socialIconStyle}" />
+	// 		</a>
+	// 		<a href="#" target="_blank" rel="noopener noreferrer" style="${socialLinkStyle}">
+	// 			<img src="https://raw.githubusercontent.com/DafetiteOgaga/dafetite_logo/refs/heads/main/whatsapp.png" alt="Whatsapp" style="${socialIconStyle}" />
+	// 		</a>
+	// 	</div>
+	// `;
 
 	return `
 		<div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
