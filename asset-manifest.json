@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/classic_brownline_plumbing_services/static/css/main.f88ca84d.css",
-    "main.js": "/classic_brownline_plumbing_services/static/js/main.86d94bd5.js",
+    "main.js": "/classic_brownline_plumbing_services/static/js/main.1dcb8cb6.js",
     "static/js/453.542974bb.chunk.js": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js",
-    "static/media/carousel-3.jpg": "/classic_brownline_plumbing_services/static/media/carousel-3.ab96e28d4db0e1dc579c.jpg",
-    "static/media/carousel-1.jpg": "/classic_brownline_plumbing_services/static/media/carousel-1.becf3faa02ade93bca76.jpg",
-    "static/media/carousel-2.jpg": "/classic_brownline_plumbing_services/static/media/carousel-2.2ab62b5dea5e3b0ed2e3.jpg",
     "static/media/bg.jpg": "/classic_brownline_plumbing_services/static/media/bg.aff5c743b485800dfa12.jpg",
     "static/media/fa-solid-900.woff2": "/classic_brownline_plumbing_services/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
+    "static/media/carousel-1.jpg": "/classic_brownline_plumbing_services/static/media/carousel-1.b7d4ead7bd57e26bf561.jpg",
     "static/media/fa-brands-400.woff2": "/classic_brownline_plumbing_services/static/media/fa-brands-400.1c5c7716b05754cb4eab.woff2",
     "static/media/project-7.jpg": "/classic_brownline_plumbing_services/static/media/project-7.e82e0b30a03f215ea36c.jpg",
+    "static/media/carousel-3.jpg": "/classic_brownline_plumbing_services/static/media/carousel-3.d02c61fc79d7cf4938b0.jpg",
     "static/media/service-details-2.jpg": "/classic_brownline_plumbing_services/static/media/service-details-2.b3a38e74d215fa974a1d.jpg",
+    "static/media/carousel-2.jpg": "/classic_brownline_plumbing_services/static/media/carousel-2.a9e811f005ec1935f52b.jpg",
     "static/media/project-8.jpg": "/classic_brownline_plumbing_services/static/media/project-8.6c0e6df6d639e5f51a6c.jpg",
     "static/media/project-4.jpg": "/classic_brownline_plumbing_services/static/media/project-4.1a500d85cf9a520ebb32.jpg",
     "static/media/project-2.jpg": "/classic_brownline_plumbing_services/static/media/project-2.544d354823b4e3b5d515.jpg",
@@ -44,11 +44,11 @@
     "static/media/logo9.svg": "/classic_brownline_plumbing_services/static/media/logo9.f30389b00bb5e5b34eb6.svg",
     "static/media/logo10.svg": "/classic_brownline_plumbing_services/static/media/logo10.77de37a65733022f0459.svg",
     "main.f88ca84d.css.map": "/classic_brownline_plumbing_services/static/css/main.f88ca84d.css.map",
-    "main.86d94bd5.js.map": "/classic_brownline_plumbing_services/static/js/main.86d94bd5.js.map",
+    "main.1dcb8cb6.js.map": "/classic_brownline_plumbing_services/static/js/main.1dcb8cb6.js.map",
     "453.542974bb.chunk.js.map": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f88ca84d.css",
-    "static/js/main.86d94bd5.js"
+    "static/js/main.1dcb8cb6.js"
   ]
 }
