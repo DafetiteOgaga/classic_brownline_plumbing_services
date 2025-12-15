@@ -42,14 +42,14 @@ function About() {
 						</div>
 						<div className="col-lg-6 pt-4 min-h-500">
 							<div className="position-relative h-100 wow fadeInUp">
-								<img className="position-absolute img-fluid w-80p h-80p position-left-20 fit-cover serviceFadeInUp border-radius-40 fine-border"
-								src={require("../../assets/img/about-1.jpg")}
+								<img className="position-absolute img-fluid w-80p h-80p position-left-0 fit-cover serviceFadeInUp border-radius-40 fine-border"
+								src={require("../../assets/img/husband.jpg")}
 								style={{
 									// padding: "0 0 50px 100px",
 									animationDelay: '0.4s'
 									}} alt="" />
-								<img className="position-absolute bottom-0 img-fluid bg-white w-60p h-60p fit-cover serviceFadeInUp border-radius-40 fine-border"
-								src={require("../../assets/img/about-2.jpg")}
+								<img className="position-absolute bottom-0 img-fluid bg-white w-60p h-60p position-left-40 fit-cover serviceFadeInUp border-radius-40 fine-border"
+								src={require("../../assets/img/wife.jpg")}
 								style={{
 									animationDelay: '0.6s'
 									}}
