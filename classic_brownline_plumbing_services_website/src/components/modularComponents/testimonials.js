@@ -4,7 +4,7 @@ import { useDeviceType } from "../../hooks/deviceType"
 const testimonialSliders = [
     {
         id: 1,
-        img: require("../../assets/img/testimonial-1.jpg"),
+        img: require("../../assets/img/placeholder.jpeg"),
         name: "Chinedu Okafor",
         position: "Civil Engineer",
         feedback:
@@ -12,7 +12,7 @@ const testimonialSliders = [
     },
     {
         id: 2,
-        img: require("../../assets/img/testimonial-2.jpg"),
+        img: require("../../assets/img/placeholder.jpeg"),
         name: "Aisha Bello",
         position: "Business Owner",
         feedback:
@@ -20,7 +20,7 @@ const testimonialSliders = [
     },
     {
         id: 3,
-        img: require("../../assets/img/testimonial-1.jpg"),
+        img: require("../../assets/img/placeholder.jpeg"),
         name: "Tunde Adeyemi",
         position: "Estate Manager",
         feedback:
@@ -28,7 +28,7 @@ const testimonialSliders = [
     },
     {
         id: 4,
-        img: require("../../assets/img/testimonial-2.jpg"),
+        img: require("../../assets/img/placeholder.jpeg"),
         name: "Ngozi Chukwuma",
         position: "Home Owner",
         feedback:
@@ -36,28 +36,28 @@ const testimonialSliders = [
     },
     // {
     //     id: 5,
-    //     img: require("../../assets/img/testimonial-1.jpg"),
+    //     img: require("../../assets/img/placeholder.jpeg"),
     //     name: "Client Name",
     //     position: "Profession",
     //     feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
     // },
     // {
     //     id: 6,
-    //     img: require("../../assets/img/testimonial-2.jpg"),
+    //     img: require("../../assets/img/placeholder.jpeg"),
     //     name: "Client Name",
     //     position: "Profession",
     //     feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
     // },
     // {
     //     id: 7,
-    //     img: require("../../assets/img/testimonial-3.jpg"),
+    //     img: require("../../assets/img/placeholder.jpeg"),
     //     name: "Client Name",
     //     position: "Profession",
     //     feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",
     // },
     // {
     //     id: 8,
-    //     img: require("../../assets/img/testimonial-4.jpg"),
+    //     img: require("../../assets/img/placeholder.jpeg"),
     //     name: "Client Name",
     //     position: "Profession",
     //     feedback: "Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet",

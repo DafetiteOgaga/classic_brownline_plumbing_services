@@ -11,10 +11,10 @@ import { environmentType } from "../hooks/useFetchApi";
 const yearFounded = 2010
 const currentYear = new Date().getFullYear();
 const address = "1 Akinbosoye Avenue, Ipaja, Lagos State, Nigeria."
-const phoneNumber1 = "+234 222 3333 444";
-const email = "info@classic-brownline.com"
+const phoneNumber1 = "+234 802 327 4247";
+const email = "classicbrownline@gmail.com"
 const siteName = "Classic Brownline"
-let formEmail = "brownfoluke@gmail.com"
+let formEmail = "classicbrownline@gmail.com"
 if (environmentType() === "development") {
     formEmail = "ogagadafetite@gmail.com"
 }
