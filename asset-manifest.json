@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/classic_brownline_plumbing_services/static/css/main.f88ca84d.css",
-    "main.js": "/classic_brownline_plumbing_services/static/js/main.1dcb8cb6.js",
+    "main.css": "/classic_brownline_plumbing_services/static/css/main.28e942f2.css",
+    "main.js": "/classic_brownline_plumbing_services/static/js/main.b0ddaf8f.js",
     "static/js/453.542974bb.chunk.js": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js",
     "static/media/bg.jpg": "/classic_brownline_plumbing_services/static/media/bg.aff5c743b485800dfa12.jpg",
     "static/media/fa-solid-900.woff2": "/classic_brownline_plumbing_services/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
@@ -18,16 +18,16 @@
     "static/media/project-1.jpg": "/classic_brownline_plumbing_services/static/media/project-1.f8254820769865517dd1.jpg",
     "static/media/project-5.jpg": "/classic_brownline_plumbing_services/static/media/project-5.4a8cd3a23e55e13146bf.jpg",
     "static/media/project-6.jpg": "/classic_brownline_plumbing_services/static/media/project-6.b76239a668806aca5ef9.jpg",
-    "static/media/about-1.jpg": "/classic_brownline_plumbing_services/static/media/about-1.7fc2212a28714bf955c3.jpg",
     "static/media/service-details-1.jpg": "/classic_brownline_plumbing_services/static/media/service-details-1.cc27796172df8c0a467c.jpg",
+    "static/media/wife.jpg": "/classic_brownline_plumbing_services/static/media/wife.d99967408fde344ac98b.jpg",
     "static/media/service-details-4.jpg": "/classic_brownline_plumbing_services/static/media/service-details-4.6be1f05cf9cd62e3b3f0.jpg",
     "static/media/project-11.jpg": "/classic_brownline_plumbing_services/static/media/project-11.a5d3f198896568d38b31.jpg",
     "static/media/project-9.jpg": "/classic_brownline_plumbing_services/static/media/project-9.b1a30a70d08f7d6fcc06.jpg",
     "static/media/project-12.jpg": "/classic_brownline_plumbing_services/static/media/project-12.01c8b124ee2890c0e2d5.jpg",
     "static/media/service-details-3.jpg": "/classic_brownline_plumbing_services/static/media/service-details-3.04d925f22a606846de54.jpg",
+    "static/media/husband.jpg": "/classic_brownline_plumbing_services/static/media/husband.023b32c744eece538933.jpg",
     "static/media/project-10.jpg": "/classic_brownline_plumbing_services/static/media/project-10.36d6c81ca50fe0cf2599.jpg",
     "static/media/fa-regular-400.woff2": "/classic_brownline_plumbing_services/static/media/fa-regular-400.6f05ca9ab7b5345dbc07.woff2",
-    "static/media/about-2.jpg": "/classic_brownline_plumbing_services/static/media/about-2.9d48496483e4e1be423c.jpg",
     "static/media/dafelogoWhiteTransparent.png": "/classic_brownline_plumbing_services/static/media/dafelogoWhiteTransparent.9e22063262c522af2111.png",
     "static/media/logo4.svg": "/classic_brownline_plumbing_services/static/media/logo4.1c53925732554261cba6.svg",
     "static/media/fa-v4compatibility.woff2": "/classic_brownline_plumbing_services/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
@@ -43,12 +43,12 @@
     "static/media/logo11.svg": "/classic_brownline_plumbing_services/static/media/logo11.c46a43816476ed47e12a.svg",
     "static/media/logo9.svg": "/classic_brownline_plumbing_services/static/media/logo9.f30389b00bb5e5b34eb6.svg",
     "static/media/logo10.svg": "/classic_brownline_plumbing_services/static/media/logo10.77de37a65733022f0459.svg",
-    "main.f88ca84d.css.map": "/classic_brownline_plumbing_services/static/css/main.f88ca84d.css.map",
-    "main.1dcb8cb6.js.map": "/classic_brownline_plumbing_services/static/js/main.1dcb8cb6.js.map",
+    "main.28e942f2.css.map": "/classic_brownline_plumbing_services/static/css/main.28e942f2.css.map",
+    "main.b0ddaf8f.js.map": "/classic_brownline_plumbing_services/static/js/main.b0ddaf8f.js.map",
     "453.542974bb.chunk.js.map": "/classic_brownline_plumbing_services/static/js/453.542974bb.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f88ca84d.css",
-    "static/js/main.1dcb8cb6.js"
+    "static/css/main.28e942f2.css",
+    "static/js/main.b0ddaf8f.js"
   ]
 }
