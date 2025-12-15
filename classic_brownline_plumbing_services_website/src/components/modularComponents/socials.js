@@ -1,10 +1,10 @@
 
 
 const topbarSocials = [
-    {icon: "fa-facebook-f", link: "##"},
-    {icon: "fa-twitter", link: "##"},
+    {icon: "fa-facebook-f", link: "https://www.facebook.com/profile.php?id=61585026037655"},
+    // {icon: "fa-twitter", link: "##"},
     // {icon: "fa-linkedin-in", link: "##"},
-    {icon: "fa-instagram", link: "##"},
+    // {icon: "fa-instagram", link: "##"},
 	// {icon: "fa-youtube", link: "##"},
 ]
 
